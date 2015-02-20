@@ -1,0 +1,11 @@
+﻿@model CommonPortable.Models.ProductModels.BookBlockPLVM
+@{
+	string divId = string.Format("paging-{0}", Model.Paging.ActualPageNumber);
+}
+
+<div id="@divId" class="book-blocks books-paged">
+	@foreach (var p in Model.Products)
+	{
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", p);
+	}
+</div>

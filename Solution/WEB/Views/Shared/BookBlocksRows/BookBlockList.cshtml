@@ -1,0 +1,35 @@
+﻿@using CommonPortable.Enums
+@using WEB
+@model CommonPortable.Models.ProductModels.BookBlockPLVM
+@{
+	ViewBag.BookBlockType = Model.BookBlockType;
+	
+	if (!IsAjax)
+	{
+		ViewBag.Title = Config.MainTitleOfSite + " - " + ViewBag.siteTitle;
+		Layout = "~/Views/Shared/_Layout.cshtml";
+
+		if (Model.BookBlockType == BookBlockType.ProductForExchange)
+		{
+			<a href="@Url.Action("InProgressTransactions","Sell")">
+				<input type="button" value="Vissza" />
+			</a>
+		}
+
+		Html.RenderPartial("PagingPartials/PagingHiddensPartial");
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockListPartial", Model);
+	}
+	else // AJAX
+	{
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockListAjaxPartial", Model);
+	}
+}
+@section scripts
+{
+	@Scripts.Render("~/bundles/Paging")
+	@Scripts.Render("~/bundles/AddProductToCartOrExchange")
+}
+@section styles
+{
+	@Styles.Render("~/Content/themes/BookBlock")
+}

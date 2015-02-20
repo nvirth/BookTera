@@ -1,0 +1,113 @@
+﻿@model CommonModels.Models.DetailedSearchVM.DetailedSearchInputs
+
+<h2>Részletes keresés</h2>
+
+@using(Html.BeginForm("Detailed","Search",FormMethod.Post,new{id = "detailedSearch", name="detailedSearch"}))
+{
+<fieldset>
+	<legend>
+		Részletes keresés
+	</legend>
+	<div class="detailed-search-column-1">
+		<div class="editor-label">
+			@Html.LabelFor(model => model.Author)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.Author, new{ htmlAttributes = new{ @class = "stringIn" }})
+			@Html.ValidationMessageFor(model => model.Author)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.Publisher)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.Publisher, new{ htmlAttributes = new{ @class = "stringIn" }})
+			@Html.ValidationMessageFor(model => model.Publisher)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.Title)
+		</div>
+		<div class="editor-field">
+			@*Fontos, h ne EditorFor legyen, mert beleíródik az oldal címe*@
+			@Html.TextBoxFor(model => model.Title, new{ htmlAttributes = new{ @class = "stringIn" }})
+			@Html.ValidationMessageFor(model => model.Title)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.Subtitle)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.Subtitle, new{ htmlAttributes = new{ @class = "stringIn" }})
+			@Html.ValidationMessageFor(model => model.Subtitle)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.Description)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.Description, new{ htmlAttributes = new{ @class = "stringIn" }})
+			@Html.ValidationMessageFor(model => model.Description)
+		</div>
+	</div>
+	<div class="detailed-search-column-2">
+		<div class="editor-label">
+			@Html.LabelFor(model => model.CategoryId)
+		</div>
+		<div class="editor-field">
+			@Html.DropDownListFor(model => model.CategoryId, new List<SelectListItem>(), new{ @class = "category-list selectIn"})
+			@Html.HiddenFor(model => model.CategoryId, new{ @class = "category-list-hidden" })
+			@Html.ValidationMessageFor(model => model.CategoryId)
+		</div>			
+		<div class="editor-label">
+			@Html.LabelFor(model => model.SearchingText)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.SearchingText, "SearchBoxText", new{ htmlAttributes = new{ @class = "stringIn" }, ViewBag.SearchingText})
+			@Html.ValidationMessageFor(model => model.SearchingText)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.PublishYearFrom)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.PublishYearFrom, new{ htmlAttributes = new{ @class = "numberIn" }})
+			&nbsp;-&nbsp;
+			@Html.EditorFor(model => model.PublishYearTo, new{ htmlAttributes = new{ @class = "numberIn" }})
+			@Html.ValidationMessageFor(model => model.PublishYearFrom)
+			@Html.ValidationMessageFor(model => model.PublishYearTo)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.PageNumberFrom)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.PageNumberFrom, new{ htmlAttributes = new{ @class = "numberIn" }})
+			&nbsp;-&nbsp;
+			@Html.EditorFor(model => model.PageNumberTo, new{ htmlAttributes = new{ @class = "numberIn" }})
+			@Html.ValidationMessageFor(model => model.PageNumberTo)
+			@Html.ValidationMessageFor(model => model.PageNumberFrom)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.PriceFrom)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.PriceFrom, new{ htmlAttributes = new{ @class = "numberIn" }})
+			&nbsp;-&nbsp;
+			@Html.EditorFor(model => model.PriceTo, new{ htmlAttributes = new{ @class = "numberIn" }})
+			@Html.ValidationMessageFor(model => model.PriceTo)
+			@Html.ValidationMessageFor(model => model.PriceFrom)
+		</div>
+	</div>
+	<div class="detailed-search-column-3">
+		@Html.EditorFor(model => model.IsDownloadable, new{ TrueLabel = "Csak letölthő", FalseLabel = "Csak nem letölthető" })
+		@Html.EditorFor(model => model.IsUsed, new{ TrueLabel = "Csak használt", FalseLabel = "Csak új" })
+		@Html.EditorFor(model => model.IsBook)
+		@Html.EditorFor(model => model.IsAudio)
+		@Html.EditorFor(model => model.IsVideo)
+
+		<input type="button" name="btnDetailedSearch" id="btnDetailedSearch" value="Keresés" />
+	</div>
+</fieldset>
+}

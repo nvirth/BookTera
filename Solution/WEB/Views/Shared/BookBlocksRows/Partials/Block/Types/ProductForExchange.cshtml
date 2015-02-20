@@ -1,0 +1,21 @@
+﻿@using UtilsShared
+@using UtilsSharedPortable
+@model CommonPortable.Models.ProductModels.InBookBlockPVM
+
+<div class="book-block book-block-grey-frame" title="@(Model.Product.Description ?? Model.ProductGroup.Description)">
+	<a href="@Url.Action("Details","Product", ViewBag.ProductLinkRouteValues)">
+		<img class="book-image" src="@Url.Content(ViewBag.ImageUrl)" alt="@Model.ProductGroup.Title" />
+	</a>
+	<div class="text-block">
+		<a href="@Url.Action("Details","Product", ViewBag.ProductLinkRouteValues)">
+			<div class="title" title="@Model.ProductGroup.Title" >@(Model.ProductGroup.Title.Truncate((int)ViewBag.MaxLetters))</div>
+		</a>
+		<div class="subtitle" title="@Model.ProductGroup.SubTitle" >@(Model.ProductGroup.SubTitle.Truncate((int)ViewBag.MaxLetters))</div>
+		<div class="authors" title="@Model.ProductGroup.AuthorNames" >@(Model.ProductGroup.AuthorNames.Truncate((int)ViewBag.MaxLetters))</div>
+		<div class="publisher" title="@Model.ProductGroup.PublisherName" >@(Model.ProductGroup.PublisherName.Truncate((int)ViewBag.MaxLetters))</div>
+
+		<div class="price">@Model.Product.PriceString</div>
+		<div class="quantity">@(Model.Product.IsDownloadable ? "Elektronikus" : string.Format("{0} db",Model.Product.HowMany))</div>
+		@Html.Partial("BookBlocksRows/Partials/MainButtonsPartial")
+	</div>
+</div>

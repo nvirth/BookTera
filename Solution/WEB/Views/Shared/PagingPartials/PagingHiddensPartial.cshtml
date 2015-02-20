@@ -1,0 +1,7 @@
+﻿@{
+	string controller = ViewContext.RouteData.Values["controller"].ToString();
+	string action = ViewContext.RouteData.Values["action"].ToString();
+}
+
+<input type="hidden" id="pagingActionName" value="@action" />
+<input type="hidden" id="pagingControllerName" value="@controller" />

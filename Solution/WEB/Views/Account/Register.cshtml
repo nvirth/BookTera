@@ -1,0 +1,151 @@
+﻿@using WEB
+@model CommonModels.Models.AccountModels.RegisterVM
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Regisztráció";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Regisztráció</h2>
+
+@using(Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data", @class = "register" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+	<input type="hidden" id="registration-auto-completes-on" />
+
+	<fieldset class="register-fieldset">
+		<legend>Regisztráció</legend>
+		<div class="register-left-div">
+			<fieldset class="register-subfieldset register-required">
+				<legend>Kötelező mezők</legend>
+				
+				<div class="editor-label">
+					@Html.LabelFor(model => model.UserName)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.UserName, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.UserName)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.Password)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.Password)
+					@Html.ValidationMessageFor(model => model.Password)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ConfirmPassword)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.ConfirmPassword)
+					@Html.ValidationMessageFor(model => model.ConfirmPassword)
+				</div>
+				
+				<div class="editor-label">
+					@Html.LabelFor(model => model.EMail)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.EMail)
+					@Html.ValidationMessageFor(model => model.EMail)
+				</div>
+			</fieldset>
+			<fieldset class="register-subfieldset register-author-publisher">
+				<legend>Szerző-Kiadó</legend>
+
+				@{ bool? authorPublisher = null; }
+				@Html.EditorFor(model => authorPublisher, new{  
+					TrueLabel = "Én egy szerző vagyok, a nevem", TrueValue="Author", 
+					FalseLabel = "Én egy kiadó vagyok, a nevem", FalseValue="Publisher", 
+					NullLabel = "Sem szerzőt, sem kiadót nem képviselek", NullValue="Neither" })
+				
+				<div class="radio-textboxes">
+					<div>
+						@Html.EditorFor(model => model.AuthorName, new { htmlAttributes = new { disabled="disabled", @class = "stringIn" } })
+					</div>
+					<div>
+						@Html.EditorFor(model => model.PublisherName, new { htmlAttributes = new { disabled="disabled", @class = "stringIn" } })
+					</div>
+				</div>
+				<div>@Html.ValidationMessageFor(model => model.AuthorName)</div>
+				<div>@Html.ValidationMessageFor(model => model.PublisherName)</div>
+			</fieldset>
+		</div>
+		<div class="register-right-div">
+			<fieldset class="register-subfieldset register-others">
+				<legend>Egyéb adatok</legend>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.FullName)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.FullName, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.FullName)
+				</div>			
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.PhoneNumber)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.PhoneNumber, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.PhoneNumber)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ImageUrl)
+				</div>
+				<div class="editor-field">
+					<input type="file" name="imageFile" />
+				</div>
+			</fieldset>
+			<fieldset class="register-subfieldset register-address">
+				<legend>Címem</legend>
+				<div class="editor-label">
+					@Html.LabelFor(model => model.UserAddress.ZipCode)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.UserAddress.ZipCode, new{ htmlAttributes = new{ @class = "numberIn" }})
+					@Html.ValidationMessageFor(model => model.UserAddress.ZipCode)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.UserAddress.City)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.UserAddress.City, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.UserAddress.City)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.UserAddress.StreetAndHouseNumber)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.UserAddress.StreetAndHouseNumber, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.UserAddress.StreetAndHouseNumber)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.UserAddress.Country)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.UserAddress.Country, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.UserAddress.Country)
+				</div>
+			</fieldset>
+		</div>
+	</fieldset>
+	<br />
+	<p>
+		<input type="submit" value="Regisztráció" />
+	</p>
+}
+
+@section Scripts 
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/Register")
+}
+@section Styles 
+{
+    @Styles.Render("~/Content/themes/Register")
+}

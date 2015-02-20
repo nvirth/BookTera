@@ -1,0 +1,73 @@
+﻿@using CommonPortable.Enums
+@using UtilsLocal
+@using UtilsSharedPortable
+@model CommonModels.Models.UserOrderPLVM
+@{
+	bool needFeedback = false;
+}
+<fieldset>
+	<legend>
+		@ViewBag.FieldsetLegendUserLink
+		@(string.Format(" - {0}", Model.UserOrder.Date.ToString("yyyy.MM.dd")))
+	</legend>
+	@foreach(var inBookBlockPvm in Model.Products)
+	{
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", inBookBlockPvm);
+	}
+	<div class="transaction-summary">
+		<div>
+			A rendelése összege: <span class="transaction-sum-price">@ViewBag.Sum.ToString("c0", Constants.CultureInfoHu)</span>
+		</div>
+		<div>
+			Általad fizetett jutalék: <span class="transaction-fee">@ViewBag.Fee.ToString("c0", Constants.CultureInfoHu) (@Model.UserOrder.VendorsFeePercent%)</span>
+			<input type="hidden" class="transaction-fee-percent" value="@Model.UserOrder.VendorsFeePercent" />
+		</div>
+		<div>
+			A rendelés címe: @Model.UserOrder.CustomerAddress
+		</div>					
+	</div>
+	<div>
+		<div>
+			@if (Model.UserOrder.VendorFeedbackedSuccessful.HasValue)
+			{
+				@: A Te visszajelzésed: 
+				@Html.Partial("TransactionLists/HelperPartials/FeedbackSuccessfulitySpanPartial", Model.UserOrder.VendorFeedbackedSuccessful.Value)
+			}
+			else
+			{
+				@: Te még nem értékelted a tranzakciót
+				needFeedback = true;
+			}
+		</div>
+		<div>
+			@if(Model.UserOrder.CustomerFeedbackedSuccessful.HasValue)
+			{
+				@: A vevő visszajelzése:
+				@Html.Partial("TransactionLists/HelperPartials/FeedbackSuccessfulitySpanPartial", Model.UserOrder.CustomerFeedbackedSuccessful.Value)
+			}
+			else
+			{
+				@: A vevő még nem értékelte a tranzakciót
+			}
+		</div>
+	</div>
+	@if(needFeedback)
+	{
+		<div class="order-buttons">
+			<input type="button" value="Sikeres volt" name="close-successful-button" onclick="closeOrderSuccessful(this)" />
+			<input type="button" value="Sikertelen volt" name="close-unsuccessful-button" onclick="closeOrderUnsuccessful(this)" />
+			<input name="user-order-id" type="hidden" value="@Model.UserOrder.ID" />
+		</div>
+	}
+	@if(Model.ExchangeProducts.Count > 0)
+	{
+		<fieldset>
+			<legend>Csere könyvek</legend>
+			@{ ViewBag.BookBlockType = BookBlockType.ProductInOrder; }
+			@foreach (var exchangeProduct in Model.ExchangeProducts)
+			{
+				Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", exchangeProduct);
+			}
+		</fieldset>
+	}
+</fieldset>

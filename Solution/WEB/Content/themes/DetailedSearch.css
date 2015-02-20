@@ -1,0 +1,76 @@
+#detailedSearch
+{
+	max-width: 670px;
+	margin: 0 auto;
+}
+#detailedSearch .selectIn
+{
+	width: 151px;
+}
+#detailedSearch .stringIn
+{
+	width: 145px;
+}
+#detailedSearch .numberIn
+{
+	width: 58px;
+}
+#detailedSearch .detailed-search-column-1
+{
+	float: left;
+}
+#detailedSearch .detailed-search-column-2
+{
+	padding: 0 10px;
+	border-right: 1px solid #848484;
+	border-left: 1px solid #848484;
+	margin: 0 10px;
+	float: left;
+}
+#detailedSearch .detailed-search-column-3
+{
+	float: left;
+	width: 296px;
+	margin: 25px 0 0;
+}
+#detailedSearch INPUT[type=button]
+{
+	width: 90px;
+	height: 34px;
+	float: right;
+}
+#detailedSearch .radio-block
+{
+	width: 260px;
+}
+#detailedSearch .radio-block .radios
+{
+	width: 185px;
+}
+#detailedSearch .radio-block .radio-none
+{
+	float: right;
+}
+#detailedSearch .radio-block:nth-child(odd) .radios
+{
+	border-right: 1px dashed #848484;
+}
+#detailedSearch .radio-block:nth-child(even) .radios
+{
+	border-top: 1px dashed #848484;
+	border-right: 1px dashed #848484;
+}
+#detailedSearch .radio-block .count-2
+{
+	margin-top: 9px;
+}
+#detailedSearch .radio-block .count-3
+{
+	margin-top: 18px;
+}
+.detailed-search-results
+{
+}
+.detailed-search-form
+{
+}

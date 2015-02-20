@@ -1,0 +1,123 @@
+﻿@using WEB
+@{
+	string boxOpenedCookieValue = (Request.Cookies["main-menu-box"] ?? new HttpCookie("", "true")).Value;
+	string boxDisplay = boxOpenedCookieValue == "true" ? "block" : "none";
+
+	string menusOpenedCookieValue = (Request.Cookies["main-menu-opened"] ?? new HttpCookie("", "")).Value;
+	string[] openedMenuIds = menusOpenedCookieValue.Split(',');
+	bool isOpened = false;
+
+	//string menuSelectedCookieValue = (Request.Cookies["main-menu-selected"] ?? new HttpCookie("", "")).Value;
+	//string selectedMenuId = menuSelectedCookieValue;
+	
+	string controller = ViewContext.RouteData.Values["controller"].ToString();
+	string action = ViewContext.RouteData.Values["action"].ToString();
+
+	string titleIfDeactive = User.Identity.IsAuthenticated ? "" : Config.NoAuthFunction;
+	
+	<div id="main-menu-box" class="box">
+		<div class="box-title">
+			Főmenü
+		</div>
+		<div class="box-main" style="display: @boxDisplay">
+			<ul>
+				
+				<!-- HOME MENU ITEM -->
+
+				@{ isOpened = openedMenuIds.Contains("mmo01"); }
+				<li class="level1 @(isOpened ? "opened" : "closed")">
+					<a id="mmo01" class="ul-openable">Főoldal</a>
+					<ul style="display: @(isOpened ? "block" : "none")">
+						<li @(action == "Highlighteds" && controller == "Product" ? "class=selected" : "") >
+							@Html.ActionLink("Kiemelt termékek", "Highlighteds", "Product", null, new{ id="mmo01.01" } )
+						</li>
+						<li @(action == "Newests" && controller == "Product" ? "class=selected" : "") >
+							@Html.ActionLink("Legújabb termékek", "Newests", "Product", null, new{ id="mmo01.02" })
+						</li>
+					</ul>
+				</li>
+		
+				<!-- PROFILE MENU ITEM -->
+
+				@{ isOpened = openedMenuIds.Contains("mmo02"); }
+				<li class="level1 @(User.Identity.IsAuthenticated ? (isOpened ? "opened" : "closed") : "deactive")" title="@titleIfDeactive">
+					<a id="mmo02" class="ul-openable">Profilom</a>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<ul style="display: @(isOpened ? "block" : "none")">
+							<li @(action == "Edit" && controller == "Profile" ? "class=selected" : "") >
+								@Html.ActionLink("Szerkesztés", "Edit", "Profile", null, new{ id="mmo02.01" })
+							</li>
+							<li @(action == "Addresses" && controller == "Profile" ? "class=selected" : "") >
+								@Html.ActionLink("Címeim", "Addresses", "Profile", null, new{ id="mmo02.02" })
+							</li>
+							<li @(action == "Group" && controller == "Profile" ? "class=selected" : "") >
+								@Html.ActionLink("Rangom", "Group", "Profile", null, new{ id="mmo02.03" })
+							</li>
+							<li @(action == "Comments" && controller == "Profile" ? "class=selected" : "") >
+								@Html.ActionLink("Hozzászólásaim", "Comments", "Profile", null, new{ id="mmo02.04" })
+							</li>
+							<li @(action == "Ratings" && controller == "Profile" ? "class=selected" : "") >
+								@Html.ActionLink("Értékeléseim", "Ratings", "Profile", null, new{ id="mmo02.05" })
+							</li>
+						</ul>
+					}
+				</li>	
+			
+				<!-- BUY MENU ITEM -->
+
+				@{ isOpened = openedMenuIds.Contains("mmo03"); }
+				<li class="level1 @(User.Identity.IsAuthenticated ? (isOpened ? "opened" : "closed") : "deactive")" title="@titleIfDeactive">
+					<a id="mmo03" class="ul-openable">Vásárlás</a>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<ul style="display: @(isOpened ? "block" : "none")">
+							<li @(action == "Carts" && controller == "Buy" ? "class=selected" : "") >
+								@Html.ActionLink("Kosaraim", "Carts", "Buy", null, new{ id="mmo03.01" })	
+							</li>
+							<li @(action == "InProgressOrders" && controller == "Buy" ? "class=selected" : "") >
+								@Html.ActionLink("Megrendeltek", "InProgressOrders", "Buy", null, new{ id="mmo03.02" })
+							</li>
+							<li @(action == "EarlierOrders" && controller == "Buy" ? "class=selected" : "") >
+								@Html.ActionLink("Korábbiak", "EarlierOrders", "Buy", null, new{ id="mmo03.03" })
+							</li>
+						</ul>
+					}
+				</li>			
+
+				<!-- SELL MENU ITEM -->
+
+				@{ isOpened = openedMenuIds.Contains("mmo04"); }
+				<li class="level1 @(User.Identity.IsAuthenticated ? (isOpened ? "opened" : "closed") : "deactive")" title="@titleIfDeactive">
+					<a id="mmo04" class="ul-openable">Eladás</a>
+					@if (User.Identity.IsAuthenticated)
+					{
+						<ul style="display: @(isOpened ? "block" : "none")">
+							<li @(action == "UploadedProducts" && controller == "Sell" ? "class=selected" : "") >
+								@Html.ActionLink("Feltöltött könyveim", "UploadedProducts", "Sell", null, new{ id="mmo04.01" })
+							</li>
+							<li @(action == "UploadProduct" && controller == "Sell" ? "class=selected" : "") >
+								@Html.ActionLink("Új könyv feltöltése", "UploadProduct", "Sell", null, new{ id="mmo04.02" })	
+							</li>
+							@{ isOpened = openedMenuIds.Contains("mmo04.03"); }
+							<li class="@(isOpened ? "opened" : "closed")">
+								<a id="mmo04.03" class="ul-openable">Tranzakcióim</a>
+								<ul style="display: @(isOpened ? "block" : "none")">
+									<li @(action == "InCartTransactions" && controller == "Sell" ? "class=selected" : "") >
+										@Html.ActionLink("Más kosarában", "InCartTransactions", "Sell", null, new{ id="mmo04.03.01" })
+									</li>									
+									<li @(action == "InProgressTransactions" && controller == "Sell" ? "class=selected" : "") >
+										@Html.ActionLink("Folyamatban", "InProgressTransactions", "Sell", null, new{ id="mmo04.03.03" })
+									</li>
+									<li @(action == "FinishedTransactions" && controller == "Sell" ? "class=selected" : "") >
+										@Html.ActionLink("Befejezett", "FinishedTransactions", "Sell", null, new{ id="mmo04.03.04" })
+									</li>
+								</ul>
+							</li>
+						</ul>
+					}
+				</li>
+			</ul>
+		</div>
+	</div>
+}

@@ -1,0 +1,27 @@
+﻿@using CommonModels.Models
+@using WEB
+@model List<RatingWithProductGroupVM>
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Profilom - Értékeléseim";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Értékeléseim</h2>
+
+@if(Model.Count == 0)
+{
+	@:Még nem értékeltél egy könyvet sem.
+}
+
+@foreach(RatingWithProductGroupVM modelItem in Model)
+{
+	<fieldset>
+		<legend>@modelItem.Rating.Date.ToShortDateString()</legend>
+		
+		@{ Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", modelItem.Product); }
+		
+		<div class="display-label">
+			 @Html.DisplayNameFor(model => modelItem.Rating.Value):
+			@Html.DisplayFor(model => modelItem.Rating.Value)
+		</div>
+	</fieldset>
+}

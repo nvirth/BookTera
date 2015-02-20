@@ -1,0 +1,67 @@
+﻿@using CommonPortable.Enums
+@using UtilsShared
+@using UtilsSharedPortable
+@using WEB.Controllers.Base
+@using UtilsLocal
+@model CommonModels.Models.UserOrderPLVM
+<fieldset>
+	<legend>
+		@ViewBag.FieldsetLegendUserLink
+		@(string.Format(" - {0}", Model.UserOrder.Date.ToString("yyyy.MM.dd")))
+	</legend>
+	@foreach(var inBookBlockPvm in Model.Products)
+	{
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", inBookBlockPvm);
+	}
+	<div class="transaction-summary">
+		<div>
+			A rendelés összege: <span class="transaction-sum-price">@ViewBag.Sum.ToString("c0", Constants.CultureInfoHu)</span>
+		</div>
+		<div>
+			Ebből jutalék: <span class="transaction-fee">@ViewBag.Fee.ToString("c0", Constants.CultureInfoHu) (@Model.UserOrder.CustomersFeePercent%)</span>
+			<input type="hidden" class="transaction-fee-percent" value="@Model.UserOrder.CustomersFeePercent" />
+		</div>
+		<div>
+			A rendelés címe: @Model.UserOrder.CustomerAddress
+		</div>					
+	</div>
+	<div>
+		A rendelés állapota: @Model.UserOrder.Status.ToDescriptionString()
+	</div>
+	@if(Model.UserOrder.Status == UserOrderStatus.BuyedExchangeOffered)
+	{
+		<div class="order-buttons">
+			<input type="button" value="Csere elfogadása" name="exchange-accept-button" onclick="finalizeOrderAcceptExchange(this)" />
+			<input type="button" value="Nem cserélek, fizetek" name="exchange-denied-button" onclick="finalizeOrderDenyExchange(this)" />
+			<input name="user-order-id" type="hidden" value="@Model.UserOrder.ID" />
+		</div>
+	 	<fieldset>
+			<legend>Csere könyvek</legend>
+			@{ ViewBag.BookBlockType = BookBlockType.ProductInOrder; }
+			@foreach (var exchangeProduct in Model.ExchangeProducts)
+			{
+				Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", exchangeProduct);
+			}
+		</fieldset>
+	}
+	else if(Model.UserOrder.Status == UserOrderStatus.FinalizedCash 
+	|| Model.UserOrder.Status == UserOrderStatus.FinalizedExchange)
+	{
+		<div class="order-buttons">
+			<input type="button" value="Sikeres volt" name="close-successful-button" onclick="closeOrderSuccessful(this)" />
+			<input type="button" value="Sikertelen volt" name="close-unsuccessful-button" onclick="closeOrderUnsuccessful(this)" />
+			<input name="user-order-id" type="hidden" value="@Model.UserOrder.ID" />
+		</div>
+	 	if(Model.UserOrder.Status == UserOrderStatus.FinalizedExchange)
+		{
+			<fieldset>
+				<legend>Csere könyvek</legend>
+				@{ ViewBag.BookBlockType = BookBlockType.ProductInOrder; }
+				@foreach (var exchangeProduct in Model.ExchangeProducts)
+				{
+					Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", exchangeProduct);
+				}
+			</fieldset>
+		}
+	}
+</fieldset>

@@ -1,0 +1,54 @@
+﻿@using WEB.Controllers.Base
+@{
+	string cookieValue = (Request.Cookies["loginBox"] ?? new HttpCookie("", "true")).Value;
+	string display = cookieValue == "true" ? "block" : "none";
+}
+<div id = "loginBox" class="box" >
+	@if (User.Identity.IsAuthenticated)
+	{
+		Session["image"] = Session["image"] ?? BookteraControllerBase.ImageManager.GetUsersAvatar();
+		string imageUrl = (string)(Session["image"]);
+		string imageTitle = imageUrl == "default.jpg" ? "Még nem töltöttél fel képet" : "";		 
+	 
+		<div class="box-title">
+			Profilom
+		</div>
+		<div class="box-main" style="display: @display">
+			<div class="left-column">
+				<div class="user-name">@User.Identity.Name</div>
+				<img src="@Url.Content("~/Content/Images/UserImages/" + imageUrl)" alt="@User.Identity.Name" title="@imageTitle" />
+			</div>
+			<div class="right-column">
+				<a href="@Url.Action("Carts","Buy")">
+					<img src="~/Content/Images/Carts/cart_black.png" title="Kosaraim">
+				</a>
+				@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new {id = "logoutForm"}))
+				{
+					@Html.AntiForgeryToken()
+					@:<input type="submit" value="Kilépés">
+				}
+			</div>
+		</div>
+	}
+	else
+	{
+		<div class="box-title">
+			Bejelentkezés
+		</div>	 
+		<div class="box-main" style="display: @display">
+			@using(Html.BeginForm("Login", "Account", new { returnUrl = Request.RawUrl }, FormMethod.Post, new { id = "loginBoxForm", name = "loginBoxForm" }))
+			{
+			<text>
+				@Html.AntiForgeryToken()
+				@Html.TextBox("LoginUserName",null,new{ placeholder="Felhasználó név" })<br />
+				@Html.Password("LoginPassword",null,new{ placeholder="Jelszó" })
+				<input type="submit" value="OK" /><br />
+				@Html.CheckBox("RememberMe")
+				Jegyezz meg<br />
+				<a href="@Url.Action("Register","Account",new { returnUrl = Request.RawUrl })">Regisztráció</a> &nbsp;|&nbsp;
+				<a href="#">Jelszó emlékeztető</a>
+			</text>
+			}
+		</div>
+	}
+</div>

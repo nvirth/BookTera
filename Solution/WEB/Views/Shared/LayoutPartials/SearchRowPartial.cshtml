@@ -1,0 +1,8 @@
+﻿@using (Html.BeginForm("ProductGroup","Search",FormMethod.Get))
+{
+	<div id="searchRow">
+		@Html.TextBox("searchBoxText", null, new{ placeholder = "Keresés..." })
+		<input type="submit" name="btnSearch" value="" class="search-button" />
+		<input type="submit" name="btnDetailedSearch" value="Részletes keresés" />
+	</div>
+}

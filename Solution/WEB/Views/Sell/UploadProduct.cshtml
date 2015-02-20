@@ -1,0 +1,175 @@
+﻿@using WEB
+@model CommonModels.Models.ProductModels.CreatePVM
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Eladás - Új könyv feltöltése";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+	bool showPgForm = (Model == null) || (Model.ProductGroup != null) && (Model.ProductGroup.Id == null || Model.ProductGroup.Id == -1);
+	string PgFormStyle = showPgForm ? "" : "style=display:none";
+}
+<h2>Új könyv feltöltése</h2>
+
+@using(Html.BeginForm("UploadProduct", "Sell", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(false)
+	<input type="hidden" id="product-upload-auto-completes-on" />
+
+	<fieldset class="product-upload-fieldset">
+		<legend>Új könyv feltöltése</legend>
+
+		<fieldset>
+			<legend>Könyv, mint csoport</legend>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.ProductGroup.Id)
+			</div>
+			<div class="editor-field">
+				@Html.DropDownListFor(model => model.ProductGroup.Id, new List<SelectListItem>(), new{ @class = "product-group-list selectIn"})
+				@Html.HiddenFor(model => model.ProductGroup.Id, new{ @class = "product-group-list-hidden" })
+				@Html.Hidden("productGroupName", null, new{ @class = "product-group-name-hidden" })
+				@Html.ValidationMessageFor(model => model.ProductGroup.Id)
+			</div>
+			
+			<div class="product-upload-product-group-datas" @PgFormStyle>
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ProductGroup.Title)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.ProductGroup.Title, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.ProductGroup.Title)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ProductGroup.SubTitle)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.ProductGroup.SubTitle, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.ProductGroup.SubTitle)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ProductGroup.AuthorNames)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.ProductGroup.AuthorNames, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.ProductGroup.AuthorNames)
+				</div>				
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ProductGroup.PublisherName)
+				</div>
+				<div class="editor-field">
+					@Html.EditorFor(model => model.ProductGroup.PublisherName, new{ htmlAttributes = new{ @class = "stringIn" }})
+					@Html.ValidationMessageFor(model => model.ProductGroup.PublisherName)
+				</div>
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ProductGroup.CategoryId)
+				</div>
+				<div class="editor-field">
+					@Html.DropDownListFor(model => model.ProductGroup.CategoryId, new List<SelectListItem>(), new{ @class = "category-list selectIn"})
+					@Html.HiddenFor(model => model.ProductGroup.CategoryId, new{ @class = "category-list-hidden" })
+					@Html.ValidationMessageFor(model => model.ProductGroup.CategoryId)
+				</div>				
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ProductGroup.ImageUrl)
+				</div>
+				<div class="editor-field">
+					<input type="file" name="productGroupImageFile" />
+				</div>			
+
+				<div class="editor-label">
+					@Html.LabelFor(model => model.ProductGroup.Description)
+				</div>
+				<div class="editor-field">
+					@Html.TextAreaFor(model => model.ProductGroup.Description, new{ placeholder = "A könyv hivatalos leírása, ajánlása (pl a könyv hátoldalán; leírja, hogy miről szól a könyv)" })
+					@Html.ValidationMessageFor(model => model.ProductGroup.Description)
+				</div>
+			</div>
+		</fieldset>
+		<fieldset>
+			<legend>A Te konkrét könyved adatai</legend>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.Language)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Product.Language, new{ htmlAttributes = new{ @class = "stringIn" }})
+				@Html.ValidationMessageFor(model => model.Product.Language)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.Description)
+			</div>
+			<div class="editor-field">
+				@Html.TextAreaFor(model => model.Product.Description, new{ placeholder = "A Te saját könyved állapota, minősége; megjegyzések" })
+				@Html.ValidationMessageFor(model => model.Product.Description)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.PublishYear)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Product.PublishYear, new{ htmlAttributes = new{ @class = "numberIn" }})
+				@Html.ValidationMessageFor(model => model.Product.PublishYear)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.PageNumber)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Product.PageNumber, new{ htmlAttributes = new{ @class = "numberIn" }})
+				@Html.ValidationMessageFor(model => model.Product.PageNumber)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.Price)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Product.Price, new{ htmlAttributes = new{ @class = "numberIn" }})
+				Ft
+				@Html.ValidationMessageFor(model => model.Product.Price)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.HowMany)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => model.Product.HowMany, new{ htmlAttributes = new{ @class = "numberIn" }})
+				db
+				@Html.ValidationMessageFor(model => model.Product.HowMany)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.Edition)
+			</div>
+			<div class="editor-field">
+				@Html.EditorFor(model => Model.Product.Edition, new{ htmlAttributes = new{ @class = "numberIn" }})
+				@Html.ValidationMessageFor(model => model.Product.Edition)
+			</div>
+
+			<div class="editor-label">
+				@Html.LabelFor(model => model.Product.ImageUrl)
+			</div>
+			<div class="editor-field">
+				<input type="file" name="productImageFile" />
+			</div>			
+
+			@Html.EditorFor(model => model.Product.IsBook)
+			@Html.EditorFor(model => model.Product.IsAudio)
+			@Html.EditorFor(model => model.Product.IsVideo)
+			@Html.EditorFor(model => model.Product.IsUsed)
+			@Html.EditorFor(model => model.Product.IsDownloadable)
+		</fieldset>
+	</fieldset>
+	<p>
+        <input type="submit" value="Feltöltés" />
+    </p>	
+}
+
+@section Scripts 
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/UploadProduct")
+}

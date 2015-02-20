@@ -1,0 +1,30 @@
+﻿@using CommonPortable.Enums
+@using WEB
+@using UtilsLocal
+@model CommonPortable.Models.ProductModels.BookRowPLVM
+@{
+	ViewBag.BookBlockType = BookBlockType.Product;
+
+	if (!IsAjax)
+	{
+		ViewBag.Title = Config.MainTitleOfSite + " - " + Model.ProductGroup.Title;
+		Layout = "~/Views/Shared/_Layout.cshtml";
+
+		Html.RenderPartial("PagingPartials/PagingHiddensPartial");
+		Html.RenderPartial("BookBlocksRows/Partials/Row/BookRowListPartial", Model);
+	}
+	else // AJAX
+	{
+		Html.RenderPartial("BookBlocksRows/Partials/Row/BookRowListAjaxPartial", Model);
+	}
+}
+
+@section scripts
+{
+	@Scripts.Render("~/bundles/Paging")
+	@Scripts.Render("~/bundles/AddProductToCartOrExchange")
+}
+@section styles
+{
+	@Styles.Render("~/Content/themes/BookRow")
+}

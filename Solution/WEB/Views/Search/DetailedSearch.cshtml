@@ -1,0 +1,46 @@
+﻿@using CommonModels.Models
+@using CommonPortable.Enums
+@using WEB
+@using UtilsLocal
+@model DetailedSearchVM
+@{
+	ViewBag.BookBlockType = BookBlockType.ProductGroup;
+		
+	if (!IsPost) // GET
+	{
+		ViewBag.Title = Config.MainTitleOfSite + " - Részletes keresés";
+		Layout = "~/Views/Shared/_Layout.cshtml";
+
+		var model = Model ?? new DetailedSearchVM();			
+		model.SearchInputs = model.SearchInputs ?? new DetailedSearchVM.DetailedSearchInputs();
+
+		<div class="detailed-search-form">
+			@Html.Partial("Partial/DetailedSearchPartial", model.SearchInputs)
+		</div>
+		<div class="detailed-search-results"></div>
+	}
+	else if(ViewBag.isSearching) // POST_AJAX && DeatiledSearch form submitted
+	{
+		Html.RenderPartial("PagingPartials/PagingHiddensPartial");
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockListPartial", Model.SearchResults);
+		
+		// Itt már nincs layout, a js fájl már le lett küldve; csak az inicializálást már végrehajtotta a lopozó felület előtt
+		<script type="text/javascript">
+			$(function() { pagingInit(); });
+		</script>
+	}
+	else // POST_AJAX && DeatiledSearch result set paging
+	{
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockListAjaxPartial", Model.SearchResults);
+	}
+}
+@section styles
+{
+	@Styles.Render("~/Content/themes/DetailedSearch")
+	@Styles.Render("~/Content/themes/BookBlock")
+}
+@section scripts
+{
+	@Scripts.Render("~/bundles/DetailedSearch")
+	@Scripts.Render("~/bundles/Paging")
+}

@@ -1,0 +1,27 @@
+﻿@using CommonModels.Models
+@using WEB
+@model List<CommentWithProductGroupVM>
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Profilom - Hozzászólásaim";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Hozzászólásaim</h2>
+
+@if(Model.Count == 0)
+{
+	@:Még nem szóltál hozzá egy könyvhöz sem.
+}
+
+@foreach(CommentWithProductGroupVM modelItem in Model)
+{
+	<fieldset>
+		<legend>@modelItem.Comment.CreatedDate.ToShortDateString()</legend>
+		
+		@{ Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", modelItem.Product); }
+		
+		<div class="display-label">
+			 @Html.DisplayNameFor(model => modelItem.Comment.Text):
+			@Html.DisplayFor(model => modelItem.Comment.Text)
+		</div>
+	</fieldset>
+}

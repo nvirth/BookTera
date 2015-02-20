@@ -1,0 +1,37 @@
+﻿@model CommonPortable.Models.Paging
+@{
+	var previousDeactive = Model.ActualPageNumber == 1 ? "paging-deactive" : "";
+	var nextDeactive = Model.ActualPageNumber == Model.NumberOfPages ? "paging-deactive" : "";
+}
+
+@if (Model.NumberOfPages > 1)
+{
+	<div class="paging-wrapper">
+		<div class="paging">
+	
+			@* BACKWARD *@
+
+			<div class="paging-previous paging-edge @previousDeactive">
+				<div class="paging-arrow-left">
+				</div>			
+			</div>
+	
+			@* PAGING NUMBERS *@
+
+			<div class="paging-main">
+				@for (int i = 1; i <= Model.NumberOfPages; i++)
+				{
+					var actual = i == Model.ActualPageNumber ? "paging-actual paging-deactive" : "";
+					<div class="paging-div @actual ">@i</div>
+				}
+			</div>
+	
+			@* FORWARD *@
+
+			<div class="paging-next paging-edge @nextDeactive ">
+				<div class="paging-arrow-right">
+				</div>
+			</div>
+		</div>
+	</div>
+}

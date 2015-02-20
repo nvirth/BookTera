@@ -1,0 +1,68 @@
+﻿@model bool?
+
+@if(ViewData.ModelMetadata.IsNullableValueType)
+{
+	// Nullable<Boolean>
+
+	// HtmlAttributes
+
+	var trueHtmlAttributes = new Dictionary<string, object>();
+	var falseHtmlAttributes = new Dictionary<string, object>();
+	var nullHtmlAttributes = new Dictionary<string, object>();
+
+	if(ViewBag.TrueSelected ?? false)
+	{
+		trueHtmlAttributes.Add("checked", "checked");
+	}
+	else if(ViewBag.FalseSelected ?? false)
+	{
+		falseHtmlAttributes.Add("checked", "checked");
+	}
+	else
+	{
+		nullHtmlAttributes.Add("checked", "checked");
+	}
+
+	// Labels
+
+	var nullLabel = (string)(ViewBag.NullLabel ?? "Mindegy");
+	var trueLabel = (string)(ViewBag.TrueLabel ?? ViewData.ModelMetadata.DisplayName + " - Igen");
+	var falseLabel = (string)(ViewBag.FalseLabel ?? ViewData.ModelMetadata.DisplayName + " - Nem");
+
+	// Values
+
+	var nullValue = (string)(ViewBag.NullValue ?? string.Empty);
+	var trueValue = (string)(ViewBag.TrueValue ?? "true");
+	var falseValue = (string)(ViewBag.FalseValue ?? "false");
+		
+	<div class="radio-block">
+		<div class="radio-none count-2">
+			@Html.RadioButtonFor(model => model, nullValue, nullHtmlAttributes)
+			@nullLabel
+		</div>
+		<div class="radios">
+			@Html.RadioButtonFor(model => model, trueValue, trueHtmlAttributes)
+			@trueLabel
+			<br />
+			@Html.RadioButtonFor(model => model, falseValue, falseHtmlAttributes)
+			@falseLabel
+		</div>
+	</div>
+}
+else
+{
+	// Boolean (not nullable)
+
+	var htmlAttributes = new Dictionary<string, object>();
+	var label = ViewBag.Label ?? ViewData.ModelMetadata.DisplayName;
+
+	if(ViewBag.IsSelected ?? Model.HasValue ? Model.Value : false)
+	{
+		htmlAttributes.Add("checked", "checked");
+	}                                   
+		
+	<div class="checkbox">
+		@Html.CheckBox("", htmlAttributes)
+		@label
+	</div>
+}

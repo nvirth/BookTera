@@ -1,0 +1,62 @@
+﻿@using CommonModels.Models
+@using UtilsSharedPortable
+@using WEB
+@model List<UserAddressVM>
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Profilom - Címeim";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+	var modelForLabel = new UserAddressVM();
+	bool noAddresses = Model.Count == 0;
+}
+<h2>Címeim</h2>
+@if(ViewBag.UserOrderId != null)
+{
+	var backLink = ViewBag.IsCustomer ? Url.Action("Carts", "Buy") : Url.Action("InProgressTransactions", "Sell");
+	<p>
+		<a href="@backLink">
+			<input type="button" value="Vissza" />
+		</a>
+	</p>
+}
+<div @(noAddresses ? "" : "style=display:none")>
+	Még nem adtál meg címet!
+	<input type="hidden" id="is-first-address" value="@noAddresses.ToString(Constants.CultureInfoHu)" />
+	<input type="hidden" id="user-order-id" value="@ViewBag.UserOrderId" />
+	<input type="hidden" id="is-customer" value="@(ViewBag.IsCustomer != null ? ViewBag.IsCustomer.ToString(Constants.CultureInfoHu) : null)" />
+</div>
+<table @(noAddresses ? "style=display:none" : "")>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => modelForLabel.IsDefault)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => modelForLabel.ZipCode)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => modelForLabel.City)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => modelForLabel.StreetAndHouseNumber)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => modelForLabel.Country)
+		</th>
+		<th>
+			<!-- Buttons -->	
+		</th>
+	</tr>
+	@foreach (var item in Model)
+	{
+		Html.RenderPartial("Partials/AddressRowPartial", item);
+	}
+</table>
+
+<p>
+	<input id="create-address-button" type="button" value="Új cím felvétele" />
+</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/Addresses")
+}

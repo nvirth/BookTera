@@ -1,0 +1,42 @@
+﻿@using UtilsSharedPortable
+@model CommonModels.Models.UserOrderPLVM
+@{
+	bool hasAddress = Model.UserOrder.CustomerAddress != null;
+}
+<fieldset>
+	<legend>
+		@ViewBag.FieldsetLegendUserLink
+	</legend>
+	@foreach(var inBookBlockPvm in Model.Products)
+	{
+		ViewBag.ProductInOrderId = inBookBlockPvm.Product.ProductInOrderId;
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", inBookBlockPvm);
+	}
+	<div class="transaction-summary">
+		<div>
+			A rendelés összege: <span class="transaction-sum-price">@ViewBag.Sum.ToString("c0", Constants.CultureInfoHu)</span>
+		</div>		
+		<div>
+			Ebből jutalék: <span class="transaction-fee">@ViewBag.Fee.ToString("c0", Constants.CultureInfoHu) (@Model.UserOrder.CustomersFeePercent%)</span>
+			<input type="hidden" class="transaction-fee-percent" value="@Model.UserOrder.CustomersFeePercent" />
+		</div>
+		<div>
+			@if(!hasAddress)
+			{
+				<span class="unsuccessful-text">A rendelésnek nincs címe</span>
+			}
+			else
+			{
+				@:A rendelés címe: @Model.UserOrder.CustomerAddress
+			}
+		</div>					
+	</div>
+	<div class="order-buttons">
+		<a href="@Url.Action("AddressesToOrder","Profile",new{ userOrderId = Model.UserOrder.ID, ordersOldAddressId = Model.UserOrder.CustomerAddressId, isCustomer = true })">
+			<input type="button" value="Cím kiválasztása">
+		</a>		
+		<input type="button" value="Kosár törlése" name="delete-cart-button" onclick="deleteCart(this)" />
+		<input type="button" value="Rendelés leadása" name="send-order-button" onclick="sendOrder(this)" @(hasAddress ? "" : "disabled=disabled") />
+		<input name="user-order-id" type="hidden" value="@Model.UserOrder.ID" />
+	</div>
+</fieldset>

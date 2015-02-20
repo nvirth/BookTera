@@ -1,0 +1,25 @@
+﻿@using UtilsShared
+@using UtilsSharedPortable
+@model CommonPortable.Models.ProductModels.InBookBlockPVM
+
+<div class="book-block book-block-grey-frame" title="@(Model.Product.Description ?? Model.ProductGroup.Description)">
+	<a href="@Url.Action("Details","Product", ViewBag.ProductLinkRouteValues)">
+		<img class="book-image" src="@Url.Content(ViewBag.ImageUrl)" alt="@Model.ProductGroup.Title" />
+	</a>
+	<div class="text-block">
+		<a href="@Url.Action("Details","Product", ViewBag.ProductLinkRouteValues)">
+			<div class="title" title="@Model.ProductGroup.Title" >@(Model.ProductGroup.Title.Truncate((int)ViewBag.MaxLetters))</div>
+		</a>
+		<div class="subtitle" title="@Model.ProductGroup.SubTitle" >@(Model.ProductGroup.SubTitle.Truncate((int)ViewBag.MaxLetters))</div>
+		<div class="authors" title="@Model.ProductGroup.AuthorNames" >@(Model.ProductGroup.AuthorNames.Truncate((int)ViewBag.MaxLetters))</div>
+		<div class="publisher" title="@Model.ProductGroup.PublisherName" >@(Model.ProductGroup.PublisherName.Truncate((int)ViewBag.MaxLetters))</div>
+		<div class="price">@Model.Product.PriceString</div>
+
+		@{
+            string ratingText = Model.ProductGroup.SumOfRatings == 0 ? "(Értékelje Ön először!)" : "(" + Model.ProductGroup.SumOfRatings + " értékelés)";
+            string ratingImageUrl = Path.Combine("~/Content/Images/Ratings/", Path.ChangeExtension(Model.ProductGroup.RatingPoints.ToString(Constants.CultureInfoHu), "png"));
+			<img class="rating-stars" src="@Url.Content(ratingImageUrl)" alt="Értékelése: @(Model.ProductGroup.RatingPoints/2.0)" title="Értékelése: @(Model.ProductGroup.RatingPoints/2.0)" />
+			<div class="rating-text">@ratingText</div>
+		}
+	</div>
+</div>

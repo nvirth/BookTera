@@ -1,0 +1,46 @@
+﻿@using CommonPortable.Enums
+@model CommonPortable.Models.ProductModels.InBookBlockPVM
+@{
+	// Place in the ViewBag the values, that all Types use
+	
+	string imageFileName = Model.Product.ImageUrl ?? Model.ProductGroup.ImageUrl;
+	ViewBag.ImageUrl = Path.Combine("~/Content/Images/ProductImages/", imageFileName);
+	ViewBag.MaxLetters = 33;
+	ViewBag.ProductLinkRouteValues = new RouteValueDictionary(new
+	{
+		friendlyUrl = Model.ProductGroup.FriendlyUrl,
+		productId = Model.Product.ID,
+	});
+
+	ViewBag.UserName = Model.Product.UserName;
+	ViewBag.HowMany = Model.Product.HowMany;
+	ViewBag.ProductId = Model.Product.ID;
+
+	// Render the view for the Type
+
+	MvcHtmlString partialToRender = MvcHtmlString.Empty;
+	var bookBlockType = (BookBlockType)ViewBag.BookBlockType;
+	switch(bookBlockType)
+	{
+		case BookBlockType.Product:
+			partialToRender = Html.Partial("BookBlocksRows/Partials/Block/Types/Product");
+			break;
+		case BookBlockType.ProductGroup:
+			partialToRender = Html.Partial("BookBlocksRows/Partials/Block/Types/ProductGroup");
+			break;
+		case BookBlockType.ProductInOrder:
+			partialToRender = Html.Partial("BookBlocksRows/Partials/Block/Types/ProductInOrder");
+			break;
+		case BookBlockType.ProductForExchange:
+			partialToRender = Html.Partial("BookBlocksRows/Partials/Block/Types/ProductForExchange");
+			break;
+		case BookBlockType.ProductInCart:
+			partialToRender = Html.Partial("BookBlocksRows/Partials/Block/Types/ProductInCart");
+			break;	
+		case BookBlockType.ProductInExchangeCart:
+			partialToRender = Html.Partial("BookBlocksRows/Partials/Block/Types/ProductInExchangeCart");
+			break;			
+	}
+}
+
+@partialToRender

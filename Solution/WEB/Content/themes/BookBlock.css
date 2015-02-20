@@ -1,0 +1,96 @@
+.book-blocks
+{
+	margin: 10px;
+	overflow: auto;
+}
+A:hover > .book-block
+{
+	color: #000000;
+}
+.book-block
+{
+	width: 400px;
+	height: 200px;
+	overflow: hidden;
+	float: left;
+	margin: 10px;
+	padding: 10px;
+	border: 3px solid #6ECE37;
+	background-color: #AEFF6B;
+}
+.book-block-ran-out
+{
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+	background: transparent !important;
+}
+.book-block-grey-frame
+{
+	border: 1px solid #BBAFAF;
+	background-color: #E4DFDF;
+}
+.book-block-green-frame
+{
+	border: 1px solid #35FF35;
+	background-color: #CAFFCA;
+}
+.book-block-green-frame2
+{
+	border: 1px solid #8EFF8E;
+	background-color: #CEFFC4;
+}
+.book-block .book-image
+{
+	width: 147px;
+	height: 195px;
+	float: left;
+}
+.book-block .book-image-discount
+{
+	float: right;
+	margin: -8px -9px 0px 0px;
+}
+.book-block .text-block
+{
+	float: left;
+	width: 240px;
+	height: 195px;
+	padding-left: 10px;
+}
+.book-block .title
+{
+	font: bold x-large / 1em Candara;
+	color: #2F7FF8;
+	height: 60px;
+	overflow: hidden;
+}
+.book-block .subtitle
+{
+	height: 20px;
+	overflow: hidden;
+}
+.book-block .author
+{
+	height: 20px;
+	overflow: hidden;
+}
+.book-block .price
+{
+	color: #37D500;
+	font-weight: bold;
+}
+.book-block .rating-stars
+{
+	width: 105px;
+	height: 18px;
+	margin: 8px 0 0;
+}
+.book-block .rating-text
+{
+	color: #808080;
+}
+.book-block-main-button
+{
+	float: right;
+}

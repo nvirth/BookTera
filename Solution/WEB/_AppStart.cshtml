@@ -1,0 +1,9 @@
+﻿@{
+	if(!WebSecurity.Initialized)
+	{
+		WebSecurity.InitializeDatabaseConnection("BookTeraDB", "UserProfile", "ID", "UserName", autoCreateTables: true);
+    }
+
+    // A hibaüzenetek angolul jöjjenek:
+    //UtilsShared.HelpersShared.SetDefaultCultureToEnglish();
+}

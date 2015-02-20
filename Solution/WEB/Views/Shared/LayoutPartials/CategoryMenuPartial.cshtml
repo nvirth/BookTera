@@ -1,0 +1,15 @@
+﻿@model string
+@{
+	string cookieValue = (Request.Cookies["category-box"] ?? new HttpCookie("", "true")).Value;
+	string display = cookieValue == "true" ? "block" : "none";
+}
+<div id="category-box" class="box">
+	<div class="box-title">
+		Kategóriák
+	</div>
+	<div class="box-main" style="display: @display">
+		<ul>
+			@Html.Raw(Model)
+		</ul>
+	</div>
+</div>

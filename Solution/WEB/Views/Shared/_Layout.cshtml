@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/themes/main")
+    @Styles.Render("~/Content/jqueryui")
+    @Scripts.Render("~/bundles/modernizr")
+	@RenderSection("styles", required: false)
+</head>
+	<body>
+		<header>
+			@Html.Partial("LayoutPartials/MainTitlePartial")
+			@Html.Partial("LayoutPartials/SearchRowPartial")
+		</header>
+		<div id="under-header">
+			<div id="leftMenu">
+				@Html.Partial("LayoutPartials/LoginBoxPartial")
+				@Html.Partial("LayoutPartials/MainMenuPartial")
+				@Html.Action("CategoryMenu", "Category")
+			</div>
+			<div id="main">
+				@Html.Partial("LayoutPartials/SuccessMessageIfExistPartial")
+				@RenderBody()
+			</div>
+		</div>
+		<footer>
+			@Html.Partial("LayoutPartials/FooterPartial")
+		</footer>
+	
+		@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/jqueryui")
+		@Scripts.Render("~/bundles/AutoCompletes")
+		@Scripts.Render("~/bundles/LayoutBoxes")
+		@RenderSection("scripts", required: false)
+	</body>
+</html>

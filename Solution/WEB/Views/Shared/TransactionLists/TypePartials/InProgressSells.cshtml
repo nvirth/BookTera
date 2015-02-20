@@ -1,0 +1,99 @@
+﻿@using CommonPortable.Enums
+@using UtilsShared
+@using UtilsSharedPortable
+@using WEB.Controllers.Base
+@using UtilsLocal
+@model CommonModels.Models.UserOrderPLVM
+@{
+	bool hasAddress = Model.UserOrder.VendorAddress != null;
+}
+<fieldset>
+	<legend>
+		@ViewBag.FieldsetLegendUserLink
+		@(string.Format(" - {0}", Model.UserOrder.Date.ToString("yyyy.MM.dd")))
+	</legend>
+	@foreach(var inBookBlockPvm in Model.Products)
+	{
+		Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", inBookBlockPvm);
+	}
+	<div class="transaction-summary">
+		<div>
+			A rendelése összege: <span class="transaction-sum-price">@ViewBag.Sum.ToString("c0", Constants.CultureInfoHu)</span>
+		</div>		
+		<div>
+			Általad fizetendő jutalék: <span class="transaction-fee">@ViewBag.Fee.ToString("c0", Constants.CultureInfoHu) (@Model.UserOrder.VendorsFeePercent%)</span>
+			<input type="hidden" class="transaction-fee-percent" value="@Model.UserOrder.VendorsFeePercent" />
+		</div>
+	</div>
+	<div>
+		@if (Model.UserOrder.Status == UserOrderStatus.BuyedWaiting && !hasAddress)
+		{
+			<span class="unsuccessful-text">Az eladásnak nincs címe</span>
+		}
+		else
+		{
+			@:Az eladás címe: @Model.UserOrder.VendorAddress
+		}
+	</div>
+	<div>
+		A rendelés állapota: @Model.UserOrder.Status.ToDescriptionString()
+	</div>
+	@if(Model.UserOrder.Status == UserOrderStatus.BuyedWaiting)
+	{
+		bool hasExchange = Model.ExchangeProducts.Count > 0;
+		<div class="order-buttons">
+			<a href="@Url.Action("AddressesToOrder","Profile",new{ userOrderId = Model.UserOrder.ID, ordersOldAddressId = Model.UserOrder.VendorAddressId, isCustomer = false })">
+				<input type="button" value="Cím kiválasztása">
+			</a>			
+			<a href="@Url.Action("SelectExchangeBooks","Sell",new{ userFriendlyUrl = Model.UserOrder.CustomerFriendlyUrl, userOrderID = Model.UserOrder.ID })">
+				<input type="button" value="Csere könyv(ek) kiválasztása" name="select-exchange-books-button" />
+			</a>
+			<input type="button" value="Csere ajánlat elküldése" name="send-exchange-offer-button" onclick="sendExchangeOffer(this)" @(hasExchange && hasAddress ? "" : "disabled=disabled") />
+			<input type="button" value="Nem cserélek, fizessen" name="finalize-without-exchange-button" onclick="finalizeOrderWithoutExchange(this)" @(hasAddress ? "" : "disabled=disabled") />
+			<input name="user-order-id" type="hidden" value="@Model.UserOrder.ID" />
+		</div>
+		if(hasExchange)
+		{
+			<fieldset>
+				<legend>Cseréhez kiválasztott könyvek</legend>
+				@{ ViewBag.BookBlockType = BookBlockType.ProductInExchangeCart; }
+				@foreach (var exchangeProduct in Model.ExchangeProducts)
+				{
+					ViewBag.ProductInOrderId = exchangeProduct.Product.ProductInOrderId;
+					Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", exchangeProduct);
+				}
+			</fieldset>
+		}
+	}
+	else if(Model.UserOrder.Status == UserOrderStatus.BuyedExchangeOffered)
+	{
+		<fieldset>
+			<legend>Cseréhez kiválasztott könyvek</legend>
+			@{ ViewBag.BookBlockType = BookBlockType.ProductInOrder; }
+			@foreach (var exchangeProduct in Model.ExchangeProducts)
+			{
+				Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", exchangeProduct);
+			}
+		</fieldset>
+	}
+	else if(Model.UserOrder.Status == UserOrderStatus.FinalizedCash
+	|| Model.UserOrder.Status == UserOrderStatus.FinalizedExchange)
+	{
+		<div class="order-buttons">
+			<input type="button" value="Sikeres volt" name="close-successful-button" onclick="closeOrderSuccessful(this)" />
+			<input type="button" value="Sikertelen volt" name="close-unsuccessful-button" onclick="closeOrderUnsuccessful(this)" />
+			<input name="user-order-id" type="hidden" value="@Model.UserOrder.ID" />
+		</div>
+		if(Model.UserOrder.Status == UserOrderStatus.FinalizedExchange)
+		{
+			<fieldset>
+				<legend>Csere könyvek</legend>
+				@{ ViewBag.BookBlockType = BookBlockType.ProductInOrder; }
+				@foreach (var exchangeProduct in Model.ExchangeProducts)
+				{
+					Html.RenderPartial("BookBlocksRows/Partials/Block/BookBlockPartial", exchangeProduct);
+				}
+			</fieldset>
+		}
+	}
+</fieldset>

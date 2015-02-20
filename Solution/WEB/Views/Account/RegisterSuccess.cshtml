@@ -1,0 +1,20 @@
+﻿@using WEB
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Sikeres regisztráció";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+
+	var errors = (ModelError[])TempData["ModelStateErrors"];
+
+	if(errors == null || errors.Length == 0)
+	{
+		@:Sikeres regisztráció!
+	}
+	else
+	{
+		@: A registrációd sikeres volt, de nem volt hibamentes <br />
+		foreach(var error in errors)
+		{
+			@: @error.ErrorMessage <br />
+		}
+	}
+}

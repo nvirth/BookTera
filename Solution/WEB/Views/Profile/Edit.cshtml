@@ -1,0 +1,54 @@
+﻿@using WEB
+@model CommonModels.Models.UserProfileEditVM
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Profilom - Szerkesztés";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Profilom szerkesztése</h2>
+
+@using (Html.BeginForm("Edit", "Profile", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	@Html.ValidationSummary(false)
+
+	<fieldset>
+		<legend>Profil szerkesztése</legend>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.FullName)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.FullName, new{ htmlAttributes = new{ @class = "stringIn" }})
+			@Html.ValidationMessageFor(model => model.FullName)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.EMail)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.EMail)
+			@Html.ValidationMessageFor(model => model.EMail)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.PhoneNumber)
+		</div>
+		<div class="editor-field">
+			@Html.EditorFor(model => model.PhoneNumber, new{ htmlAttributes = new{ @class = "stringIn" }})
+			@Html.ValidationMessageFor(model => model.PhoneNumber)
+		</div>
+
+		<div class="editor-label">
+			@Html.LabelFor(model => model.ImageUrl)
+		</div>
+		<div class="editor-field">
+			<input type="file" name="imageFile" />
+		</div>
+	</fieldset>
+	<p>
+		<input type="submit" value="Változások mentése" />
+	</p>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,97 @@
+.product-group-head
+{
+	height: 200px;
+	padding: 10px;
+	margin-bottom: 10px;
+	overflow: auto;
+}
+.product-group-image
+{
+	height: 200px;
+	width: 150px;
+	float: left;
+}
+.product-group-image > IMG
+{
+	max-height: 200px;
+	max-width: 150px;
+	text-align: center;
+	vertical-align: middle;
+}
+.product-group-middle
+{
+	float: left;
+	padding: 10px;
+}
+.product-group-right
+{
+	float: right;
+	padding: 10px;
+}
+.product-group-head .rating-text
+{
+	display: inline;
+	color: #808080;
+}
+.product-group-description
+{
+	border: 1px solid #000000;
+	overflow: auto;
+	height: 100px;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.block-of-book-rows
+{
+	margin-top: 10px;
+	padding: 10px;
+}
+.book-rows
+{
+}
+.book-row
+{
+	border: 1px solid #000000;
+	height: 100px;
+	margin-bottom: 10px;
+	display: table;
+	overflow: auto;
+}
+.book-row > DIV
+{
+	display: table;
+	float: left;
+	border-right: 1px solid #000000;
+}
+.book-row-images
+{
+	height: 100px;
+	width: 150px;
+}
+.book-row-images IMG
+{
+	max-height: 100px;
+	max-width: 150px;
+}
+.book-row-2nd-column
+{
+	height: inherit;
+	width: 150px;
+	vertical-align: middle;
+}
+.book-row-description
+{
+	width: 200px;
+	height: inherit;
+	overflow: auto;
+}
+.book-row-4th-column
+{
+	width: 109px;
+	height: inherit;
+}
+.book-row-5th-column
+{
+	height: inherit;
+}

@@ -1,0 +1,38 @@
+﻿@using UtilsSharedPortable
+@model CommonPortable.Models.ProductModels.BookRowPLVM.ProductGroupVM
+@{
+    string ratingImageUrl = Path.Combine("~/Content/Images/Ratings/", Path.ChangeExtension(Model.RatingPoints.ToString(Constants.CultureInfoHu), "png"));
+	string ratingText = Model.SumOfRatings == 0 ? "(Értékelje Ön először!)" : "(" + Model.SumOfRatings + " értékelés)";
+	
+	string productGroupImageUrl = Path.Combine("~/Content/Images/ProductImages/", Model.ImageUrl);
+}
+
+<h2>@Model.Title</h2>
+<h3>@Model.SubTitle</h3>
+<div class="product-group-head">
+	<div class="product-group-image">
+		<img src="@Url.Content(productGroupImageUrl)" alt="@Model.Title" title="@Model.Title"/>
+	</div>
+	<div class="product-group-middle">
+		<div>Kiadó: @Model.PublisherName</div>
+		<div>Szerzők: @Model.AuthorNames</div>
+		<div>Árkategória: @Model.PriceString</div>
+	</div>
+	<div class="product-group-right">
+		<div>
+			Értékelése:
+			<img class="rating-stars" src="@Url.Content(ratingImageUrl)" alt="Értékelése: @(Model.RatingPoints/2.0)" title="Értékelése: @(Model.RatingPoints/2.0)" />
+			<div class="rating-text">@ratingText</div>
+		</div>
+		<div>
+			Kategória:
+			@Html.ActionLink(Model.CategoryFullPath,"Index","Category",new{ friendlyUrl = Model.CategoryFriendlyUrl },null)
+		</div>
+		<div>Aktív könyvek a csoportban: @Model.SumOfActiveProductsInGroup</div>
+		<div>Elfogyott könyvek a csoportban: @Model.SumOfPassiveProductsInGroup</div>
+		<div>Befejezett vásárlások száma a csoportban: @Model.SumOfBuys</div>
+	</div>
+</div>
+<div class="product-group-description">
+	@Model.Description
+</div>

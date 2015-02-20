@@ -1,0 +1,85 @@
+.paging-wrapper
+{
+	text-align: center;
+}
+.paging
+{
+	background: #7C5454;
+	height: 30px;
+	display: inline-block;
+}
+.paging-main
+{
+	height: 25px;
+	overflow: hidden;
+	margin: 0 4px;
+	display: inline-block;
+	float: left;
+}
+.paging-div
+{
+	width: 40px;
+	text-align: center;
+	display: inline-block;
+	margin: 5px 1px 2px;
+	background: #37EB0E;
+	cursor: pointer;
+}
+.paging-div:hover
+{
+	background: #5BB247;
+}
+.paging-edge
+{
+	width: 40px;
+	height: 30px;
+	display: inline-block;
+	background: #37EB0E;
+	cursor: pointer;
+}
+.paging-edge:hover
+{
+	background: #5BB247;
+}
+.paging-deactive
+{
+	cursor: auto !important;
+	background: #7B7F7A !important;
+}
+.paging-deactive .paging-arrow-left
+{
+	border-right: 20px solid #A3A3A3;
+}
+.paging-deactive .paging-arrow-right
+{
+	border-left: 20px solid #A3A3A3;
+}
+.paging-previous
+{
+	float: left;
+}
+.paging-next
+{
+	float: right;
+}
+.paging-arrow-left
+{
+	width: 0;
+	height: 0;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-right: 20px solid #BCFFA6;
+	margin: 7px 0 0 8px;
+}
+.paging-arrow-right
+{
+	width: 0;
+	height: 0;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	border-left: 20px solid #BCFFA6;
+	margin: 7px 0 0 11px;
+}
+.paging-actual
+{
+}

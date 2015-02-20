@@ -1,0 +1,28 @@
+﻿@model CommonModels.Models.UserAddressVM
+<tr>
+	<td>
+		<input type="radio" name="IsDefault" id="IsDefault" value="@Model.IsDefault.ToString()" @(Model.IsDefault ? "checked=checked" : "") onclick="makeAddressDefault(this)" />
+	</td>
+	<td>
+		@Html.EditorFor(model => model.ZipCode)
+	</td>
+	<td>
+		@Html.EditorFor(model => model.City)
+	</td>
+	<td>
+		@Html.EditorFor(model => model.StreetAndHouseNumber)
+	</td>
+	<td>
+		@Html.EditorFor(model => model.Country)
+	</td>
+	<td>
+		<input type="hidden" name="ID" value="@Model.Id" />
+		&nbsp;&nbsp;<input type="button" value="Mentés" name="update-address-button" onclick="modifyAddress(this)" />
+		&nbsp;&nbsp;<input type="button" value="Törlés" name="delete-address-button" onclick="deleteAddress(this)" />
+		@if(ViewBag.UserOrderId != null)
+		{
+			var isDisabled = ViewBag.UserAddressId == Model.Id ? "disabled=disabled" : "";
+			@:&nbsp;&nbsp;<input type="button" value="Tranzakció címe" name="to-transactions-address-button" onclick=" makeOrdersAddress(this)" @isDisabled />
+		}
+	</td>
+</tr>

@@ -1,0 +1,40 @@
+﻿@model CommonPortable.Models.ProductModels.BookRowPLVM.ProductVM
+@{
+	const string productImagesPath = "/Content/Images/ProductImages/";
+	string defaultImageUrl = Model.Images[0];
+	Model.Images.RemoveAt(0);
+
+	ViewBag.UserName = Model.UserName;
+	ViewBag.HowMany = Model.HowMany;
+	ViewBag.ProductId = Model.ID;
+}
+
+<div class="book-row">
+	<div class="book-row-images">
+		<img src="@(productImagesPath +  defaultImageUrl)" style="display: block"/>
+		@foreach (var imageUrl in Model.Images)
+		{
+			<img src="@(productImagesPath +  imageUrl)" style="display: none" />
+		}
+	</div>
+	<div class="book-row-2nd-column">
+		<div class="user-name">@Html.ActionLink(Model.UserName,"Users","Product",new{ friendlyUrl = Model.UserFriendlyUrl }, null)</div>
+		<div class="price">@Model.PriceString</div>
+		<div class="quantity">@(Model.IsDownloadable ? "" : string.Format("{0} db",Model.HowMany))</div>
+	</div>
+	<div class="book-row-description">@Model.Description</div>
+	<div class="book-row-4th-column">
+		<div>Nyelv: @Model.Language</div>
+		<div>Oldalszám: @Model.PageNumber</div>
+		<div>Kiadás éve: @Model.PublishYear</div>
+		<div>Kiadás száma: @Model.Edition</div>
+	</div>
+	<div class="book-row-5th-column">
+		<div>Elektronikus: @(Model.IsDownloadable ? "Igen" : "Nem")</div>
+		<div>Könyv: @(Model.IsBook ? "Igen" : "Nem")</div>
+		<div>Hangoskönyv: @(Model.IsAudio ? "Igen" : "Nem")</div>
+		<div>Videó: @(Model.IsVideo ? "Igen" : "Nem")</div>
+		<div>Használt: @(Model.IsUsed ? "Igen" : "Nem")</div>
+	</div>
+	<div>@Html.Partial("BookBlocksRows/Partials/MainButtonsPartial")</div>
+</div>

@@ -1,0 +1,43 @@
+﻿@using CommonPortable.Enums
+@using UtilsLocal
+@*
+	ViewBag.UserName
+	ViewBag.HowMany
+	ViewBag.ProductId
+	ViewBag.BookBlockType
+	ViewBag.ProductInOrderId
+	ViewBag.UserOrderId
+*@
+@if (User.Identity.IsAuthenticated)
+{
+	<input type="hidden" name="product-id" value="@ViewBag.ProductId"/>
+
+	if (ViewBag.BookBlockType == BookBlockType.Product)
+	{
+		// A felhasználó saját könyve
+		if (User.Identity.Name.ToLower() == ViewBag.UserName.ToLower())
+		{
+			<input type="button" name="edit-own-product" class="book-block-main-button" value="Szerkesztés" onclick="editOwnProduct(this) "/>
+		}
+		else if (ViewBag.HowMany != 0) // Nem fogyott el és nem saját
+		{
+			<input type="button" name="add-to-cart" class="book-block-main-button" value="Kosárba" onclick="addToCartOrExchange(this) "/>
+		}
+	}
+	else if (ViewBag.BookBlockType == BookBlockType.ProductInCart)
+	{
+		<input type="hidden" name="product-in-order-id" value="@ViewBag.ProductInOrderId"/>
+		<input type="button" name="remove-from-cart" class="book-block-main-button" value="Kivétel" onclick="removeFromCartOrExchange(this) "/>
+	}
+	else if (ViewBag.BookBlockType == BookBlockType.ProductInExchangeCart)
+	{
+		<input type="hidden" name="product-in-order-id" value="@ViewBag.ProductInOrderId"/>
+		<input type="button" name="remove-from-exchange" class="book-block-main-button" value="Kivétel" onclick="removeFromCartOrExchange(this) "/>
+	}
+	else if (ViewBag.BookBlockType == BookBlockType.ProductForExchange)
+	{
+		<input type="hidden" name="user-order-id" value="@ViewBag.UserOrderId"/>
+		<input type="button" name="add-to-exchange-cart" class="book-block-main-button" value="Csere-Kosárba" onclick="addToCartOrExchange(this) "/>
+	}
+	// No buttons for: ProductGroup, ProductInOrder
+}

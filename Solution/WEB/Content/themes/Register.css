@@ -1,0 +1,56 @@
+.register-fieldset
+{
+	width: 675px;
+}
+.register-fieldset FIELDSET
+{
+	display: block;
+}
+.register-subfieldset
+{
+	min-height: 200px;
+	width: 300px;
+}
+.register-author-publisher
+{
+	min-width: 270px;
+}
+.register .radios
+{
+	line-height: 60px;
+	margin-right: 5px;
+}
+.register .radio-textboxes
+{
+	line-height: 60px;
+	margin-top: -93px;
+}
+.register-optional-div
+{
+	width: 380px;
+	float: left;
+}
+/*EMPTY*/
+FORM.register
+{
+}
+FORM.register INPUT[type=submit]
+{
+}
+.register-required
+{
+}
+.register-address
+{
+}
+.register-others
+{
+}
+.register-right-div
+{
+	float: right;
+}
+.register-left-div
+{
+	float: left;
+}

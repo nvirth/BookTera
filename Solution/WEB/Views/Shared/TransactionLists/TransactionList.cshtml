@@ -1,0 +1,87 @@
+﻿@using CommonPortable.Enums
+@using WEB
+@using CommonModels.Models
+@using UtilsLocal
+@model List<UserOrderPLVM>
+@{
+	string controller = ViewContext.RouteData.Values["controller"].ToString();
+	bool isBuy = controller == "Buy"; // bool isSell = controller == "Sell";
+	var titlePre = isBuy ? "Vásárlás" : "Eladás";
+
+	ViewBag.Title = string.Format("{0} - {1} - {2}", Config.MainTitleOfSite, titlePre, ViewBag.SiteTitle);
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.SiteTitle</h2>
+
+@if(Model.Count == 0)
+{
+	if (ViewBag.EmptyMessage != null)
+	{
+		@ViewBag.EmptyMessage
+	}
+}
+else
+{
+	var transactionType = Model[0].TransactionType;
+
+	if(Model.Count > 1 && transactionType == TransactionType.CartOwn)
+	{
+		<div class="delete-all-carts-button">
+			<input type="button" value="Minden kosár törlése" onclick="deleteAllCarts()" />
+		</div>
+	}
+	foreach(var modelItem in Model)
+	{
+		if (isBuy)
+		{
+			ViewBag.FieldsetLegendUserLink = Html.ActionLink(modelItem.UserOrder.VendorName, "Users", "Product", new { friendlyUrl = modelItem.UserOrder.VendorFriendlyUrl }, null);
+			ViewBag.Fee = (int)(modelItem.UserOrder.SumBookPrice * modelItem.UserOrder.CustomersFeePercent / 100.0);
+			ViewBag.Sum = ViewBag.Fee + modelItem.UserOrder.SumBookPrice;
+		}
+		else //isSellController
+		{
+			ViewBag.FieldsetLegendUserLink = Html.ActionLink(modelItem.UserOrder.CustomerName, "Users", "Product", new { friendlyUrl = modelItem.UserOrder.CustomerFriendlyUrl }, null);
+			ViewBag.Fee = (int)(modelItem.UserOrder.SumBookPrice * modelItem.UserOrder.VendorsFeePercent / 100.0);
+			ViewBag.Sum = modelItem.UserOrder.SumBookPrice;
+		}
+		
+		MvcHtmlString partialToRender = MvcHtmlString.Empty;
+		switch(transactionType)
+		{
+			case TransactionType.CartOwn:
+				ViewBag.BookBlockType = BookBlockType.ProductInCart;
+				partialToRender = Html.Partial("TransactionLists/TypePartials/CartBuys", modelItem);
+				break;
+			case TransactionType.CartOthers:
+				ViewBag.BookBlockType = BookBlockType.ProductInOrder;
+				partialToRender = Html.Partial("TransactionLists/TypePartials/CartSells", modelItem);
+				break;
+			case TransactionType.InProgressOrderOwn:
+				ViewBag.BookBlockType = BookBlockType.ProductInOrder;
+				partialToRender = Html.Partial("TransactionLists/TypePartials/InProgressBuys", modelItem);
+				break;
+			case TransactionType.InProgressOrderOthers:
+				ViewBag.BookBlockType = BookBlockType.ProductInOrder;
+				partialToRender = Html.Partial("TransactionLists/TypePartials/InProgressSells", modelItem);
+				break;
+			case TransactionType.FinishedOrderOwn:
+				ViewBag.BookBlockType = BookBlockType.ProductInOrder;
+				partialToRender = Html.Partial("TransactionLists/TypePartials/FinishedBuys", modelItem);
+				break;
+			case TransactionType.FinishedOrderOthers:
+				ViewBag.BookBlockType = BookBlockType.ProductInOrder;
+				partialToRender = Html.Partial("TransactionLists/TypePartials/FinishedSells", modelItem);
+				break;
+		}
+		@(partialToRender)		
+	}
+}
+@section scripts
+{
+	@Scripts.Render("~/bundles/OrderOperations")
+}
+@section styles
+{
+	@Styles.Render("~/Content/themes/BookBlock")
+}

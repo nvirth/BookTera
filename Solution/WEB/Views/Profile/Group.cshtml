@@ -1,0 +1,67 @@
+﻿@using UtilsSharedPortable
+@using WEB
+@using CommonModels.Models
+@model IList<UserGroupAnnotated>
+@{
+	ViewBag.Title = Config.MainTitleOfSite + " - Profilom - Rangom";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	var usersGroup = Model.Single(ug => ug.ID == ViewBag.UsersGroupId);
+}
+<h2>Rangom</h2>
+
+A rangod jelenleg "@usersGroup.GroupName", amivel @usersGroup.BuyFeePercent% vásárlási, és @usersGroup.SellFeePercent% eladási jutalékot 
+kell fizetned a BookTera oldalnak tranzakciónként; valamint köteles vagy az általad feltöltött könyveket @usersGroup.MonthsToKeepBooks
+hónapig eladásra készen tartani (addig nem is törölheted őket).
+<p>
+	Szeretnél nagyobb kedvezményt?
+</p>
+<table>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => usersGroup.GroupName)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => usersGroup.BuyFeePercent)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => usersGroup.SellFeePercent)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => usersGroup.MonthsToKeepBooks)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => usersGroup.Price)
+		</th>
+		<th>
+			
+		</th>
+	</tr>
+
+    @foreach (var item in Model) {
+	    <tr @(item.ID == usersGroup.ID ? "class=users-group" : "")>
+		    <td class="user-group-name">
+			    @Html.DisplayFor(modelItem => item.GroupName)
+		    </td>
+		    <td>
+			    @Html.DisplayFor(modelItem => item.BuyFeePercent)%
+		    </td>
+		    <td>
+			    @Html.DisplayFor(modelItem => item.SellFeePercent)%
+		    </td>
+		    <td>
+			    @Html.DisplayFor(modelItem => item.MonthsToKeepBooks)
+		    </td>
+		    <td>
+			    @item.Price.ToString("c0", Constants.CultureInfoHu);
+		    </td>
+		    <td>
+			    <input type="hidden" name="user-group-id" value="@item.ID" />
+			    <input type="button" name="buy-user-group" value="Megveszem" />
+		    </td>
+	    </tr>
+    }
+</table>
+@section scripts
+{
+	@Scripts.Render("~/bundles/UserGroup")
+}
