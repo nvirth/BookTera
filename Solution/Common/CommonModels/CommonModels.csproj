@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{655242D4-0A65-478C-AE5F-21B7D34DA305}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonModels</RootNamespace>
+    <AssemblyName>CommonModels</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\theSolution\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotations\Validation\AccountModels\AspNetAccountModelsValidation.cs" />
+    <Compile Include="Annotations\Validation\AccountModels\RegisterVmValidation.cs" />
+    <Compile Include="Annotations\Validation\ProductModels\CreatePvmValidation.cs" />
+    <Compile Include="Annotations\Validation\UserGroupDisplayNames.cs" />
+    <Compile Include="Annotations\Wcf\ProductModels\CreatePvmWcf.cs" />
+    <Compile Include="Methods\ManagerRelief\RegistrationManagerRelief.cs" />
+    <Compile Include="Models\UserGroupAnnotated.cs" />
+    <Compile Include="Models\UserProfileEditVM.cs" />
+    <Compile Include="WcfHelperModels\ImageUploadStream.cs" />
+    <Compile Include="Methods\ManagerRelief\ImageManagerRelief.cs" />
+    <Compile Include="Methods\ManagerRelief\UserAddressManagerRelief.cs" />
+    <Compile Include="Models\AccountModels\AspNetAccountModels.cs" />
+    <Compile Include="Models\AccountModels\RegisterVM.cs" />
+    <Compile Include="Annotations\Validation\UserProfileEditVmValidation.cs" />
+    <Compile Include="Annotations\Validation\DetailedSearchValidation.cs" />
+    <Compile Include="Annotations\Validation\UserAddressValidation.cs" />
+    <Compile Include="Annotations\Validation\UserProfileVmValidation.cs" />
+    <Compile Include="Annotations\Wcf\UserAddressVmWcf.cs" />
+    <Compile Include="Models\CommentWithProductGroupVM.cs" />
+    <Compile Include="Models\DetailedSearchVM.cs" />
+    <Compile Include="Models\ProductModels\CreatePVM.cs" />
+    <Compile Include="Models\RatingWithProductGroupVM.cs" />
+    <Compile Include="Models\UserAddressVM.cs" />
+    <Compile Include="Models\UserOrderPLVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonPortable\CommonPortable.csproj">
+      <Project>{5a67fe83-7881-4693-800c-7077c7fa88eb}</Project>
+      <Name>CommonPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilsLocal\UtilsLocal.csproj">
+      <Project>{cf59fd01-0918-4603-9406-e7d01314f6e9}</Project>
+      <Name>UtilsLocal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilsSharedPortable\UtilsSharedPortable.csproj">
+      <Project>{1e7f5799-80fc-445d-a0b1-c970aa3cdc2a}</Project>
+      <Name>UtilsSharedPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UtilsShared\UtilsShared.csproj">
+      <Project>{2b9f1fff-a277-4dc1-81cf-e6a3afa5b4ef}</Project>
+      <Name>UtilsShared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
