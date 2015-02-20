@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/CommonModels.Models.EntityFramework" />
+  <xs:import schemaLocation="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CommonPortable.Enums" />
+  <xs:import schemaLocation="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CommonPortable.Models" />
+  <xs:complexType name="InCategoryCWPLVM">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonModels.Models.EntityFramework" minOccurs="0" name="BaseCategory" nillable="true" type="q1:Category" />
+      <xs:element minOccurs="0" name="ChildCategoriesWithProducts" nillable="true" type="tns:ArrayOfInCategoryPLVM" />
+      <xs:element minOccurs="0" name="ProductsIfBaseIsLeaf" nillable="true" type="tns:InCategoryPLVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InCategoryCWPLVM" nillable="true" type="tns:InCategoryCWPLVM" />
+  <xs:complexType name="ArrayOfInCategoryPLVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InCategoryPLVM" nillable="true" type="tns:InCategoryPLVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInCategoryPLVM" nillable="true" type="tns:ArrayOfInCategoryPLVM" />
+  <xs:complexType name="InCategoryPLVM">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BookBlockPLVM">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="tns:InCategoryPLVM.CategoryVM" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="InCategoryPLVM" nillable="true" type="tns:InCategoryPLVM" />
+  <xs:complexType name="BookBlockPLVM">
+    <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CommonPortable.Enums" minOccurs="0" name="BookBlockType" type="q2:BookBlockType" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CommonPortable.Models" minOccurs="0" name="Paging" nillable="true" type="q3:Paging" />
+      <xs:element minOccurs="0" name="Products" nillable="true" type="tns:ArrayOfInBookBlockPVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BookBlockPLVM" nillable="true" type="tns:BookBlockPLVM" />
+  <xs:complexType name="ArrayOfInBookBlockPVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InBookBlockPVM" nillable="true" type="tns:InBookBlockPVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInBookBlockPVM" nillable="true" type="tns:ArrayOfInBookBlockPVM" />
+  <xs:complexType name="InBookBlockPVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Product" nillable="true" type="tns:InBookBlockPVM.ProductVM" />
+      <xs:element minOccurs="0" name="ProductGroup" nillable="true" type="tns:InBookBlockPVM.ProductGroupVM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InBookBlockPVM" nillable="true" type="tns:InBookBlockPVM" />
+  <xs:complexType name="InBookBlockPVM.ProductVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HowMany" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsDownloadable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PriceString" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProductInOrderId" type="xs:int" />
+      <xs:element minOccurs="0" name="UserFriendlyUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InBookBlockPVM.ProductVM" nillable="true" type="tns:InBookBlockPVM.ProductVM" />
+  <xs:complexType name="InBookBlockPVM.ProductGroupVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AuthorNames" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FriendlyUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsCheckedByAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PublisherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RatingPoints" type="xs:int" />
+      <xs:element minOccurs="0" name="SubTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SumOfRatings" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InBookBlockPVM.ProductGroupVM" nillable="true" type="tns:InBookBlockPVM.ProductGroupVM" />
+  <xs:complexType name="InCategoryPLVM.CategoryVM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InCategoryPLVM.CategoryVM" nillable="true" type="tns:InCategoryPLVM.CategoryVM" />
+</xs:schema>
