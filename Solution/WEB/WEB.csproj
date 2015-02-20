@@ -290,7 +290,6 @@
     <Content Include="Content\themes\main\MainMenu.css" />
     <Content Include="Content\themes\main\Site.css" />
     <Content Include="Content\themes\Paging.css" />
-    <Content Include="Content\themes\Paging2.css" />
     <Content Include="Content\themes\Register.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -556,9 +555,6 @@
       <Project>{1347BA5F-5E64-4F73-883A-9CA5A3AE8732}</Project>
       <Name>WcfInterfaces</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
