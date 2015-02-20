@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+
+namespace UtilsSharedPortable
+{
+	public static class EnumValues
+	{
+		private static readonly Dictionary<Type, Enum[]> _enumsValues = new Dictionary<Type, Enum[]>();
+
+		public static IEnumerable<T> Get<T>() where T : struct
+		{
+			var enumType = typeof(T);
+			if(!enumType.GetTypeInfo().IsEnum)
+				throw new ArgumentException("GetEnumValues needs an enum input. ");
+
+			if(_enumsValues.ContainsKey(enumType))
+			{
+				return _enumsValues[enumType].Cast<T>();
+			}
+			else
+			{
+				T[] enumValues = Enum.GetValues(enumType).Cast<T>().ToArray();
+				_enumsValues[enumType] = enumValues.Cast<Enum>().ToArray();
+
+				return enumValues;
+			}
+		}
+	}
+	public static class EnumValues<TEnumType> where TEnumType : struct
+	{
+		private static TEnumType[] _enumValues;
+
+		public static TEnumType[] Get()
+		{
+			if(_enumValues == null)
+			{
+				var enumType = typeof(TEnumType);
+				if(!enumType.GetTypeInfo().IsEnum)
+					throw new ArgumentException("The EnumValues class needs an enum input. ");
+
+				_enumValues = Enum.GetValues(enumType).Cast<TEnumType>().ToArray();
+			}
+
+			return _enumValues;
+		}
+	}
+}
