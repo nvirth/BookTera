@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e1af8792-c419-4f93-b2c1-5d1bf5ce7361" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50135/EntityManagers/ProductManagerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProductManagerService.xsd" MetadataType="Schema" ID="bb6da6af-fc10-4d6c-a142-a73dad8c2e46" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/ProductManagerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ProductManagerService1.xsd" MetadataType="Schema" ID="591dcfa2-b70d-4304-a478-8cea02c9ec8c" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/ProductManagerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProductManagerService.wsdl" MetadataType="Wsdl" ID="eba4a9c6-10d4-4c15-8bd8-5eb654c10149" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/ProductManagerService.svc?wsdl" />
+    <MetadataFile FileName="ProductManagerService2.xsd" MetadataType="Schema" ID="8121ccf2-793a-4d3d-ba39-c1902a65eed1" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/ProductManagerService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ProductManagerService3.xsd" MetadataType="Schema" ID="04014d07-1026-436c-b1c1-118039bea507" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/ProductManagerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ProductManagerService.disco" MetadataType="Disco" ID="93b5dad1-f449-4094-b282-8a65e3b994ac" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/ProductManagerService.svc?disco" />
+    <MetadataFile FileName="ProductManagerService4.xsd" MetadataType="Schema" ID="394ca383-10c1-4f9b-b191-dc6aff58fd86" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/ProductManagerService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

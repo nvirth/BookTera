@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CommonModels.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CommonModels.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DetailedSearchVM.DetailedSearchInputs">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CategoryId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsAudio" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsBook" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsDownloadable" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUsed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVideo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="PageNumberFrom" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PageNumberTo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PriceFrom" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PriceTo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PublishYearFrom" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="PublishYearTo" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Publisher" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SearchingText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subtitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DetailedSearchVM.DetailedSearchInputs" nillable="true" type="tns:DetailedSearchVM.DetailedSearchInputs" />
+</xs:schema>

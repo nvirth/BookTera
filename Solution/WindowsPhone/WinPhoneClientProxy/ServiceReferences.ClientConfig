@@ -1,0 +1,30 @@
+<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="CategoryBasic" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="ProductGroupBasic" maxBufferSize="2147483647"
+            maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+        <binding name="ProductBasic" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://192.168.1.103:50135/EntityManagers/ProductManagerService.svc/basic"
+          binding="basicHttpBinding" bindingConfiguration="ProductBasic"
+          contract="ProductManagerService.IProductManager" name="ProductBasic" />
+      <endpoint address="http://192.168.1.103:50135/EntityManagers/CategoryManagerService.svc/basic"
+          binding="basicHttpBinding" bindingConfiguration="CategoryBasic"
+          contract="CategoryManagerService.ICategoryManager" name="CategoryBasic" />
+      <endpoint address="http://192.168.1.103:50135/EntityManagers/ProductGroupManagerService.svc/basic"
+          binding="basicHttpBinding" bindingConfiguration="ProductGroupBasic"
+          contract="ProductGroupManagerService.IProductGroupManager"
+          name="ProductGroupBasic" />
+    </client>
+  </system.serviceModel>
+</configuration>

@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F4AA3829-87F6-4515-9A1A-0D0CE1C35269}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WinPhoneClientProxy</RootNamespace>
+    <AssemblyName>WinPhoneClientProxy</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\CategoryManagerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductGroupManagerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ProductManagerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="WcfProxy\AuthenticationClient.cs" />
+    <Compile Include="WcfProxy\Base\Request.cs" />
+    <Compile Include="WcfProxy\Base\RestServiceClientBase.cs" />
+    <Compile Include="WcfProxy\ImageManagerClient.cs" />
+    <Compile Include="WcfProxy\RegistrationClient.cs" />
+    <Compile Include="WcfProxy\Services.cs" />
+    <Compile Include="WcfProxy\TransactionManagerClient.cs" />
+    <Compile Include="WcfProxy\UserProfileManagerClient.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\theSolution\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Service References\CategoryManagerService\CategoryManagerService.wsdl" />
+    <None Include="Service References\CategoryManagerService\CategoryManagerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CategoryManagerService\WinPhoneClientProxy.CategoryManagerService.InCategoryCWPLVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CategoryManagerService\WinPhoneClientProxy.CategoryManagerService.SelectListItemWithClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService.disco" />
+    <None Include="Service References\ProductGroupManagerService\configuration91.svcinfo" />
+    <None Include="Service References\ProductGroupManagerService\configuration.svcinfo" />
+    <None Include="Service References\ProductGroupManagerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ProductManagerService\ProductManagerService.disco" />
+    <None Include="Service References\ProductManagerService\configuration91.svcinfo" />
+    <None Include="Service References\ProductManagerService\configuration.svcinfo" />
+    <None Include="Service References\ProductManagerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService.wsdl" />
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\ProductGroupManagerService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\WinPhoneClientProxy.ProductGroupManagerService.BookBlockPLVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\WinPhoneClientProxy.ProductGroupManagerService.BookRowPLVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\WinPhoneClientProxy.ProductGroupManagerService.InCategoryCWPLVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\WinPhoneClientProxy.ProductGroupManagerService.LabelValuePair.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\WinPhoneClientProxy.ProductGroupManagerService.SearchPgAcVm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductGroupManagerService\WinPhoneClientProxy.ProductGroupManagerService.SelectListItemWithClass.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductManagerService\ProductManagerService.wsdl" />
+    <None Include="Service References\ProductManagerService\ProductManagerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManagerService\ProductManagerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManagerService\ProductManagerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManagerService\ProductManagerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManagerService\ProductManagerService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ProductManagerService\WinPhoneClientProxy.ProductManagerService.BookBlockPLVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ProductManagerService\WinPhoneClientProxy.ProductManagerService.InCategoryPLVM.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\CommonPortable\CommonPortable.csproj">
+      <Project>{5A67FE83-7881-4693-800C-7077C7FA88EB}</Project>
+      <Name>CommonPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\UtilsSharedPortable\UtilsSharedPortable.csproj">
+      <Project>{1E7F5799-80FC-445D-A0B1-C970AA3CDC2A}</Project>
+      <Name>UtilsSharedPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinPhoneCommon\WinPhoneCommon.csproj">
+      <Project>{B5E042F7-3261-41FD-9974-E7E3E5F4D8FD}</Project>
+      <Name>WinPhoneCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CategoryManagerService\" />
+    <WCFMetadataStorage Include="Service References\ProductGroupManagerService\" />
+    <WCFMetadataStorage Include="Service References\ProductManagerService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoryManagerService\CategoryManagerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoryManagerService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoryManagerService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CategoryManagerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

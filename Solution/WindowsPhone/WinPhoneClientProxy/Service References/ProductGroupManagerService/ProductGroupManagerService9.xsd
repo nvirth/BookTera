@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" />
+  <xs:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UtilsShared" />
+  <xs:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CommonPortable.Models" />
+  <xs:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/CommonModels.Models" />
+  <xs:element name="GetFullDetailed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="friendlyUrl" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="productsPerPage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDetailedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" minOccurs="0" name="GetFullDetailedResult" nillable="true" type="q1:BookRowPLVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSortedJson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="selectedId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSortedJsonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/UtilsShared" minOccurs="0" name="GetAllSortedJsonResult" nillable="true" type="q2:ArrayOfSelectListItemWithClass" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="productsPerPage" type="xs:int" />
+        <xs:element minOccurs="0" name="needCategory" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" minOccurs="0" name="SearchResult" nillable="true" type="q3:BookBlockPLVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchWithGroupedByCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="productsPerPage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchWithGroupedByCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" minOccurs="0" name="SearchWithGroupedByCategoryResult" nillable="true" type="q4:InCategoryCWPLVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAutoComplete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="howMany" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAutoCompleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/CommonPortable.Models" minOccurs="0" name="SearchAutoCompleteResult" nillable="true" type="q5:ArrayOfLabelValuePair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAutoCompletePg">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="howMany" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAutoCompletePgResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/CommonPortable.Models" minOccurs="0" name="SearchAutoCompletePgResult" nillable="true" type="q6:ArrayOfSearchPgAcVm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAutoCompleteJson">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="howMany" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAutoCompleteJsonResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SearchAutoCompleteJsonResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchDetailed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/CommonModels.Models" minOccurs="0" name="dsi" nillable="true" type="q7:DetailedSearchVM.DetailedSearchInputs" />
+        <xs:element minOccurs="0" name="pageNumber" type="xs:int" />
+        <xs:element minOccurs="0" name="productsPerPage" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchDetailedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" minOccurs="0" name="SearchDetailedResult" nillable="true" type="q8:BookBlockPLVM" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

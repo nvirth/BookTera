@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProductGroupManagerService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonPortable.Models.ProductModels" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/CommonPortable.Models" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/UtilsShared" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/System.Web.Mvc" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/CommonPortable.Enums" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/CommonModels.Models.EntityFramework" />
+      <xsd:import schemaLocation="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/CommonModels.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProductGroupManager_GetFullDetailed_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDetailed" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_GetFullDetailed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDetailedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_GetAllSortedJson_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSortedJson" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_GetAllSortedJson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSortedJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_Search_InputMessage">
+    <wsdl:part name="parameters" element="tns:Search" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_Search_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchWithGroupedByCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWithGroupedByCategory" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchWithGroupedByCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWithGroupedByCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchAutoComplete_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAutoComplete" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchAutoComplete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAutoCompleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchAutoCompletePg_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAutoCompletePg" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchAutoCompletePg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAutoCompletePgResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchAutoCompleteJson_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAutoCompleteJson" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchAutoCompleteJson_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchAutoCompleteJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchDetailed_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDetailed" />
+  </wsdl:message>
+  <wsdl:message name="IProductGroupManager_SearchDetailed_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchDetailedResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IProductGroupManager">
+    <wsdl:operation name="GetFullDetailed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/GetFullDetailed" message="tns:IProductGroupManager_GetFullDetailed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/GetFullDetailedResponse" message="tns:IProductGroupManager_GetFullDetailed_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSortedJson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/GetAllSortedJson" message="tns:IProductGroupManager_GetAllSortedJson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/GetAllSortedJsonResponse" message="tns:IProductGroupManager_GetAllSortedJson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/Search" message="tns:IProductGroupManager_Search_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/SearchResponse" message="tns:IProductGroupManager_Search_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchWithGroupedByCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/SearchWithGroupedByCategory" message="tns:IProductGroupManager_SearchWithGroupedByCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/SearchWithGroupedByCategoryResponse" message="tns:IProductGroupManager_SearchWithGroupedByCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAutoComplete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/SearchAutoComplete" message="tns:IProductGroupManager_SearchAutoComplete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/SearchAutoCompleteResponse" message="tns:IProductGroupManager_SearchAutoComplete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAutoCompletePg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/SearchAutoCompletePg" message="tns:IProductGroupManager_SearchAutoCompletePg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/SearchAutoCompletePgResponse" message="tns:IProductGroupManager_SearchAutoCompletePg_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchAutoCompleteJson">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/SearchAutoCompleteJson" message="tns:IProductGroupManager_SearchAutoCompleteJson_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/SearchAutoCompleteJsonResponse" message="tns:IProductGroupManager_SearchAutoCompleteJson_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchDetailed">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProductGroupManager/SearchDetailed" message="tns:IProductGroupManager_SearchDetailed_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProductGroupManager/SearchDetailedResponse" message="tns:IProductGroupManager_SearchDetailed_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductGroupBasic" type="tns:IProductGroupManager">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetFullDetailed">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/GetFullDetailed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSortedJson">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/GetAllSortedJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Search">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/Search" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchWithGroupedByCategory">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/SearchWithGroupedByCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAutoComplete">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/SearchAutoComplete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAutoCompletePg">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/SearchAutoCompletePg" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchAutoCompleteJson">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/SearchAutoCompleteJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchDetailed">
+      <soap:operation soapAction="http://tempuri.org/IProductGroupManager/SearchDetailed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductGroupManagerService">
+    <wsdl:port name="ProductGroupBasic" binding="tns:ProductGroupBasic">
+      <soap:address location="http://localhost:50135/EntityManagers/ProductGroupManagerService.svc/basic" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
