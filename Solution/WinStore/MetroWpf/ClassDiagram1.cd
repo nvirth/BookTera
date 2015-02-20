@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MetroWpf.App" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAIAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.CategoryPage" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CwBAAQAAABAAAAAAAAEAEAwAAIAAIEQgAAACAEAAAAA=</HashCode>
+      <FileName>CategoryPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.ProductGroupPage" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAIAAAAAAAAEAAAAAAQAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>ProductGroupPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Common.BooleanToVisibilityConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\BooleanToVisibilityConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroWpf.Common.CategoryPageNavigationParameter" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAgAAAAAAA=</HashCode>
+      <FileName>Common\CategoryPageNavigationParameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Common.NavigationHelper" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAQAAAAUCAQAAAACAAIRAQAAAQAAAUAAAAAAAABAAk=</HashCode>
+      <FileName>Common\NavigationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Common.LoadStateEventArgs" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\NavigationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Common.SaveStateEventArgs" Collapsed="true">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\NavigationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Common.ObservableDictionary" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCIAAABAAAAEABAQCAAABAQBAAAAAAAAAAAgAABQIAA=</HashCode>
+      <FileName>Common\ObservableDictionary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroWpf.Common.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroWpf.Common.SearchPaneManager" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAIAACDBAAAAQAACEAAAAAAA=</HashCode>
+      <FileName>Common\SearchPaneManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Common.StringFormatConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\StringFormatConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MetroWpf.Common.SuspensionManager" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAaIAASCBEAAAICAAAAAIAAAAAAAAAAIAAAABA=</HashCode>
+      <FileName>Common\SuspensionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Common.SuspensionManagerException" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\SuspensionManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Data.SampleDataItem" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAgAEAEQAAAAIAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>DataModel\SampleDataSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Data.SampleDataGroup" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgCEAEQAAAAIAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>DataModel\SampleDataSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.Data.SampleDataSource" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAEAAAAAAAAAAAAIAAoAAAABAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>DataModel\SampleDataSource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.SampleData.CategoryPageSampleData" Collapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SampleData\CategoryPageSampleData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.SampleData.ProductGroupPageSampleData" Collapsed="true">
+    <Position X="6" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>SampleData\ProductGroupPageSampleData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.BllProxy.EntityManagers.CategoryManagerService.SelectListItemWithClass" Collapsed="true">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\BllProxy.EntityManagers.CategoryManagerService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MetroWpf.BllProxy.EntityManagers.CategoryManagerService.SelectListItem" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACAAAAAAAAAAAAAAAAgAAgAAAAAgAgCAAAAAI=</HashCode>
+      <FileName>Service References\BllProxy.EntityManagers.CategoryManagerService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MetroWpf.BllProxy.EntityManagers.CategoryManagerService.CategoryManagerClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAAAAAAAAAAAAAAAACAAEAACAAAAAA=</HashCode>
+      <FileName>Service References\BllProxy.EntityManagers.CategoryManagerService\Reference.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="MetroWpf.BllProxy.EntityManagers.CategoryManagerService.ICategoryManager" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Service References\BllProxy.EntityManagers.CategoryManagerService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MetroWpf.BllProxy.EntityManagers.CategoryManagerService.ICategoryManagerChannel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\BllProxy.EntityManagers.CategoryManagerService\Reference.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MetroWpf.Common.CategoryPageNavigationParameterEnum" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Common\CategoryPageNavigationParameter.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="MetroWpf.Common.LoadStateEventHandler" Collapsed="true">
+    <Position X="6" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Common\NavigationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="MetroWpf.Common.SaveStateEventHandler" Collapsed="true">
+    <Position X="7.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Common\NavigationHelper.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

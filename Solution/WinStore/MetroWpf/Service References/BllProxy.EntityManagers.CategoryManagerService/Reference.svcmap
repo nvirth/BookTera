@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6ed1d294-3caa-4b92-a33f-35c3bcd7cca5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:50135/EntityManagers/CategoryManagerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CategoryManagerService.xsd" MetadataType="Schema" ID="afdb55d9-41f0-45d6-8dec-e11c823c311c" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd6" />
+    <MetadataFile FileName="CategoryManagerService1.xsd" MetadataType="Schema" ID="33d60499-0899-4a5c-be9a-aa01409967f9" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="CategoryManagerService2.xsd" MetadataType="Schema" ID="1429467b-26a0-403c-aba5-06e420bf3034" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CategoryManagerService3.xsd" MetadataType="Schema" ID="380d5551-b4f0-4bb2-8b87-74b9ac28b4ee" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="CategoryManagerService4.xsd" MetadataType="Schema" ID="88b81eaf-51ed-43e0-9c79-8ba208a276ae" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CategoryManagerService5.xsd" MetadataType="Schema" ID="8c3fe5dc-664c-4c37-b433-d313501262b1" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd5" />
+    <MetadataFile FileName="CategoryManagerService6.xsd" MetadataType="Schema" ID="61e192b9-c7f0-4430-8b42-e087ffd3fa55" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd4" />
+    <MetadataFile FileName="CategoryManagerService7.xsd" MetadataType="Schema" ID="72c65d8d-18ab-411a-8fb6-efd96a8e6936" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd7" />
+    <MetadataFile FileName="CategoryManagerService.disco" MetadataType="Disco" ID="7f5fb895-c275-46b0-95f1-fff6645a0383" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?disco" />
+    <MetadataFile FileName="CategoryManagerService.wsdl" MetadataType="Wsdl" ID="5f34d100-88d9-461c-b21d-8def21266af2" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?wsdl" />
+    <MetadataFile FileName="CategoryManagerService8.xsd" MetadataType="Schema" ID="c2a67cf9-ed93-4bbb-b646-43720960713c" SourceId="1" SourceUrl="http://localhost:50135/EntityManagers/CategoryManagerService.svc?xsd=xsd8" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
