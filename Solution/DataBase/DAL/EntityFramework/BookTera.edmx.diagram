@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="77448f42ba1d453084aa447fd115e697" Name="Diagram1" ZoomLevel="97">
+        <EntityTypeShape EntityType="DAL.Author" Width="1.5" PointX="5.25" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.Category" Width="1.5" PointX="5.25" PointY="36.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.Comment" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.Feedback" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.HighlightedProduct" Width="1.5" PointX="7.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.HighlightType" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.Image" Width="1.5" PointX="8.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.Product" Width="2.125" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.ProductGroup" Width="1.5" PointX="7.5" PointY="38.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.ProductInOrder" Width="1.5" PointX="10.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.Publisher" Width="1.5" PointX="5.25" PointY="40.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.Rating" Width="1.5" PointX="9.75" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.UserAddress" Width="1.5" PointX="5.25" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.UserGroup" Width="1.5" PointX="0.75" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.UserOrder" Width="1.5" PointX="7.5" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.UserProfile" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.UserView" Width="1.5" PointX="9.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.webpages_Membership" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.webpages_OAuthMembership" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DAL.webpages_Roles" Width="1.5" PointX="0.75" PointY="17.375" IsExpanded="true" />
+        <AssociationConnector Association="DAL.FK_Author_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Category_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_ProductGroup_Category1" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Comment_ParentComment" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Comment_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Comment_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Feedback_UserOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Feedback_UserProfile_RateGiver" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Feedback_UserProfile_RateReciever" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_HighlightedProduct_HighlightType" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_HighlightedProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Image_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Image_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_ImageProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Product_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Product_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_ProductInOrder_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserViewProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_ProductGroup_Publisher1" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Rating_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserView_ProductGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_ProductInOrder_UserOrder" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Publisher_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_Rating_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_User_DefaultUserAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserAddress_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserOrder_UserAddress" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_User_UserGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserOrder_UserProfile_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserOrder_UserProfile_Vendor" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserViewProduct_UserProfile" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.ProductGroupAuthor" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.webpages_UsersInRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="DAL.FK_UserOrder_UserAddress_Vendor" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

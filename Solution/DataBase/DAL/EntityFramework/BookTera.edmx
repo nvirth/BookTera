@@ -1,0 +1,2138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BookTeraModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="BookTeraModelStoreContainer">
+          <EntitySet Name="Author" EntityType="BookTeraModel.Store.Author" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Category" EntityType="BookTeraModel.Store.Category" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comment" EntityType="BookTeraModel.Store.Comment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Feedback" EntityType="BookTeraModel.Store.Feedback" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HighlightedProduct" EntityType="BookTeraModel.Store.HighlightedProduct" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HighlightType" EntityType="BookTeraModel.Store.HighlightType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Image" EntityType="BookTeraModel.Store.Image" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product" EntityType="BookTeraModel.Store.Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductGroup" EntityType="BookTeraModel.Store.ProductGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductGroupAuthor" EntityType="BookTeraModel.Store.ProductGroupAuthor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ProductInOrder" EntityType="BookTeraModel.Store.ProductInOrder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Publisher" EntityType="BookTeraModel.Store.Publisher" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Rating" EntityType="BookTeraModel.Store.Rating" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserAddress" EntityType="BookTeraModel.Store.UserAddress" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserGroup" EntityType="BookTeraModel.Store.UserGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserOrder" EntityType="BookTeraModel.Store.UserOrder" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserProfile" EntityType="BookTeraModel.Store.UserProfile" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserView" EntityType="BookTeraModel.Store.UserView" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Membership" EntityType="BookTeraModel.Store.webpages_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="BookTeraModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_Roles" EntityType="BookTeraModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="BookTeraModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Author_User" Association="BookTeraModel.Store.FK_Author_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Category" Association="BookTeraModel.Store.FK_Category_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_ParentComment" Association="BookTeraModel.Store.FK_Comment_ParentComment">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Comment1" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_ProductGroup" Association="BookTeraModel.Store.FK_Comment_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_UserProfile" Association="BookTeraModel.Store.FK_Comment_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_UserOrder" Association="BookTeraModel.Store.FK_Feedback_UserOrder">
+            <End Role="UserOrder" EntitySet="UserOrder" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_UserProfile_RateGiver" Association="BookTeraModel.Store.FK_Feedback_UserProfile_RateGiver">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_UserProfile_RateReciever" Association="BookTeraModel.Store.FK_Feedback_UserProfile_RateReciever">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HighlightedProduct_HighlightType" Association="BookTeraModel.Store.FK_HighlightedProduct_HighlightType">
+            <End Role="HighlightType" EntitySet="HighlightType" />
+            <End Role="HighlightedProduct" EntitySet="HighlightedProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HighlightedProduct_Product" Association="BookTeraModel.Store.FK_HighlightedProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="HighlightedProduct" EntitySet="HighlightedProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_ProductGroup" Association="BookTeraModel.Store.FK_Image_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_UserProfile" Association="BookTeraModel.Store.FK_Image_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImageProduct_Product" Association="BookTeraModel.Store.FK_ImageProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductGroup" Association="BookTeraModel.Store.FK_Product_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_User" Association="BookTeraModel.Store.FK_Product_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroup_Category1" Association="BookTeraModel.Store.FK_ProductGroup_Category1">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroup_Publisher1" Association="BookTeraModel.Store.FK_ProductGroup_Publisher1">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroupAuthor_ProductGroup" Association="BookTeraModel.Store.FK_ProductGroupAuthor_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="ProductGroupAuthor" EntitySet="ProductGroupAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInOrder_Product" Association="BookTeraModel.Store.FK_ProductInOrder_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInOrder_UserOrder" Association="BookTeraModel.Store.FK_ProductInOrder_UserOrder">
+            <End Role="UserOrder" EntitySet="UserOrder" />
+            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publisher_User" Association="BookTeraModel.Store.FK_Publisher_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Publisher" EntitySet="Publisher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_ProductGroup" Association="BookTeraModel.Store.FK_Rating_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_UserProfile" Association="BookTeraModel.Store.FK_Rating_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="BookTeraModel.Store.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SwitchAuthorProduct_Author" Association="BookTeraModel.Store.FK_SwitchAuthorProduct_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="ProductGroupAuthor" EntitySet="ProductGroupAuthor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_DefaultUserAddress" Association="BookTeraModel.Store.FK_User_DefaultUserAddress">
+            <End Role="UserAddress" EntitySet="UserAddress" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserGroup" Association="BookTeraModel.Store.FK_User_UserGroup">
+            <End Role="UserGroup" EntitySet="UserGroup" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAddress_User" Association="BookTeraModel.Store.FK_UserAddress_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserAddress" EntitySet="UserAddress" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="BookTeraModel.Store.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserAddress_Customer" Association="BookTeraModel.Store.FK_UserOrder_UserAddress_Customer">
+            <End Role="UserAddress" EntitySet="UserAddress" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserAddress_Vendor" Association="BookTeraModel.Store.FK_UserOrder_UserAddress_Vendor">
+            <End Role="UserAddress" EntitySet="UserAddress" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserProfile_Customer" Association="BookTeraModel.Store.FK_UserOrder_UserProfile_Customer">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserProfile_Vendor" Association="BookTeraModel.Store.FK_UserOrder_UserProfile_Vendor">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserView_ProductGroup" Association="BookTeraModel.Store.FK_UserView_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="UserView" EntitySet="UserView" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserViewProduct_Product" Association="BookTeraModel.Store.FK_UserViewProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="UserView" EntitySet="UserView" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserViewProduct_UserProfile" Association="BookTeraModel.Store.FK_UserViewProduct_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserView" EntitySet="UserView" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="DisplayName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FriendlyUrl" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="About" Type="nvarchar(max)" />
+          <Property Name="IsCheckedByAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ParentCategoryID" Type="int" />
+          <Property Name="DisplayName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FullPath" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="FriendlyUrl" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="Sort" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="IsParent" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ParentCommentID" Type="int" />
+          <Property Name="CreatedDate" Type="datetime2" Nullable="false" Precision="3" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserOrderID" Type="int" Nullable="false" />
+          <Property Name="RateGiverUserID" Type="int" Nullable="false" />
+          <Property Name="RatedUserID" Type="int" Nullable="false" />
+          <Property Name="IsCustomers" Type="bit" Nullable="false" />
+          <Property Name="IsPositive" Type="bit" />
+          <Property Name="WasSuccessful" Type="bit" Nullable="false" />
+          <Property Name="ProductsQuality" Type="tinyint" Nullable="false" />
+          <Property Name="SellerContact" Type="tinyint" Nullable="false" />
+          <Property Name="TransactionQuality" Type="tinyint" Nullable="false" />
+          <Property Name="TransportAndBoxing" Type="tinyint" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HighlightedProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="HighlightTypeID" Type="int" Nullable="false" />
+          <Property Name="FromDate" Type="date" Nullable="false" />
+          <Property Name="ToDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HighlightType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductGroupID" Type="int" />
+          <Property Name="IsDefault" Type="bit" Nullable="false" />
+          <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Language" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UploadedDate" Type="datetime2" Nullable="false" Precision="3" />
+          <Property Name="ChangeHistory" Type="xml" />
+          <Property Name="PublishYear" Type="int" Nullable="false" />
+          <Property Name="PageNumber" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="SumOfViews" Type="int" Nullable="false" />
+          <Property Name="HowMany" Type="int" Nullable="false" />
+          <Property Name="Edition" Type="int" Nullable="false" />
+          <Property Name="IsDownloadable" Type="bit" Nullable="false" />
+          <Property Name="IsBook" Type="bit" Nullable="false" />
+          <Property Name="IsAudio" Type="bit" Nullable="false" />
+          <Property Name="IsVideo" Type="bit" Nullable="false" />
+          <Property Name="IsUsed" Type="bit" Nullable="false" />
+          <Property Name="IsCheckedByAdmin" Type="bit" Nullable="false" />
+          <Property Name="ContainsOther" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherID" Type="int" Nullable="false" />
+          <Property Name="CategoryID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="100" />
+          <Property Name="FriendlyUrl" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ImageUrl" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AuthorNames" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="PublisherName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ChangeHistory" Type="xml" />
+          <Property Name="MinPrice" Type="int" Nullable="false" />
+          <Property Name="MaxPrice" Type="int" Nullable="false" />
+          <Property Name="SumOfActiveProductsInGroup" Type="int" Nullable="false" />
+          <Property Name="SumOfPassiveProductsInGroup" Type="int" Nullable="false" />
+          <Property Name="SumOfViews" Type="int" Nullable="false" />
+          <Property Name="SumOfBuys" Type="int" Nullable="false" />
+          <Property Name="SumOfRatings" Type="int" Nullable="false" />
+          <Property Name="SumOfRatingsValue" Type="int" Nullable="false" />
+          <Property Name="SumOfComments" Type="int" Nullable="false" />
+          <Property Name="IsCheckedByAdmin" Type="bit" Nullable="false" />
+          <Property Name="UploadedDate" Type="datetime2" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProductGroupAuthor">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+            <PropertyRef Name="ProductGroupID" />
+          </Key>
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+          <Property Name="ProductGroupID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductInOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="UserOrderID" Type="int" Nullable="false" />
+          <Property Name="HowMany" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="int" Nullable="false" />
+          <Property Name="IsForExchange" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="DisplayName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FriendlyUrl" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="About" Type="nvarchar(max)" />
+          <Property Name="IsCheckedByAdmin" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Value" Type="tinyint" Nullable="false" />
+          <Property Name="Date" Type="datetime2" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserAddress">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="ZipCode" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="StreetAndHouseNumber" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="BuyFeePercent" Type="tinyint" Nullable="false" />
+          <Property Name="SellFeePercent" Type="tinyint" Nullable="false" />
+          <Property Name="MonthsToKeepBooks" Type="tinyint" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerUserProfileID" Type="int" Nullable="false" />
+          <Property Name="CustomerAddressID" Type="int" />
+          <Property Name="CustomersBuyFeePercent" Type="int" Nullable="false" />
+          <Property Name="VendorUserProfileID" Type="int" Nullable="false" />
+          <Property Name="VendorAddressID" Type="int" />
+          <Property Name="VendorsSellFeePercent" Type="int" Nullable="false" />
+          <Property Name="SumBookPrice" Type="int" Nullable="false" />
+          <Property Name="SumOtherPrices" Type="xml" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="RatingState" Type="tinyint" Nullable="false" />
+          <Property Name="Date" Type="datetime2" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserGroupID" Type="int" Nullable="false" />
+          <Property Name="DefaultAddressID" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMail" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="FriendlyUrl" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="LastLoginDate" Type="datetime2" Nullable="false" Precision="3" />
+          <Property Name="PreviousLoginDate" Type="datetime2" Nullable="false" Precision="3" />
+          <Property Name="RegistrationDate" Type="date" Nullable="false" />
+          <Property Name="SumOfSells" Type="int" Nullable="false" />
+          <Property Name="SumOfSellsInProgress" Type="int" Nullable="false" />
+          <Property Name="SumOfBuys" Type="int" Nullable="false" />
+          <Property Name="SumOfBuysInProgress" Type="int" Nullable="false" />
+          <Property Name="SumOfNeededFeedbacks" Type="int" Nullable="false" />
+          <Property Name="SumOfFeedbacks" Type="int" Nullable="false" />
+          <Property Name="SumOfFeedbacksValue" Type="int" Nullable="false" />
+          <Property Name="SumOfActiveProducts" Type="int" Nullable="false" />
+          <Property Name="SumOfPassiveProducts" Type="int" Nullable="false" />
+          <Property Name="IsAuthor" Type="bit" Nullable="false" />
+          <Property Name="IsPublisher" Type="bit" Nullable="false" />
+          <Property Name="Balance" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductGroupID" Type="int" />
+          <Property Name="LastDate" Type="datetime2" Nullable="false" Precision="3" />
+          <Property Name="HowMany" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="ProviderUserId" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Author_User">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="Author" Type="BookTeraModel.Store.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Category">
+          <End Role="Category" Type="BookTeraModel.Store.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="BookTeraModel.Store.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="ParentCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_ParentComment">
+          <End Role="Comment" Type="BookTeraModel.Store.Comment" Multiplicity="0..1" />
+          <End Role="Comment1" Type="BookTeraModel.Store.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment1">
+              <PropertyRef Name="ParentCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_ProductGroup">
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="1" />
+          <End Role="Comment" Type="BookTeraModel.Store.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_UserProfile">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Comment" Type="BookTeraModel.Store.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_UserOrder">
+          <End Role="UserOrder" Type="BookTeraModel.Store.UserOrder" Multiplicity="1" />
+          <End Role="Feedback" Type="BookTeraModel.Store.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="UserOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_UserProfile_RateGiver">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Feedback" Type="BookTeraModel.Store.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="RateGiverUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_UserProfile_RateReciever">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Feedback" Type="BookTeraModel.Store.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="RatedUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HighlightedProduct_HighlightType">
+          <End Role="HighlightType" Type="BookTeraModel.Store.HighlightType" Multiplicity="1" />
+          <End Role="HighlightedProduct" Type="BookTeraModel.Store.HighlightedProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HighlightType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HighlightedProduct">
+              <PropertyRef Name="HighlightTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HighlightedProduct_Product">
+          <End Role="Product" Type="BookTeraModel.Store.Product" Multiplicity="1" />
+          <End Role="HighlightedProduct" Type="BookTeraModel.Store.HighlightedProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HighlightedProduct">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_ProductGroup">
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="0..1" />
+          <End Role="Image" Type="BookTeraModel.Store.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_UserProfile">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="Image" Type="BookTeraModel.Store.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImageProduct_Product">
+          <End Role="Product" Type="BookTeraModel.Store.Product" Multiplicity="0..1" />
+          <End Role="Image" Type="BookTeraModel.Store.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductGroup">
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="1" />
+          <End Role="Product" Type="BookTeraModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_User">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Product" Type="BookTeraModel.Store.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroup_Category1">
+          <End Role="Category" Type="BookTeraModel.Store.Category" Multiplicity="1" />
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductGroup">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroup_Publisher1">
+          <End Role="Publisher" Type="BookTeraModel.Store.Publisher" Multiplicity="1" />
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductGroup">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroupAuthor_ProductGroup">
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="1" />
+          <End Role="ProductGroupAuthor" Type="BookTeraModel.Store.ProductGroupAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductGroupAuthor">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInOrder_Product">
+          <End Role="Product" Type="BookTeraModel.Store.Product" Multiplicity="1" />
+          <End Role="ProductInOrder" Type="BookTeraModel.Store.ProductInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductInOrder">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInOrder_UserOrder">
+          <End Role="UserOrder" Type="BookTeraModel.Store.UserOrder" Multiplicity="1" />
+          <End Role="ProductInOrder" Type="BookTeraModel.Store.ProductInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductInOrder">
+              <PropertyRef Name="UserOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publisher_User">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="Publisher" Type="BookTeraModel.Store.Publisher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Publisher">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_ProductGroup">
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="1" />
+          <End Role="Rating" Type="BookTeraModel.Store.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_UserProfile">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="Rating" Type="BookTeraModel.Store.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="BookTeraModel.Store.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="BookTeraModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SwitchAuthorProduct_Author">
+          <End Role="Author" Type="BookTeraModel.Store.Author" Multiplicity="1" />
+          <End Role="ProductGroupAuthor" Type="BookTeraModel.Store.ProductGroupAuthor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductGroupAuthor">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_DefaultUserAddress">
+          <End Role="UserAddress" Type="BookTeraModel.Store.UserAddress" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="DefaultAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserGroup">
+          <End Role="UserGroup" Type="BookTeraModel.Store.UserGroup" Multiplicity="1" />
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAddress_User">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="UserAddress" Type="BookTeraModel.Store.UserAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserAddress">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="BookTeraModel.Store.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrder_UserAddress_Customer">
+          <End Role="UserAddress" Type="BookTeraModel.Store.UserAddress" Multiplicity="0..1" />
+          <End Role="UserOrder" Type="BookTeraModel.Store.UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="CustomerAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrder_UserAddress_Vendor">
+          <End Role="UserAddress" Type="BookTeraModel.Store.UserAddress" Multiplicity="0..1" />
+          <End Role="UserOrder" Type="BookTeraModel.Store.UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="VendorAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrder_UserProfile_Customer">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="UserOrder" Type="BookTeraModel.Store.UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="CustomerUserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrder_UserProfile_Vendor">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="1" />
+          <End Role="UserOrder" Type="BookTeraModel.Store.UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="VendorUserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserView_ProductGroup">
+          <End Role="ProductGroup" Type="BookTeraModel.Store.ProductGroup" Multiplicity="0..1" />
+          <End Role="UserView" Type="BookTeraModel.Store.UserView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserView">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserViewProduct_Product">
+          <End Role="Product" Type="BookTeraModel.Store.Product" Multiplicity="0..1" />
+          <End Role="UserView" Type="BookTeraModel.Store.UserView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserView">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserViewProduct_UserProfile">
+          <End Role="UserProfile" Type="BookTeraModel.Store.UserProfile" Multiplicity="0..1" />
+          <End Role="UserView" Type="BookTeraModel.Store.UserView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserView">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DAL" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Author" EntityType="DAL.Author" />
+          <EntitySet Name="Category" EntityType="DAL.Category" />
+          <EntitySet Name="Comment" EntityType="DAL.Comment" />
+          <EntitySet Name="Feedback" EntityType="DAL.Feedback" />
+          <EntitySet Name="HighlightedProduct" EntityType="DAL.HighlightedProduct" />
+          <EntitySet Name="HighlightType" EntityType="DAL.HighlightType" />
+          <EntitySet Name="Image" EntityType="DAL.Image" />
+          <EntitySet Name="Product" EntityType="DAL.Product" />
+          <EntitySet Name="ProductGroup" EntityType="DAL.ProductGroup" />
+          <EntitySet Name="ProductInOrder" EntityType="DAL.ProductInOrder" />
+          <EntitySet Name="Publisher" EntityType="DAL.Publisher" />
+          <EntitySet Name="Rating" EntityType="DAL.Rating" />
+          <EntitySet Name="UserAddress" EntityType="DAL.UserAddress" />
+          <EntitySet Name="UserGroup" EntityType="DAL.UserGroup" />
+          <EntitySet Name="UserOrder" EntityType="DAL.UserOrder" />
+          <EntitySet Name="UserProfile" EntityType="DAL.UserProfile" />
+          <EntitySet Name="UserView" EntityType="DAL.UserView" />
+          <EntitySet Name="webpages_Membership" EntityType="DAL.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="DAL.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="DAL.webpages_Roles" />
+          <AssociationSet Name="FK_Author_User" Association="DAL.FK_Author_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_Category" Association="DAL.FK_Category_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Category1" EntitySet="Category" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroup_Category1" Association="DAL.FK_ProductGroup_Category1">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_ParentComment" Association="DAL.FK_Comment_ParentComment">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Comment1" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_ProductGroup" Association="DAL.FK_Comment_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_UserProfile" Association="DAL.FK_Comment_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_UserOrder" Association="DAL.FK_Feedback_UserOrder">
+            <End Role="UserOrder" EntitySet="UserOrder" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_UserProfile_RateGiver" Association="DAL.FK_Feedback_UserProfile_RateGiver">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feedback_UserProfile_RateReciever" Association="DAL.FK_Feedback_UserProfile_RateReciever">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Feedback" EntitySet="Feedback" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HighlightedProduct_HighlightType" Association="DAL.FK_HighlightedProduct_HighlightType">
+            <End Role="HighlightType" EntitySet="HighlightType" />
+            <End Role="HighlightedProduct" EntitySet="HighlightedProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HighlightedProduct_Product" Association="DAL.FK_HighlightedProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="HighlightedProduct" EntitySet="HighlightedProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_ProductGroup" Association="DAL.FK_Image_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_UserProfile" Association="DAL.FK_Image_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ImageProduct_Product" Association="DAL.FK_ImageProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductGroup" Association="DAL.FK_Product_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_User" Association="DAL.FK_Product_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInOrder_Product" Association="DAL.FK_ProductInOrder_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserViewProduct_Product" Association="DAL.FK_UserViewProduct_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="UserView" EntitySet="UserView" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroup_Publisher1" Association="DAL.FK_ProductGroup_Publisher1">
+            <End Role="Publisher" EntitySet="Publisher" />
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_ProductGroup" Association="DAL.FK_Rating_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserView_ProductGroup" Association="DAL.FK_UserView_ProductGroup">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="UserView" EntitySet="UserView" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductInOrder_UserOrder" Association="DAL.FK_ProductInOrder_UserOrder">
+            <End Role="UserOrder" EntitySet="UserOrder" />
+            <End Role="ProductInOrder" EntitySet="ProductInOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Publisher_User" Association="DAL.FK_Publisher_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Publisher" EntitySet="Publisher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_UserProfile" Association="DAL.FK_Rating_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_DefaultUserAddress" Association="DAL.FK_User_DefaultUserAddress">
+            <End Role="UserAddress" EntitySet="UserAddress" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserAddress_User" Association="DAL.FK_UserAddress_User">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserAddress" EntitySet="UserAddress" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserAddress" Association="DAL.FK_UserOrder_UserAddress">
+            <End Role="UserAddress" EntitySet="UserAddress" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_UserGroup" Association="DAL.FK_User_UserGroup">
+            <End Role="UserGroup" EntitySet="UserGroup" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserProfile_Customer" Association="DAL.FK_UserOrder_UserProfile_Customer">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserProfile_Vendor" Association="DAL.FK_UserOrder_UserProfile_Vendor">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserViewProduct_UserProfile" Association="DAL.FK_UserViewProduct_UserProfile">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="UserView" EntitySet="UserView" />
+          </AssociationSet>
+          <AssociationSet Name="ProductGroupAuthor" Association="DAL.ProductGroupAuthor">
+            <End Role="ProductGroup" EntitySet="ProductGroup" />
+            <End Role="Author" EntitySet="Author" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="DAL.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserOrder_UserAddress_Vendor" Association="DAL.FK_UserOrder_UserAddress_Vendor">
+            <End Role="UserAddress" EntitySet="UserAddress" />
+            <End Role="UserOrder" EntitySet="UserOrder" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FriendlyUrl" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="About" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsCheckedByAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_Author_User" FromRole="Author" ToRole="UserProfile" />
+          <NavigationProperty Name="ProductGroups" Relationship="DAL.ProductGroupAuthor" FromRole="Author" ToRole="ProductGroup" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentCategoryID" Type="Int32" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FullPath" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="FriendlyUrl" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Sort" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="IsParent" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ChildCategories" Relationship="DAL.FK_Category_Category" FromRole="Category" ToRole="Category1" />
+          <NavigationProperty Name="ParentCategory" Relationship="DAL.FK_Category_Category" FromRole="Category1" ToRole="Category" />
+          <NavigationProperty Name="ProductGroupsInCategory" Relationship="DAL.FK_ProductGroup_Category1" FromRole="Category" ToRole="ProductGroup" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ParentCommentID" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ChildComments" Relationship="DAL.FK_Comment_ParentComment" FromRole="Comment" ToRole="Comment1" />
+          <NavigationProperty Name="ParentComment" Relationship="DAL.FK_Comment_ParentComment" FromRole="Comment1" ToRole="Comment" />
+          <NavigationProperty Name="ProductGroup" Relationship="DAL.FK_Comment_ProductGroup" FromRole="Comment" ToRole="ProductGroup" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_Comment_UserProfile" FromRole="Comment" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserOrderID" Type="Int32" Nullable="false" />
+          <Property Name="RateGiverUserID" Type="Int32" Nullable="false" />
+          <Property Name="RatedUserID" Type="Int32" Nullable="false" />
+          <Property Name="IsCustomers" Type="Boolean" Nullable="false" />
+          <Property Name="IsPositive" Type="Boolean" />
+          <Property Name="WasSuccessful" Type="Boolean" Nullable="false" />
+          <Property Name="ProductsQuality" Type="Byte" Nullable="false" />
+          <Property Name="SellerContact" Type="Byte" Nullable="false" />
+          <Property Name="TransactionQuality" Type="Byte" Nullable="false" />
+          <Property Name="TransportAndBoxing" Type="Byte" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserOrder" Relationship="DAL.FK_Feedback_UserOrder" FromRole="Feedback" ToRole="UserOrder" />
+          <NavigationProperty Name="RateGiverUser" Relationship="DAL.FK_Feedback_UserProfile_RateGiver" FromRole="Feedback" ToRole="UserProfile" />
+          <NavigationProperty Name="RatedUser" Relationship="DAL.FK_Feedback_UserProfile_RateReciever" FromRole="Feedback" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="HighlightedProduct">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="HighlightTypeID" Type="Int32" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="HighlightType" Relationship="DAL.FK_HighlightedProduct_HighlightType" FromRole="HighlightedProduct" ToRole="HighlightType" />
+          <NavigationProperty Name="Product" Relationship="DAL.FK_HighlightedProduct_Product" FromRole="HighlightedProduct" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="HighlightType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="HighlightedProductsInType" Relationship="DAL.FK_HighlightedProduct_HighlightType" FromRole="HighlightType" ToRole="HighlightedProduct" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductGroupID" Type="Int32" />
+          <Property Name="IsDefault" Type="Boolean" Nullable="false" />
+          <Property Name="Url" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="ProductGroup" Relationship="DAL.FK_Image_ProductGroup" FromRole="Image" ToRole="ProductGroup" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_Image_UserProfile" FromRole="Image" ToRole="UserProfile" />
+          <NavigationProperty Name="Product" Relationship="DAL.FK_ImageProduct_Product" FromRole="Image" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Language" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="UploadedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ChangeHistory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="PublishYear" Type="Int32" Nullable="false" />
+          <Property Name="PageNumber" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="SumOfViews" Type="Int32" Nullable="false" />
+          <Property Name="HowMany" Type="Int32" Nullable="false" />
+          <Property Name="Edition" Type="Int32" Nullable="false" />
+          <Property Name="IsDownloadable" Type="Boolean" Nullable="false" />
+          <Property Name="IsBook" Type="Boolean" Nullable="false" />
+          <Property Name="IsAudio" Type="Boolean" Nullable="false" />
+          <Property Name="IsVideo" Type="Boolean" Nullable="false" />
+          <Property Name="IsUsed" Type="Boolean" Nullable="false" />
+          <Property Name="IsCheckedByAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="ContainsOther" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProductsHighlights" Relationship="DAL.FK_HighlightedProduct_Product" FromRole="Product" ToRole="HighlightedProduct" />
+          <NavigationProperty Name="Images" Relationship="DAL.FK_ImageProduct_Product" FromRole="Product" ToRole="Image" />
+          <NavigationProperty Name="ProductGroup" Relationship="DAL.FK_Product_ProductGroup" FromRole="Product" ToRole="ProductGroup" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_Product_User" FromRole="Product" ToRole="UserProfile" />
+          <NavigationProperty Name="ProductByOrder" Relationship="DAL.FK_ProductInOrder_Product" FromRole="Product" ToRole="ProductInOrder" />
+          <NavigationProperty Name="UserViews" Relationship="DAL.FK_UserViewProduct_Product" FromRole="Product" ToRole="UserView" />
+        </EntityType>
+        <EntityType Name="ProductGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="PublisherID" Type="Int32" Nullable="false" />
+          <Property Name="CategoryID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="SubTitle" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FriendlyUrl" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ImageUrl" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="AuthorNames" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="PublisherName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ChangeHistory" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="MinPrice" Type="Int32" Nullable="false" />
+          <Property Name="MaxPrice" Type="Int32" Nullable="false" />
+          <Property Name="SumOfActiveProductsInGroup" Type="Int32" Nullable="false" />
+          <Property Name="SumOfPassiveProductsInGroup" Type="Int32" Nullable="false" />
+          <Property Name="SumOfViews" Type="Int32" Nullable="false" />
+          <Property Name="SumOfBuys" Type="Int32" Nullable="false" />
+          <Property Name="SumOfRatings" Type="Int32" Nullable="false" />
+          <Property Name="SumOfRatingsValue" Type="Int32" Nullable="false" />
+          <Property Name="SumOfComments" Type="Int32" Nullable="false" />
+          <Property Name="IsCheckedByAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="UploadedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Category" Relationship="DAL.FK_ProductGroup_Category1" FromRole="ProductGroup" ToRole="Category" />
+          <NavigationProperty Name="Comments" Relationship="DAL.FK_Comment_ProductGroup" FromRole="ProductGroup" ToRole="Comment" />
+          <NavigationProperty Name="Images" Relationship="DAL.FK_Image_ProductGroup" FromRole="ProductGroup" ToRole="Image" />
+          <NavigationProperty Name="ProductsInGroup" Relationship="DAL.FK_Product_ProductGroup" FromRole="ProductGroup" ToRole="Product" />
+          <NavigationProperty Name="Publisher" Relationship="DAL.FK_ProductGroup_Publisher1" FromRole="ProductGroup" ToRole="Publisher" />
+          <NavigationProperty Name="Ratings" Relationship="DAL.FK_Rating_ProductGroup" FromRole="ProductGroup" ToRole="Rating" />
+          <NavigationProperty Name="UserViews" Relationship="DAL.FK_UserView_ProductGroup" FromRole="ProductGroup" ToRole="UserView" />
+          <NavigationProperty Name="Authors" Relationship="DAL.ProductGroupAuthor" FromRole="ProductGroup" ToRole="Author" />
+        </EntityType>
+        <EntityType Name="ProductInOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="UserOrderID" Type="Int32" Nullable="false" />
+          <Property Name="HowMany" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Int32" Nullable="false" />
+          <Property Name="IsForExchange" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="DAL.FK_ProductInOrder_Product" FromRole="ProductInOrder" ToRole="Product" />
+          <NavigationProperty Name="UserOrder" Relationship="DAL.FK_ProductInOrder_UserOrder" FromRole="ProductInOrder" ToRole="UserOrder" />
+        </EntityType>
+        <EntityType Name="Publisher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="DisplayName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FriendlyUrl" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="About" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="IsCheckedByAdmin" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ProductGroups" Relationship="DAL.FK_ProductGroup_Publisher1" FromRole="Publisher" ToRole="ProductGroup" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_Publisher_User" FromRole="Publisher" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroupID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Value" Type="Byte" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="ProductGroup" Relationship="DAL.FK_Rating_ProductGroup" FromRole="Rating" ToRole="ProductGroup" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_Rating_UserProfile" FromRole="Rating" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserAddress">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="StreetAndHouseNumber" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_UserAddress_User" FromRole="UserAddress" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="BuyFeePercent" Type="Byte" Nullable="false" />
+          <Property Name="SellFeePercent" Type="Byte" Nullable="false" />
+          <Property Name="MonthsToKeepBooks" Type="Byte" Nullable="false" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="DAL.FK_User_UserGroup" FromRole="UserGroup" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="UserOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerUserProfileID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerAddressID" Type="Int32" />
+          <Property Name="CustomersBuyFeePercent" Type="Int32" Nullable="false" />
+          <Property Name="VendorUserProfileID" Type="Int32" Nullable="false" />
+          <Property Name="VendorAddressID" Type="Int32" />
+          <Property Name="VendorsSellFeePercent" Type="Int32" Nullable="false" />
+          <Property Name="SumBookPrice" Type="Int32" Nullable="false" />
+          <Property Name="SumOtherPrices" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="Status" Type="Byte" Nullable="false" />
+          <Property Name="RatingState" Type="Byte" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Feedbacks" Relationship="DAL.FK_Feedback_UserOrder" FromRole="UserOrder" ToRole="Feedback" />
+          <NavigationProperty Name="ProductsInOrder" Relationship="DAL.FK_ProductInOrder_UserOrder" FromRole="UserOrder" ToRole="ProductInOrder" />
+          <NavigationProperty Name="CustomerAddress" Relationship="DAL.FK_UserOrder_UserAddress" FromRole="UserOrder" ToRole="UserAddress" />
+          <NavigationProperty Name="CustomerUserProfile" Relationship="DAL.FK_UserOrder_UserProfile_Customer" FromRole="UserOrder" ToRole="UserProfile" />
+          <NavigationProperty Name="VendorUserProfile" Relationship="DAL.FK_UserOrder_UserProfile_Vendor" FromRole="UserOrder" ToRole="UserProfile" />
+          <NavigationProperty Name="VendorAddress" Relationship="DAL.FK_UserOrder_UserAddress_Vendor" FromRole="UserOrder" ToRole="UserAddress" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserGroupID" Type="Int32" Nullable="false" />
+          <Property Name="DefaultAddressID" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="EMail" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FullName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="FriendlyUrl" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PreviousLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SumOfSells" Type="Int32" Nullable="false" />
+          <Property Name="SumOfSellsInProgress" Type="Int32" Nullable="false" />
+          <Property Name="SumOfBuys" Type="Int32" Nullable="false" />
+          <Property Name="SumOfBuysInProgress" Type="Int32" Nullable="false" />
+          <Property Name="SumOfNeededFeedbacks" Type="Int32" Nullable="false" />
+          <Property Name="SumOfFeedbacks" Type="Int32" Nullable="false" />
+          <Property Name="SumOfFeedbacksValue" Type="Int32" Nullable="false" />
+          <Property Name="SumOfActiveProducts" Type="Int32" Nullable="false" />
+          <Property Name="SumOfPassiveProducts" Type="Int32" Nullable="false" />
+          <Property Name="IsAuthor" Type="Boolean" Nullable="false" />
+          <Property Name="IsPublisher" Type="Boolean" Nullable="false" />
+          <Property Name="Balance" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="DAL.FK_Comment_UserProfile" FromRole="UserProfile" ToRole="Comment" />
+          <NavigationProperty Name="FeedbacksByRateGiverUser" Relationship="DAL.FK_Feedback_UserProfile_RateGiver" FromRole="UserProfile" ToRole="Feedback" />
+          <NavigationProperty Name="FeedbacksByRatedUser" Relationship="DAL.FK_Feedback_UserProfile_RateReciever" FromRole="UserProfile" ToRole="Feedback" />
+          <NavigationProperty Name="Images" Relationship="DAL.FK_Image_UserProfile" FromRole="UserProfile" ToRole="Image" />
+          <NavigationProperty Name="Products" Relationship="DAL.FK_Product_User" FromRole="UserProfile" ToRole="Product" />
+          <NavigationProperty Name="Ratings" Relationship="DAL.FK_Rating_UserProfile" FromRole="UserProfile" ToRole="Rating" />
+          <NavigationProperty Name="DefaultUserAddress" Relationship="DAL.FK_User_DefaultUserAddress" FromRole="UserProfile" ToRole="UserAddress" />
+          <NavigationProperty Name="UserAddresses" Relationship="DAL.FK_UserAddress_User" FromRole="UserProfile" ToRole="UserAddress" />
+          <NavigationProperty Name="UserGroup" Relationship="DAL.FK_User_UserGroup" FromRole="UserProfile" ToRole="UserGroup" />
+          <NavigationProperty Name="UserOrderByCustomer" Relationship="DAL.FK_UserOrder_UserProfile_Customer" FromRole="UserProfile" ToRole="UserOrder" />
+          <NavigationProperty Name="UserOrderByVendor" Relationship="DAL.FK_UserOrder_UserProfile_Vendor" FromRole="UserProfile" ToRole="UserOrder" />
+          <NavigationProperty Name="UserViews" Relationship="DAL.FK_UserViewProduct_UserProfile" FromRole="UserProfile" ToRole="UserView" />
+          <NavigationProperty Name="webpages_Roles" Relationship="DAL.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="UserView">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductGroupID" Type="Int32" />
+          <Property Name="LastDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HowMany" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="DAL.FK_UserViewProduct_Product" FromRole="UserView" ToRole="Product" />
+          <NavigationProperty Name="ProductGroup" Relationship="DAL.FK_UserView_ProductGroup" FromRole="UserView" ToRole="ProductGroup" />
+          <NavigationProperty Name="UserProfile" Relationship="DAL.FK_UserViewProduct_UserProfile" FromRole="UserView" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" Unicode="true" FixedLength="false" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="DAL.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="FK_Author_User">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="0..1" />
+          <End Role="Author" Type="DAL.Author" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Author">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_Category">
+          <End Role="Category" Type="DAL.Category" Multiplicity="0..1" />
+          <End Role="Category1" Type="DAL.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="ParentCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroup_Category1">
+          <End Role="Category" Type="DAL.Category" Multiplicity="1" />
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductGroup">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_ParentComment">
+          <End Role="Comment" Type="DAL.Comment" Multiplicity="0..1" />
+          <End Role="Comment1" Type="DAL.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment1">
+              <PropertyRef Name="ParentCommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_ProductGroup">
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="1" />
+          <End Role="Comment" Type="DAL.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_UserProfile">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="Comment" Type="DAL.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_UserOrder">
+          <End Role="UserOrder" Type="DAL.UserOrder" Multiplicity="1" />
+          <End Role="Feedback" Type="DAL.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="UserOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_UserProfile_RateGiver">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="Feedback" Type="DAL.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="RateGiverUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feedback_UserProfile_RateReciever">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="Feedback" Type="DAL.Feedback" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Feedback">
+              <PropertyRef Name="RatedUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HighlightedProduct_HighlightType">
+          <End Role="HighlightType" Type="DAL.HighlightType" Multiplicity="1" />
+          <End Role="HighlightedProduct" Type="DAL.HighlightedProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HighlightType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HighlightedProduct">
+              <PropertyRef Name="HighlightTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HighlightedProduct_Product">
+          <End Role="Product" Type="DAL.Product" Multiplicity="1" />
+          <End Role="HighlightedProduct" Type="DAL.HighlightedProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HighlightedProduct">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_ProductGroup">
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="0..1" />
+          <End Role="Image" Type="DAL.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_UserProfile">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="0..1" />
+          <End Role="Image" Type="DAL.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ImageProduct_Product">
+          <End Role="Product" Type="DAL.Product" Multiplicity="0..1" />
+          <End Role="Image" Type="DAL.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductGroup">
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="1" />
+          <End Role="Product" Type="DAL.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_User">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="Product" Type="DAL.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInOrder_Product">
+          <End Role="Product" Type="DAL.Product" Multiplicity="1" />
+          <End Role="ProductInOrder" Type="DAL.ProductInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductInOrder">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserViewProduct_Product">
+          <End Role="Product" Type="DAL.Product" Multiplicity="0..1" />
+          <End Role="UserView" Type="DAL.UserView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserView">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroup_Publisher1">
+          <End Role="Publisher" Type="DAL.Publisher" Multiplicity="1" />
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publisher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductGroup">
+              <PropertyRef Name="PublisherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_ProductGroup">
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="1" />
+          <End Role="Rating" Type="DAL.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserView_ProductGroup">
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="0..1" />
+          <End Role="UserView" Type="DAL.UserView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserView">
+              <PropertyRef Name="ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductInOrder_UserOrder">
+          <End Role="UserOrder" Type="DAL.UserOrder" Multiplicity="1" />
+          <End Role="ProductInOrder" Type="DAL.ProductInOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ProductInOrder">
+              <PropertyRef Name="UserOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Publisher_User">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="0..1" />
+          <End Role="Publisher" Type="DAL.Publisher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Publisher">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_UserProfile">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="Rating" Type="DAL.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_DefaultUserAddress">
+          <End Role="UserAddress" Type="DAL.UserAddress" Multiplicity="0..1" />
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="DefaultAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserAddress_User">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="UserAddress" Type="DAL.UserAddress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserAddress">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrder_UserAddress">
+          <End Role="UserAddress" Type="DAL.UserAddress" Multiplicity="0..1" />
+          <End Role="UserOrder" Type="DAL.UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="CustomerAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_UserGroup">
+          <End Role="UserGroup" Type="DAL.UserGroup" Multiplicity="1" />
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserProfile">
+              <PropertyRef Name="UserGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrder_UserProfile_Customer">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="UserOrder" Type="DAL.UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="CustomerUserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserOrder_UserProfile_Vendor">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="1" />
+          <End Role="UserOrder" Type="DAL.UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="VendorUserProfileID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserViewProduct_UserProfile">
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="0..1" />
+          <End Role="UserView" Type="DAL.UserView" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserView">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ProductGroupAuthor">
+          <End Role="ProductGroup" Type="DAL.ProductGroup" Multiplicity="*" />
+          <End Role="Author" Type="DAL.Author" Multiplicity="*" />
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Role="webpages_Roles" Type="DAL.webpages_Roles" Multiplicity="*" />
+          <End Role="UserProfile" Type="DAL.UserProfile" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_UserOrder_UserAddress_Vendor">
+          <End Type="DAL.UserAddress" Role="UserAddress" Multiplicity="0..1" />
+          <End Type="DAL.UserOrder" Role="UserOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserAddress">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserOrder">
+              <PropertyRef Name="VendorAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookTeraModelStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Author">
+            <EntityTypeMapping TypeName="DAL.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="FriendlyUrl" ColumnName="FriendlyUrl" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="IsCheckedByAdmin" ColumnName="IsCheckedByAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Category">
+            <EntityTypeMapping TypeName="DAL.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ParentCategoryID" ColumnName="ParentCategoryID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="FullPath" ColumnName="FullPath" />
+                <ScalarProperty Name="FriendlyUrl" ColumnName="FriendlyUrl" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="IsParent" ColumnName="IsParent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comment">
+            <EntityTypeMapping TypeName="DAL.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ParentCommentID" ColumnName="ParentCommentID" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback">
+            <EntityTypeMapping TypeName="DAL.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserOrderID" ColumnName="UserOrderID" />
+                <ScalarProperty Name="RateGiverUserID" ColumnName="RateGiverUserID" />
+                <ScalarProperty Name="RatedUserID" ColumnName="RatedUserID" />
+                <ScalarProperty Name="IsCustomers" ColumnName="IsCustomers" />
+                <ScalarProperty Name="IsPositive" ColumnName="IsPositive" />
+                <ScalarProperty Name="WasSuccessful" ColumnName="WasSuccessful" />
+                <ScalarProperty Name="ProductsQuality" ColumnName="ProductsQuality" />
+                <ScalarProperty Name="SellerContact" ColumnName="SellerContact" />
+                <ScalarProperty Name="TransactionQuality" ColumnName="TransactionQuality" />
+                <ScalarProperty Name="TransportAndBoxing" ColumnName="TransportAndBoxing" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HighlightedProduct">
+            <EntityTypeMapping TypeName="DAL.HighlightedProduct">
+              <MappingFragment StoreEntitySet="HighlightedProduct">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="HighlightTypeID" ColumnName="HighlightTypeID" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HighlightType">
+            <EntityTypeMapping TypeName="DAL.HighlightType">
+              <MappingFragment StoreEntitySet="HighlightType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image">
+            <EntityTypeMapping TypeName="DAL.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+                <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="DAL.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UploadedDate" ColumnName="UploadedDate" />
+                <ScalarProperty Name="ChangeHistory" ColumnName="ChangeHistory" />
+                <ScalarProperty Name="PublishYear" ColumnName="PublishYear" />
+                <ScalarProperty Name="PageNumber" ColumnName="PageNumber" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="SumOfViews" ColumnName="SumOfViews" />
+                <ScalarProperty Name="HowMany" ColumnName="HowMany" />
+                <ScalarProperty Name="Edition" ColumnName="Edition" />
+                <ScalarProperty Name="IsDownloadable" ColumnName="IsDownloadable" />
+                <ScalarProperty Name="IsBook" ColumnName="IsBook" />
+                <ScalarProperty Name="IsAudio" ColumnName="IsAudio" />
+                <ScalarProperty Name="IsVideo" ColumnName="IsVideo" />
+                <ScalarProperty Name="IsUsed" ColumnName="IsUsed" />
+                <ScalarProperty Name="IsCheckedByAdmin" ColumnName="IsCheckedByAdmin" />
+                <ScalarProperty Name="ContainsOther" ColumnName="ContainsOther" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductGroup">
+            <EntityTypeMapping TypeName="DAL.ProductGroup">
+              <MappingFragment StoreEntitySet="ProductGroup">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PublisherID" ColumnName="PublisherID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="FriendlyUrl" ColumnName="FriendlyUrl" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="AuthorNames" ColumnName="AuthorNames" />
+                <ScalarProperty Name="PublisherName" ColumnName="PublisherName" />
+                <ScalarProperty Name="ChangeHistory" ColumnName="ChangeHistory" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MaxPrice" ColumnName="MaxPrice" />
+                <ScalarProperty Name="SumOfActiveProductsInGroup" ColumnName="SumOfActiveProductsInGroup" />
+                <ScalarProperty Name="SumOfPassiveProductsInGroup" ColumnName="SumOfPassiveProductsInGroup" />
+                <ScalarProperty Name="SumOfViews" ColumnName="SumOfViews" />
+                <ScalarProperty Name="SumOfBuys" ColumnName="SumOfBuys" />
+                <ScalarProperty Name="SumOfRatings" ColumnName="SumOfRatings" />
+                <ScalarProperty Name="SumOfRatingsValue" ColumnName="SumOfRatingsValue" />
+                <ScalarProperty Name="SumOfComments" ColumnName="SumOfComments" />
+                <ScalarProperty Name="IsCheckedByAdmin" ColumnName="IsCheckedByAdmin" />
+                <ScalarProperty Name="UploadedDate" ColumnName="UploadedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductInOrder">
+            <EntityTypeMapping TypeName="DAL.ProductInOrder">
+              <MappingFragment StoreEntitySet="ProductInOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UserOrderID" ColumnName="UserOrderID" />
+                <ScalarProperty Name="HowMany" ColumnName="HowMany" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="IsForExchange" ColumnName="IsForExchange" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publisher">
+            <EntityTypeMapping TypeName="DAL.Publisher">
+              <MappingFragment StoreEntitySet="Publisher">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="FriendlyUrl" ColumnName="FriendlyUrl" />
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="IsCheckedByAdmin" ColumnName="IsCheckedByAdmin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rating">
+            <EntityTypeMapping TypeName="DAL.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserAddress">
+            <EntityTypeMapping TypeName="DAL.UserAddress">
+              <MappingFragment StoreEntitySet="UserAddress">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="StreetAndHouseNumber" ColumnName="StreetAndHouseNumber" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroup">
+            <EntityTypeMapping TypeName="DAL.UserGroup">
+              <MappingFragment StoreEntitySet="UserGroup">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="BuyFeePercent" ColumnName="BuyFeePercent" />
+                <ScalarProperty Name="SellFeePercent" ColumnName="SellFeePercent" />
+                <ScalarProperty Name="MonthsToKeepBooks" ColumnName="MonthsToKeepBooks" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserOrder">
+            <EntityTypeMapping TypeName="DAL.UserOrder">
+              <MappingFragment StoreEntitySet="UserOrder">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CustomerUserProfileID" ColumnName="CustomerUserProfileID" />
+                <ScalarProperty Name="CustomerAddressID" ColumnName="CustomerAddressID" />
+                <ScalarProperty Name="CustomersBuyFeePercent" ColumnName="CustomersBuyFeePercent" />
+                <ScalarProperty Name="VendorUserProfileID" ColumnName="VendorUserProfileID" />
+                <ScalarProperty Name="VendorAddressID" ColumnName="VendorAddressID" />
+                <ScalarProperty Name="VendorsSellFeePercent" ColumnName="VendorsSellFeePercent" />
+                <ScalarProperty Name="SumBookPrice" ColumnName="SumBookPrice" />
+                <ScalarProperty Name="SumOtherPrices" ColumnName="SumOtherPrices" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RatingState" ColumnName="RatingState" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfile">
+            <EntityTypeMapping TypeName="DAL.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="DefaultAddressID" ColumnName="DefaultAddressID" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="FriendlyUrl" ColumnName="FriendlyUrl" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="PreviousLoginDate" ColumnName="PreviousLoginDate" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="SumOfSells" ColumnName="SumOfSells" />
+                <ScalarProperty Name="SumOfSellsInProgress" ColumnName="SumOfSellsInProgress" />
+                <ScalarProperty Name="SumOfBuys" ColumnName="SumOfBuys" />
+                <ScalarProperty Name="SumOfBuysInProgress" ColumnName="SumOfBuysInProgress" />
+                <ScalarProperty Name="SumOfNeededFeedbacks" ColumnName="SumOfNeededFeedbacks" />
+                <ScalarProperty Name="SumOfFeedbacks" ColumnName="SumOfFeedbacks" />
+                <ScalarProperty Name="SumOfFeedbacksValue" ColumnName="SumOfFeedbacksValue" />
+                <ScalarProperty Name="SumOfActiveProducts" ColumnName="SumOfActiveProducts" />
+                <ScalarProperty Name="SumOfPassiveProducts" ColumnName="SumOfPassiveProducts" />
+                <ScalarProperty Name="IsAuthor" ColumnName="IsAuthor" />
+                <ScalarProperty Name="IsPublisher" ColumnName="IsPublisher" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserView">
+            <EntityTypeMapping TypeName="DAL.UserView">
+              <MappingFragment StoreEntitySet="UserView">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="HowMany" ColumnName="HowMany" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="DAL.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="DAL.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="DAL.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ProductGroupAuthor" TypeName="DAL.ProductGroupAuthor" StoreEntitySet="ProductGroupAuthor">
+            <EndProperty Name="ProductGroup">
+              <ScalarProperty Name="ID" ColumnName="ProductGroupID" />
+            </EndProperty>
+            <EndProperty Name="Author">
+              <ScalarProperty Name="ID" ColumnName="AuthorID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="DAL.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="ID" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

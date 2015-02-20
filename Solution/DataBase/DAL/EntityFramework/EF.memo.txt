@@ -1,0 +1,29 @@
+﻿---------
+ÁTNEVEZÉS
+---------
+
+Ha egy átnevezett emdx van, akkor nem rak be alá 2db .tt fájlt
+Ha változik az .edmx, lehet, hogy a 2 .tt külön kell "Run Custom Tool" az újrafordítás mellett.
+
+Amikor átneveztem ebookEF -ről BookTeraEF -re, akkor kivette az .edmx fájl alól a 2 .tt fájlt.
+Mert ez annyira rugalmas volt...
+Ha átnevezem az .edmx fájlt, akkor 2 másikat vele átnevez, 2 másik .tt fájlt meg nem.
+Sőt, ebben a 2 .tt fájlban ezt a mezőt is kézzel kellett beállítani:
+	const string inputFile = @"BookTera.edmx";
+
+-------------
+ÚJRAGENERÁLÁS
+-------------
+
+A CommonModels.dll -ben találhatók a POCO-k, az edmx újragenerálás után innen oda át kell helyezni őket! (és felülírni)
+Megj.: A Context generáló .tt fájl is módosított, hozzá lett adva a következő sor:
+using CommonModels.Models.EntityFramework;
+
+----------------------
+ARCHÍV - Újragenerálás
+----------------------
+
+Hogy szinkronban legyenek a DTO osztályok a CommonModels-ben, és a DtoHelper osztályok (ebben a projektben),
+a Tools/EntitiesToDtos plugin futtatása szükséges (1 kattintás az egész, megőrzi a beállításokat; ha mégesm,
+a Helpers mappában a BookteraEntitiesToDtos.etdtosconfig.xml fájlból beimportálhatók)
+
