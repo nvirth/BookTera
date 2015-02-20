@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Az Id-k nem innen kerülnek az adatbázisba; de ugyanezek lesznek -->
+<root>
+	<CategoryResource>
+		<Id>1</Id>
+		<DisplayName>Ezoterika</DisplayName>
+		<FullPath>Ezoterika</FullPath>
+		<ParentCategoryID/>
+		<Sort>01</Sort>
+		<IsParent>true</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>2</Id>
+		<DisplayName>Irodalom</DisplayName>
+		<FullPath>Irodalom</FullPath>
+		<ParentCategoryID/>
+		<Sort>02</Sort>
+		<IsParent>true</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>3</Id>
+		<DisplayName>Tankönyvek</DisplayName>
+		<FullPath>Tankönyvek</FullPath>
+		<ParentCategoryID/>
+		<Sort>03</Sort>
+		<IsParent>true</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>4</Id>
+		<DisplayName>Regény</DisplayName>
+		<FullPath>Regény</FullPath>
+		<ParentCategoryID/>
+		<Sort>04</Sort>
+		<IsParent>true</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>5</Id>
+		<DisplayName>Feng shui</DisplayName>
+		<FullPath>Ezoterika - Feng shui</FullPath>
+		<ParentCategoryID>1</ParentCategoryID>
+		<Sort>01.01</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>6</Id>
+		<DisplayName>Horoszkóp, asztrológia</DisplayName>
+		<FullPath>Ezoterika - Horoszkóp, asztrológia</FullPath>
+		<ParentCategoryID>1</ParentCategoryID>
+		<Sort>01.02</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>7</Id>
+		<DisplayName>Parapszichológia</DisplayName>
+		<FullPath>Ezoterika - Parapszichológia</FullPath>
+		<ParentCategoryID>1</ParentCategoryID>
+		<Sort>01.03</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>8</Id>
+		<DisplayName>Életrajz</DisplayName>
+		<FullPath>Irodalom - Életrajz</FullPath>
+		<ParentCategoryID>2</ParentCategoryID>
+		<Sort>02.01</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>9</Id>
+		<DisplayName>Dráma, színmű</DisplayName>
+		<FullPath>Irodalom - Dráma, színmű</FullPath>
+		<ParentCategoryID>2</ParentCategoryID>
+		<Sort>02.02</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>10</Id>
+		<DisplayName>Vers, eposz</DisplayName>
+		<FullPath>Irodalom - Vers, eposz</FullPath>
+		<ParentCategoryID>2</ParentCategoryID>
+		<Sort>02.03</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>11</Id>
+		<DisplayName>Matematika</DisplayName>
+		<FullPath>Tankönyvek - Matematika</FullPath>
+		<ParentCategoryID>3</ParentCategoryID>
+		<Sort>03.01</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>12</Id>
+		<DisplayName>Kémia</DisplayName>
+		<FullPath>Tankönyvek - Kémia</FullPath>
+		<ParentCategoryID>3</ParentCategoryID>
+		<Sort>03.02</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>13</Id>
+		<DisplayName>Közgazdaságtudomány</DisplayName>
+		<FullPath>Tankönyvek - Közgazdaságtudomány</FullPath>
+		<ParentCategoryID>3</ParentCategoryID>
+		<Sort>03.03</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>14</Id>
+		<DisplayName>Biológia</DisplayName>
+		<FullPath>Tankönyvek - Biológia</FullPath>
+		<ParentCategoryID>3</ParentCategoryID>
+		<Sort>03.04</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>15</Id>
+		<DisplayName>Családregény</DisplayName>
+		<FullPath>Regény - Családregény</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.01</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>16</Id>
+		<DisplayName>Fantasy</DisplayName>
+		<FullPath>Regény - Fantasy</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.02</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>17</Id>
+		<DisplayName>Erotikus</DisplayName>
+		<FullPath>Regény - Erotikus</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.03</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>18</Id>
+		<DisplayName>Krimi</DisplayName>
+		<FullPath>Regény - Krimi</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.04</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>19</Id>
+		<DisplayName>Sci-fi</DisplayName>
+		<FullPath>Regény - Sci-fi</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.05</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>20</Id>
+		<DisplayName>Thriller</DisplayName>
+		<FullPath>Regény - Thriller</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.06</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>21</Id>
+		<DisplayName>Történelmi</DisplayName>
+		<FullPath>Regény - Történelmi</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.07</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>22</Id>
+		<DisplayName>Egyéb</DisplayName>
+		<FullPath>Egyéb</FullPath>
+		<ParentCategoryID/>
+		<Sort>05</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>23</Id>
+		<DisplayName>Egyéb</DisplayName>
+		<FullPath>Ezoterika - Egyéb</FullPath>
+		<ParentCategoryID>1</ParentCategoryID>
+		<Sort>01.04</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>24</Id>
+		<DisplayName>Egyéb</DisplayName>
+		<FullPath>Irodalom - Egyéb</FullPath>
+		<ParentCategoryID>2</ParentCategoryID>
+		<Sort>02.04</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>25</Id>
+		<DisplayName>Egyéb</DisplayName>
+		<FullPath>Tankönyvek - Egyéb</FullPath>
+		<ParentCategoryID>3</ParentCategoryID>
+		<Sort>03.05</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+	<CategoryResource>
+		<Id>26</Id>
+		<DisplayName>Egyéb</DisplayName>
+		<FullPath>Regény - Egyéb</FullPath>
+		<ParentCategoryID>4</ParentCategoryID>
+		<Sort>04.08</Sort>
+		<IsParent>false</IsParent>
+	</CategoryResource>
+</root>

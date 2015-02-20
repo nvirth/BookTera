@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Az Id-k nem innen kerülnek az adatbázisba; de ugyanezek lesznek -->
+<!-- FONTOS: Változtatás esetén itt is: Utils.BookTera.UserGroupEnum -->
+<root>
+	<UserGroupResource>
+		<Id>1</Id>
+		<GroupName>Leech</GroupName>
+		<BuyFeePercent>10</BuyFeePercent>
+		<SellFeePercent>10</SellFeePercent>
+		<Price>0</Price>
+		<MonthsToKeepBooks>6</MonthsToKeepBooks>
+	</UserGroupResource>
+	<UserGroupResource>
+		<Id>2</Id>
+		<GroupName>Seed</GroupName>
+		<BuyFeePercent>8</BuyFeePercent>
+		<SellFeePercent>10</SellFeePercent>
+		<Price>1000</Price>
+		<MonthsToKeepBooks>6</MonthsToKeepBooks>
+	</UserGroupResource>
+	<UserGroupResource>
+		<Id>3</Id>
+		<GroupName>Seed+</GroupName>
+		<BuyFeePercent>5</BuyFeePercent>
+		<SellFeePercent>5</SellFeePercent>
+		<Price>2000</Price>
+		<MonthsToKeepBooks>3</MonthsToKeepBooks>
+	</UserGroupResource>
+	<UserGroupResource>
+		<Id>4</Id>
+		<GroupName>Author</GroupName>
+		<BuyFeePercent>3</BuyFeePercent>
+		<SellFeePercent>3</SellFeePercent>
+		<Price>0</Price>
+		<MonthsToKeepBooks>6</MonthsToKeepBooks>
+	</UserGroupResource>
+	<UserGroupResource>
+		<Id>5</Id>
+		<GroupName>Publisher</GroupName>
+		<BuyFeePercent>1</BuyFeePercent>
+		<SellFeePercent>1</SellFeePercent>
+		<Price>0</Price>
+		<MonthsToKeepBooks>6</MonthsToKeepBooks>
+	</UserGroupResource>
+</root>

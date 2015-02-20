@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Az Id-k nem innen kerülnek az adatbázisba; de ugyanezek lesznek -->
+<!-- FONTOS: Változtatás esetén itt is: Utils.BookTera.HighlightTypeEnum -->
+<root>
+	<HighlightTypeResource>
+		<Id>1</Id>
+		<Price>500</Price>
+		<Description>Könyv csoportjában előre kerül</Description>
+	</HighlightTypeResource>
+	<HighlightTypeResource>
+		<Id>2</Id>
+		<Price>1000</Price>
+		<Description>Főoldalon előre kerül</Description>
+	</HighlightTypeResource>
+	<HighlightTypeResource>
+		<Id>3</Id>
+		<Price>200</Price>
+		<Description>Kiemelt színű</Description>
+	</HighlightTypeResource>
+	<HighlightTypeResource>
+		<Id>4</Id>
+		<Price>750</Price>
+		<Description>Random kiemelés 4</Description>
+	</HighlightTypeResource>
+	<HighlightTypeResource>
+		<Id>5</Id>
+		<Price>350</Price>
+		<Description>Random kiemelés 5</Description>
+	</HighlightTypeResource>
+</root>
