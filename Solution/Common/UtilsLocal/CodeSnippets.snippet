@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+
+  <!--A code snippet-ek aktiválásához a (VS2012)/Tools/Code Snippets Manager/ -ben
+      be kell tallózni a mappát, ahol ez a .snippet fájl található -->
+
+  <!-- BookTeraException -->
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Insert default BookteraException</Title>
+      <Description>Inserts a default BookteraException.</Description>
+      <Author>Norbert Virth</Author>
+      <Shortcut>thrb</Shortcut>
+      <SnippetTypes>
+        <SnippetType>SurroundsWith</SnippetType>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>BookteraExceptionCode</ID>
+          <ToolTip>BookteraExceptionCode enum value</ToolTip>
+          <Default>None</Default>
+        </Literal>
+        <Literal>
+          <ID>Message</ID>
+          <ToolTip>Message for the exception</ToolTip>
+          <Default>msg</Default>
+        </Literal>
+        <Literal>
+          <ID>Exception</ID>
+          <ToolTip>InnerException</ToolTip>
+          <Default>e</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[var msg = string.Format("$end$ {0}", 123);
+        throw new BookteraException($Message$, $Exception$, BookteraExceptionCode.$BookteraExceptionCode$);]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+
+  <!-- EbookDbEntites -->
+
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Insert using block with EbookDbEntities</Title>
+      <Description>Insert using block with EbookDbEntities</Description>
+      <Author>Norbert Virth</Author>
+      <Shortcut>uctx</Shortcut>
+      <SnippetTypes>
+        <SnippetType>SurroundsWith</SnippetType>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[using (var ctx = new DBEntities())
+          {
+          $end$
+          }]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
