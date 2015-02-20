@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A095475-FFEC-4341-AF2E-614495DA18AC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL</RootNamespace>
+    <AssemblyName>BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\theSolution\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\theSolution\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\theSolution\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\theSolution\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BookManager.cs" />
+    <Compile Include="ModelManagers\CommentWithProductGroupVmManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\AuthorManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\CategoryManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\CommentManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\FeedbackManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\HighlightedProductManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\HighlightTypeManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\ImageManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\ProductGroupManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\ProductInOrderManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\ProductManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\PublisherManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\RatingManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\UserAddressManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\UserGroupManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\UserOrderManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\UserProfileManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\UserViewProductManager.cs" />
+    <Compile Include="ModelManagers\EntityManagers\WebpagesMembershipManager.cs" />
+    <Compile Include="ModelManagers\PagingManager.cs" />
+    <Compile Include="ModelManagers\ProductModelManagers\BookBlockPlvmManager.cs" />
+    <Compile Include="ModelManagers\ProductModelManagers\BookRowPlvmManager.cs" />
+    <Compile Include="ModelManagers\ProductModelManagers\InBookBlockPvmManager.cs" />
+    <Compile Include="ModelManagers\ProductModelManagers\InCategoryCwplvmManager.cs" />
+    <Compile Include="ModelManagers\ProductModelManagers\InCategoryPlvmManager.cs" />
+    <Compile Include="ModelManagers\RatingWithProductGroupVmManager.cs" />
+    <Compile Include="ModelManagers\UserAddressVmManager.cs" />
+    <Compile Include="ModelManagers\UserOrderPlvmManager.cs" />
+    <Compile Include="ModelManagers\UserProfileEditVmManager.cs" />
+    <Compile Include="RegistrationManager.cs" />
+    <Compile Include="TransactionManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\CommonModels\CommonModels.csproj">
+      <Project>{655242d4-0a65-478c-ae5f-21b7d34da305}</Project>
+      <Name>CommonModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\CommonPortable\CommonPortable.csproj">
+      <Project>{5a67fe83-7881-4693-800c-7077c7fa88eb}</Project>
+      <Name>CommonPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\UtilsLocal\UtilsLocal.csproj">
+      <Project>{cf59fd01-0918-4603-9406-e7d01314f6e9}</Project>
+      <Name>UtilsLocal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\UtilsSharedPortable\UtilsSharedPortable.csproj">
+      <Project>{1e7f5799-80fc-445d-a0b1-c970aa3cdc2a}</Project>
+      <Name>UtilsSharedPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\UtilsShared\UtilsShared.csproj">
+      <Project>{2b9f1fff-a277-4dc1-81cf-e6a3afa5b4ef}</Project>
+      <Name>UtilsShared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataBase\DAL\DAL.csproj">
+      <Project>{6266B84A-C9F3-4179-A5F4-3A42DACB04DA}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelManagers\AccountModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
