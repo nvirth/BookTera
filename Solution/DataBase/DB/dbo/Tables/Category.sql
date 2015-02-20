@@ -1,0 +1,29 @@
+﻿CREATE TABLE [dbo].[Category](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ParentCategoryID] [int] NULL,
+	[DisplayName] [nvarchar](100) NOT NULL,
+	[FullPath] [nvarchar](200) NOT NULL,
+	[FriendlyUrl] [nvarchar](200) NOT NULL,
+	[Sort] [nvarchar](50) NOT NULL,
+	[IsParent] [bit] NOT NULL,
+ CONSTRAINT [PK_Category] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [UK_Category_FriendlyUrl] UNIQUE NONCLUSTERED 
+(
+	[FriendlyUrl] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+ CONSTRAINT [UK_Category_FullPath] UNIQUE NONCLUSTERED 
+(
+	[FullPath] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+)
+GO
+ALTER TABLE [dbo].[Category]  WITH CHECK ADD  CONSTRAINT [FK_Category_Category] FOREIGN KEY([ParentCategoryID])
+REFERENCES [dbo].[Category] ([ID])
+GO
+
+ALTER TABLE [dbo].[Category] CHECK CONSTRAINT [FK_Category_Category]
+GO
+ALTER TABLE [dbo].[Category] ADD  CONSTRAINT [DF_Category_IsParent]  DEFAULT ((0)) FOR [IsParent]
