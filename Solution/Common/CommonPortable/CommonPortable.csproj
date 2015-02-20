@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5A67FE83-7881-4693-800C-7077C7FA88EB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommonPortable</RootNamespace>
+    <AssemblyName>CommonPortable</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\UtilsSharedPortable\UtilsSharedPortable.csproj">
+      <Project>{1e7f5799-80fc-445d-a0b1-c970aa3cdc2a}</Project>
+      <Name>UtilsSharedPortable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\BookBlockType.cs" />
+    <Compile Include="Enums\BookteraExceptionCode.cs" />
+    <Compile Include="Enums\BookteraLogDataModeEnum.cs" />
+    <Compile Include="Enums\HighlightTypeEnum.cs" />
+    <Compile Include="Enums\OrderFinalizingType.cs" />
+    <Compile Include="Enums\TransactionType.cs" />
+    <Compile Include="Enums\UserGroupEnum.cs" />
+    <Compile Include="Enums\UserOrderRatingState.cs" />
+    <Compile Include="Enums\UserOrderStatus.cs" />
+    <Compile Include="Models\Exceptions\BookteraException.cs" />
+    <Compile Include="Models\SearchPgAcVm.cs" />
+    <Compile Include="Models\EntityFramework\Author.cs" />
+    <Compile Include="Models\EntityFramework\Category.cs" />
+    <Compile Include="Models\EntityFramework\Comment.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\AuthorWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\CategoryWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\CommentWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\FeedbackWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\HighlightedProductWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\HighlightTypeWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\ImageWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\ProductGroupWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\ProductInOrderWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\ProductWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\PublisherWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\RatingWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\UserAddressWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\UserGroupWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\UserOrderWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\UserProfileWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\DefaultValues\UserViewProductWithDefaults.cs" />
+    <Compile Include="Models\EntityFramework\Feedback.cs" />
+    <Compile Include="Models\EntityFramework\HighlightedProduct.cs" />
+    <Compile Include="Models\EntityFramework\HighlightType.cs" />
+    <Compile Include="Models\EntityFramework\Image.cs" />
+    <Compile Include="Models\EntityFramework\Product.cs" />
+    <Compile Include="Models\EntityFramework\ProductGroup.cs" />
+    <Compile Include="Models\EntityFramework\ProductInOrder.cs" />
+    <Compile Include="Models\EntityFramework\Publisher.cs" />
+    <Compile Include="Models\EntityFramework\Rating.cs" />
+    <Compile Include="Models\EntityFramework\UserAddress.cs" />
+    <Compile Include="Models\EntityFramework\UserGroup.cs" />
+    <Compile Include="Models\EntityFramework\UserOrder.cs" />
+    <Compile Include="Models\EntityFramework\UserProfile.cs" />
+    <Compile Include="Models\EntityFramework\UserView.cs" />
+    <Compile Include="Models\EntityFramework\webpages_Membership.cs" />
+    <Compile Include="Models\EntityFramework\webpages_OAuthMembership.cs" />
+    <Compile Include="Models\EntityFramework\webpages_Roles.cs" />
+    <Compile Include="Models\LabelValuePair.cs" />
+    <Compile Include="Models\Paging.cs" />
+    <Compile Include="Models\ProductModels\BookBlockPLVM.cs" />
+    <Compile Include="Models\ProductModels\BookRowPLVM.cs" />
+    <Compile Include="Models\ProductModels\InBookBlockPVM.cs" />
+    <Compile Include="Models\ProductModels\InCategoryCWPLVM.cs" />
+    <Compile Include="Models\ProductModels\InCategoryPLVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
