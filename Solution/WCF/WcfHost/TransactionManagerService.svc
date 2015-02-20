@@ -1,0 +1,7 @@
+﻿<%@
+	ServiceHost
+	Language="C#"
+	Debug="true"
+	Service="WcfHost.TransactionManagerService"
+	Factory="UtilsLocal.WCF.CustomWebServiceHostFactory"
+	%>

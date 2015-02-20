@@ -1,0 +1,7 @@
+<%@
+	ServiceHost
+	Language="C#"
+	Debug="true"
+	Service="WcfHost.EntityManagers.PublisherManagerService"
+	Factory="UtilsLocal.WCF.CustomWebServiceHostFactory"
+	%>

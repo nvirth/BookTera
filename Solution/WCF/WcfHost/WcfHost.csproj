@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BBAAA30E-46B4-410C-9E68-8DA90653316D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WcfHost</RootNamespace>
+    <AssemblyName>WcfHost</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\theSolution\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="elmahappender_log4net">
+      <HintPath>..\..\theSolution\packages\elmahappender_log4net.1.0.0.0\lib\net45\elmahappender_log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\theSolution\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\theSolution\packages\log4net.2.0.2\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Moq">
+      <HintPath>..\..\theSolution\packages\Moq.4.2.1402.2112\lib\net40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\theSolution\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceModel.DomainServices.Server, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Readme\Elmah.txt" />
+    <Content Include="Authentication\BookteraAuthenticationService.svc" />
+    <Content Include="BookManagerService.svc" />
+    <Content Include="EntityManagers\AuthorManagerService.svc" />
+    <Content Include="EntityManagers\CategoryManagerService.svc" />
+    <Content Include="EntityManagers\CommentManagerService.svc" />
+    <Content Include="EntityManagers\RatingManagerService.svc" />
+    <Content Include="EntityManagers\ImageManagerService.svc" />
+    <Content Include="EntityManagers\ProductGroupManagerService.svc" />
+    <Content Include="EntityManagers\ProductManagerService.svc" />
+    <Content Include="EntityManagers\PublisherManagerService.svc" />
+    <Content Include="EntityManagers\UserAddressManagerService.svc" />
+    <Content Include="EntityManagers\UserGroupManagerService.svc" />
+    <Content Include="EntityManagers\UserOrderManagerService.svc" />
+    <Content Include="EntityManagers\UserProfileManagerService.svc" />
+    <Content Include="ForGeneratingModelsService.svc" />
+    <Content Include="RegistrationManagerService.svc" />
+    <Content Include="TransactionManagerService.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\BookteraAuthenticationService.cs" />
+    <Compile Include="BookManagerService.cs" />
+    <Compile Include="EntityManagers\AuthorManagerService.cs" />
+    <Compile Include="EntityManagers\CategoryManagerService.cs" />
+    <Compile Include="EntityManagers\CommentManagerService.cs" />
+    <Compile Include="EntityManagers\RatingManagerService.cs" />
+    <Compile Include="EntityManagers\ImageManagerService.cs" />
+    <Compile Include="EntityManagers\ProductGroupManagerService.cs" />
+    <Compile Include="EntityManagers\ProductManagerService.cs" />
+    <Compile Include="EntityManagers\PublisherManagerService.cs" />
+    <Compile Include="EntityManagers\UserAddressManagerService.cs" />
+    <Compile Include="EntityManagers\UserGroupManagerService.cs" />
+    <Compile Include="EntityManagers\UserOrderManagerService.cs" />
+    <Compile Include="EntityManagers\UserProfileManagerService.cs" />
+    <Compile Include="ForGeneratingModelsService.cs" />
+    <Compile Include="RegistrationManagerService.cs" />
+    <Compile Include="TransactionManagerService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validator\Validator.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="_AppStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BLL\BLL.csproj">
+      <Project>{7A095475-FFEC-4341-AF2E-614495DA18AC}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CommonModels\CommonModels.csproj">
+      <Project>{655242d4-0a65-478c-ae5f-21b7d34da305}</Project>
+      <Name>CommonModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\CommonPortable\CommonPortable.csproj">
+      <Project>{5a67fe83-7881-4693-800c-7077c7fa88eb}</Project>
+      <Name>CommonPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\UtilsLocal\UtilsLocal.csproj">
+      <Project>{cf59fd01-0918-4603-9406-e7d01314f6e9}</Project>
+      <Name>UtilsLocal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\UtilsSharedPortable\UtilsSharedPortable.csproj">
+      <Project>{1e7f5799-80fc-445d-a0b1-c970aa3cdc2a}</Project>
+      <Name>UtilsSharedPortable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Common\UtilsShared\UtilsShared.csproj">
+      <Project>{2b9f1fff-a277-4dc1-81cf-e6a3afa5b4ef}</Project>
+      <Name>UtilsShared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataBase\DAL\DAL.csproj">
+      <Project>{6266b84a-c9f3-4179-a5f4-3a42dacb04da}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WcfInterfaces\WcfInterfaces.csproj">
+      <Project>{1347ba5f-5e64-4f73-883a-9ca5a3ae8732}</Project>
+      <Name>WcfInterfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50135/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

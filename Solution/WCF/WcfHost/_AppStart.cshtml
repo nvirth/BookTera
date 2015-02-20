@@ -1,0 +1,8 @@
+﻿@{
+	if(!WebSecurity.Initialized)
+	{
+		WebSecurity.InitializeDatabaseConnection("BookTeraDB", "UserProfile", "ID", "UserName", autoCreateTables: true);
+    }
+
+    UtilsShared.HelpersShared.SetDefaultCultureToEnglish();
+}

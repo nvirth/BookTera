@@ -1,0 +1,7 @@
+<%@
+	ServiceHost
+	Language="C#"
+	Debug="true"
+	Service="WcfHost.EntityManagers.CategoryManagerService"
+	Factory="UtilsLocal.WCF.CustomWebServiceHostFactory"
+	%>

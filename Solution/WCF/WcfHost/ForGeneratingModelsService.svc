@@ -1,0 +1,7 @@
+﻿<%@
+	ServiceHost
+	Language="C#"
+	Debug="true"
+	Service="WcfHost.ForGeneratingModelsService"
+	Factory="UtilsLocal.WCF.CustomWebServiceHostFactory"
+	%>

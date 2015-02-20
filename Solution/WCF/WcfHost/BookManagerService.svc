@@ -1,0 +1,7 @@
+﻿<%@
+	ServiceHost
+	Language="C#"
+	Debug="true"
+	Service="WcfHost.BookManagerService"
+	Factory="UtilsLocal.WCF.CustomWebServiceHostFactory"
+	%>
