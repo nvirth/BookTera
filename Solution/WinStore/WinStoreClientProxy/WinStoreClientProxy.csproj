@@ -172,9 +172,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="HelperModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Common\CommonPortable\CommonPortable.csproj">
       <Project>{5a67fe83-7881-4693-800c-7077c7fa88eb}</Project>
