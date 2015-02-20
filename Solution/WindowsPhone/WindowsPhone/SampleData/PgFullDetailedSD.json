@@ -1,0 +1,309 @@
+﻿{
+
+    "Paging": {
+        "ActualPageNumber": 1,
+        "NumberOfPages": 1,
+        "NumberOfProducts": 14,
+        "ProductsPerPage": 100
+    },
+    "ProductGroup": {
+        "AuthorNames": "Claus Reimann",
+        "CategoryFriendlyUrl": "Ezoterika--Horoszkop-asztrologia",
+        "CategoryFullPath": "Ezoterika - Horoszkóp, asztrológia",
+        "Description": "Mi köti össze az asztrológiát a mesék világával? Hogyan tudjuk hasznosítani ezt a kapcsolatot egyéni fejlődésünkben, saját életutunkon?Claus Riemann több mint harminc éve foglalkozik az állatövvel és a bolygókkal, melyeket belső világunk ősképeinek tekint. C. G. Jung nyomán interpretálja a tizenkét állatövi jegyet, azok vonzalmait és ellenszenveit, erősségeit és gyengeségeit. Minden állatövi jegyet mítoszokkal, fabulákkal, mesékkel és legendákkal jellemez, melyek pontosan kifejezik a jegy archetipikus szerkezetét. Így például a Bátor szabólegény meséjébenfelfedezhetjük az Ikrek furfangosságát és ravaszságát, vagy a piros cipőkről szóló mesében a Kos jellegzetességeit. A tizenkét állatövi jegy és a hozzájuk tartozó élettémák leírása az Olvasót hasznos felismerésekhez vezeti, lehetőséget teremtve arra, hogy jobban megértse önmagát, és új fejlődési lehetőségeket fedezzen fel.",
+        "FriendlyUrl": "Mely-forras",
+        "ImageUrl": "PG-Mely-forras-297705.jpg",
+        "PriceString": "2 268 Ft - 3 276 Ft",
+        "PublisherName": "Bioenergetic Kiadó",
+        "RatingPoints": 0,
+        "SubTitle": "A pszichológiai asztrológia tizenkét archetípusa",
+        "SumOfActiveProductsInGroup": 11,
+        "SumOfBuys": 0,
+        "SumOfPassiveProductsInGroup": 3,
+        "SumOfRatings": 0,
+        "Title": "Mély forrás"
+    },
+    "ProductsInGroup": [
+        {
+            "Description": "Hiánytalan, jó állpotban azaz kisebb elszíneződések vannak , borító enyhén kopottas lapoknál kisebb szakadások , első lap a képeken látható , talán ez a legsérültebb , itt van egy két centis szakadás. ",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 24,
+            "Images": [
+                "default.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": false,
+            "IsDownloadable": true,
+            "IsUsed": false,
+            "IsVideo": true,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 996 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Lemeylovag",
+            "UserName": "Lemeylovag"
+        },
+        {
+            "Description": "Alig használt, sajtszagú könyv eladó",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 25,
+            "Images": [
+                "P-Mely-forras-627442.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": false,
+            "IsVideo": false,
+            "Language": "Angol",
+            "PageNumber": 276,
+            "PriceString": "2 408 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "BMW",
+            "UserName": "BMW"
+        },
+        {
+            "Description": "Alig használt, sajtszagú könyv eladó",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 26,
+            "Images": [
+                "P-Mely-forras-165649.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": false,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 464 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Trenkalord",
+            "UserName": "Trenkalord"
+        },
+        {
+            "Description": "Hiánytalan, jó állpotban azaz kisebb elszíneződések vannak , borító enyhén kopottas lapoknál kisebb szakadások , első lap a képeken látható , talán ez a legsérültebb , itt van egy két centis szakadás. ",
+            "Edition": 1,
+            "HowMany": 0,
+            "ID": 27,
+            "Images": [
+                "default.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": true,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "3 276 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Lestat",
+            "UserName": "Lestat"
+        },
+        {
+            "Description": "A képeken látható állapotú a könyv",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 28,
+            "Images": [
+                "P-Mely-forras-809340.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": false,
+            "IsDownloadable": false,
+            "IsUsed": false,
+            "IsVideo": true,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 268 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Qvik",
+            "UserName": "Qvik"
+        },
+        {
+            "Description": "Gyönyörű képekkel illusztrált nagyméretű, keménykötésű kiadvány.",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 29,
+            "Images": [
+                "P-Mely-forras-347548.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": true,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 912 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Kiki",
+            "UserName": "Kiki"
+        },
+        {
+            "Description": "Alig használt, sajtszagú könyv eladó",
+            "Edition": 1,
+            "HowMany": 2,
+            "ID": 30,
+            "Images": [
+                "P-Mely-forras-885755.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": false,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 380 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Qvik",
+            "UserName": "Qvik"
+        },
+        {
+            "Description": "Vadonat új, bőr kötéses könyv; ajándéknak tökéletes.",
+            "Edition": 1,
+            "HowMany": 2,
+            "ID": 31,
+            "Images": [
+                "P-Mely-forras-423963.jpg"
+            ],
+            "IsAudio": true,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": true,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "3 248 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Koko",
+            "UserName": "Koko"
+        },
+        {
+            "Description": "Néhány lapja hiányzik, de egyékbént jó állapotban van",
+            "Edition": 1,
+            "HowMany": 0,
+            "ID": 32,
+            "Images": [
+                "P-Mely-forras-51871.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": false,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 436 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Verne",
+            "UserName": "Verne"
+        },
+        {
+            "Description": "A képeken látható állapotú a könyv",
+            "Edition": 1,
+            "HowMany": 0,
+            "ID": 33,
+            "Images": [
+                "P-Mely-forras-590079.jpg"
+            ],
+            "IsAudio": true,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": true,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "3 108 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "RebelLion",
+            "UserName": "RebelLion"
+        },
+        {
+            "Description": "Vadonat új, bőr kötéses könyv; ajándéknak tökéletes.",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 34,
+            "Images": [
+                "P-Mely-forras-83436.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": true,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 996 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Sziky",
+            "UserName": "Sziky"
+        },
+        {
+            "Description": "Vadonat új, bőr kötéses könyv; ajándéknak tökéletes.",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 35,
+            "Images": [
+                "default.jpg"
+            ],
+            "IsAudio": true,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": true,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 884 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Ferenc",
+            "UserName": "Ferenc"
+        },
+        {
+            "Description": "Vadonat új, bőr kötéses könyv; ajándéknak tökéletes.",
+            "Edition": 1,
+            "HowMany": 1,
+            "ID": 36,
+            "Images": [
+                "P-Mely-forras-935598.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": false,
+            "IsVideo": false,
+            "Language": "Magyar",
+            "PageNumber": 276,
+            "PriceString": "2 576 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Tomek2",
+            "UserName": "Tomek2"
+        },
+        {
+            "Description": "A képeken látható állapotú a könyv",
+            "Edition": 1,
+            "HowMany": 3,
+            "ID": 37,
+            "Images": [
+                "default.jpg"
+            ],
+            "IsAudio": false,
+            "IsBook": true,
+            "IsDownloadable": false,
+            "IsUsed": true,
+            "IsVideo": false,
+            "Language": "Angol",
+            "PageNumber": 276,
+            "PriceString": "2 912 Ft",
+            "PublishYear": 2004,
+            "UserFriendlyUrl": "Fredi",
+            "UserName": "Fredi"
+        }
+    ]
+
+}

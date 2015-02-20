@@ -1,0 +1,16 @@
+<configuration>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="ProductBasic" maxBufferSize="2147483647" maxReceivedMessageSize="2147483647">
+          <security mode="None" />
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://192.168.1.100:50135/EntityManagers/ProductManagerService.svc/basic"
+        binding="basicHttpBinding" bindingConfiguration="ProductBasic"
+        contract="ProductManagerService.IProductManager" name="ProductBasic" />
+    </client>
+  </system.serviceModel>
+</configuration>

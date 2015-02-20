@@ -1,0 +1,229 @@
+<Application 
+    x:Name="BookterApplication"
+    x:Class="WindowsPhone.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    xmlns:windowsPhone="clr-namespace:WindowsPhone"
+    xmlns:common="clr-namespace:WindowsPhone.Common"
+    xmlns:converters4fun="clr-namespace:Coding4Fun.Toolkit.Controls.Converters;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converters="clr-namespace:WindowsPhone.Common.Converters"
+    >
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <shell:ApplicationBar x:Key="AppBar" IsVisible="True" 
+                                  IsMenuEnabled="True" Opacity="0.85" Mode="Default"
+                >
+                <!-- This is only sample data for the designer. The real menu is set from code dynamically, adaptive to login/logout  -->
+                <shell:ApplicationBarIconButton IconUri="/Assets/login.png" Text="Belépés" />
+                <shell:ApplicationBarIconButton IconUri="/Assets/feature.search.png" Text="Keresés" />
+                <shell:ApplicationBarIconButton IconUri="/Assets/folder.png" Text="Kategóriák" />
+            </shell:ApplicationBar>
+
+            <!--CONVERTERS-->
+            <converters:StringFormatConverter x:Key="StringFormatConverter" />
+            <converters:TransactionTypeToFinishedStringConverter x:Key="TransactionTypeToFinishedStringConverter" />
+            <converters:FeedbackBoolConverter x:Key="FeedbackBoolConverter" />
+            <converters:UserOrderStatusConverter x:Key="UserOrderStatusConverter" />
+            <converters:MultiplicationConverter x:Key="MultiplicationConverter" />
+            <converters:HideEmptyStringVisibilityConverter x:Key="HideEmptyStringVisibilityConverter" />
+            <converters:HideIfZeroVisibilityConverter x:Key="HideIfZeroVisibilityConverter" />
+            <converters:ShowIfZeroVisibilityConverter x:Key="ShowIfZeroVisibilityConverter" />
+            <converters:AllToBooleanConverter x:Key="AllToBooleanConverter" />
+            <converters:BooleanAndConverter x:Key="BooleanAndConverter" />
+            <converters:PgDetailsConverter x:Key="PgDetailsConverter" />
+            <converters:PgProductsConverter x:Key="PgProductsConverter" />
+            <converters4fun:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+            <sys:String x:Key="ProductImagesDirFormat">http://192.168.1.103:50308/Content/Images/ProductImages/{0}</sys:String>
+            <sys:String x:Key="UserImagesDirFormat">http://192.168.1.103:50308/Content/Images/UserImages/{0}</sys:String>
+            <sys:String x:Key="MainTitleUPPERCASE">BOOKTERA</sys:String>
+            <sys:String x:Key="MainTitle">BookTera</sys:String>
+
+            <sys:Double x:Key="PanoramaItemHeaderFontSize">66</sys:Double>
+
+            <Style x:Key="PanoramaItemHeaderTextStyle" TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
+                <Setter Property="FontSize" Value="{StaticResource PanoramaItemHeaderFontSize}"/>
+                <Setter Property="CharacterSpacing" Value="-35"/>
+            </Style>
+
+            <common:StaticData x:Key="StaticData" />
+
+            <!-- BOOBLOCK DATATEMPLATE -->
+
+            <ControlTemplate x:Key="BookBlockImage">
+                <Grid Width="210" Height="280">
+                    <Image Source="/WindowsPhone;component/Assets/default.jpg" Stretch="Fill"/>
+                    <Image Source="{Binding ProductGroup.ImageUrl, Converter={StaticResource StringFormatConverter}, ConverterParameter={StaticResource ProductImagesDirFormat}}" Stretch="UniformToFill"/>
+                    <StackPanel VerticalAlignment="Bottom" Background="{StaticResource PhoneSemitransparentBrush}">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Height" Value="30" />
+                                <Setter Property="Margin" Value="15,0,15,0" />
+                            </Style>
+                            <sys:String x:Key="QunatityFormatString">{0} db</sys:String>
+                        </StackPanel.Resources>
+                        <TextBlock Text="{Binding Path=Product.UserName}" Visibility="{Binding Path=Product.UserName,Converter={StaticResource HideEmptyStringVisibilityConverter}}" />
+                        <Grid>
+                            <TextBlock Text="{Binding Path=Product.PriceString}" TextAlignment="Right"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding Path=Product.HowMany,StringFormat={StaticResource QunatityFormatString}}" 
+                                           Visibility="{Binding Path=Product.Description, Converter={StaticResource HideEmptyStringVisibilityConverter}}"
+                                           />
+                                <TextBlock Text="&#x21af;" 
+                                           Visibility="{Binding Path=Product.IsDownloadable, Converter={StaticResource BooleanToVisibilityConverter}, FallbackValue=Collapsed}" 
+                                           Margin="0"
+                                           />
+                            </StackPanel>
+                        </Grid>
+                    </StackPanel>
+                </Grid>
+            </ControlTemplate>
+
+            <ControlTemplate x:Key="BookBlockData" >
+                <StackPanel Margin="15,0,0,0">
+                    <TextBlock Text="{Binding ProductGroup.Title}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                    <TextBlock Text="{Binding ProductGroup.SubTitle}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                    <TextBlock Text="{Binding ProductGroup.AuthorNames}" TextWrapping="Wrap" FontSize="{StaticResource PhoneFontSizeLarge}" Foreground="{StaticResource PhoneSubtleBrush}"/>
+                </StackPanel>
+            </ControlTemplate>
+
+            <DataTemplate x:Key="BookBlock_DataTemplate">
+                <Grid Margin="0,0,0,20" Tap="BookBlock_Tap">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <toolkit:ContextMenuService.ContextMenu>
+                        <toolkit:ContextMenu IsZoomEnabled="False" Unloaded="ContextMenu_Unloaded"
+                                             Opened="ContextMenu_OnOpened" Closed="ContextMenu_OnClosed" >
+                            <toolkit:ContextMenu.Resources>
+                                <sys:String x:Key="UserNameFormatString">"{0}" felhasználó könyvei</sys:String>
+                                <sys:String x:Key="ProductGroupFormatString">"{0}" könyvek megtekintése</sys:String>
+                                <Style TargetType="toolkit:MenuItem">
+                                    <Setter Property="Padding" Value="20" />
+                                </Style>
+
+                            </toolkit:ContextMenu.Resources>
+
+                            <!--UsersProducts-->
+                            <toolkit:MenuItem Visibility="{Binding Path=Product.UserName,Converter={StaticResource HideEmptyStringVisibilityConverter}}"
+                                              Click="ContextMenu_UsersProducts_Click"
+                                              >
+                                <toolkit:MenuItem.Header>
+                                    <TextBlock Text="{Binding Path=Product.UserName,StringFormat={StaticResource UserNameFormatString}}" TextWrapping="Wrap" />
+                                </toolkit:MenuItem.Header>
+                            </toolkit:MenuItem>
+
+                            <!--ProductGroup-->
+                            <toolkit:MenuItem Visibility="{Binding Path=ProductGroup.Title,Converter={StaticResource HideEmptyStringVisibilityConverter}}"
+                                Click="ContextMenu_ProductGroup_Click" 
+                                >
+                                <toolkit:MenuItem.Header>
+                                    <TextBlock Text="{Binding Path=ProductGroup.Title,StringFormat={StaticResource ProductGroupFormatString}}" TextWrapping="Wrap" />
+                                </toolkit:MenuItem.Header>
+                            </toolkit:MenuItem>
+
+                            <!--AddToCart-->
+                            <common:ComplexMenuItem Click="ContextMenu_AddToCart_Click"
+                                                    IsAddToCartMenuItem="True"
+                                                    IsQuantityGreaterThanZero="{Binding Path=Product.HowMany, Converter={StaticResource AllToBooleanConverter}}"
+                                                    IsUserAuthenticated="{Binding Path=UserData.IsAuthenticated, Source={StaticResource StaticData}}"
+                                                    IsProduct="{Binding Path=Product.Description, Converter={StaticResource AllToBooleanConverter}}"
+                                                    ProductOwnerName="{Binding Path=Product.UserName}"
+                                                    UserOrderVm="{Binding Path=UserOrder}"
+                                                    >
+                                <toolkit:MenuItem.Header>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Path=ThemeSwitchData.ContextMenuCart, Source={StaticResource StaticData}}"/>
+                                        <TextBlock Text="Kosárba!" VerticalAlignment="Center" />
+                                    </StackPanel>
+                                </toolkit:MenuItem.Header>
+                            </common:ComplexMenuItem>
+
+                            <!--AddToExchangeCart-->
+                            <common:ComplexMenuItem Click="ContextMenu_AddToExchangeCart_Click"
+                                                    IsAddToExchangeCartMenuItem="True"
+                                                    IsQuantityGreaterThanZero="{Binding Path=Product.HowMany, Converter={StaticResource AllToBooleanConverter}}"
+                                                    IsUserAuthenticated="{Binding Path=UserData.IsAuthenticated, Source={StaticResource StaticData}}"
+                                                    IsProduct="{Binding Path=Product.Description, Converter={StaticResource AllToBooleanConverter}}"
+                                                    UserOrderVm="{Binding Path=UserOrder}"
+                                                    >
+                                <toolkit:MenuItem.Header>
+                                    <TextBlock Text="Csere-kosárba!" VerticalAlignment="Center" />
+                                </toolkit:MenuItem.Header>
+                            </common:ComplexMenuItem>
+
+                            <!--RemoveFromCart-->
+                            <common:ComplexMenuItem Click="ContextMenu_RemoveFromCart_Click"
+                                                    IsOwnCartMenuItem="True"
+                                                    UserOrderVm="{Binding Path=UserOrder}"
+                                                    >
+                                <toolkit:MenuItem.Header>
+                                    <TextBlock Text="Kivétel a kosárból" VerticalAlignment="Center" />
+                                </toolkit:MenuItem.Header>
+                            </common:ComplexMenuItem>
+
+                            <!--ChangeQuantity (in cart)-->
+                            <common:ComplexMenuItem Click="ContextMenu_ChangeProductQuantity_Click"
+                                                    IsOwnCartMenuItem="True"
+                                                    UserOrderVm="{Binding Path=UserOrder}"
+                                                    >
+                                <toolkit:MenuItem.Header>
+                                    <TextBlock Text="Mennyiség módosítása" VerticalAlignment="Center" />
+                                </toolkit:MenuItem.Header>
+                            </common:ComplexMenuItem>
+
+                            <!--ChangeQuantity (in exchange cart)-->
+                            <common:ComplexMenuItem Click="ContextMenu_ChangeExchangeProductQuantity_Click"
+                                                    IsExchangeCartMenuItem="True"
+                                                    IsExchangeProduct="{Binding Path=IsExchangeProduct}"
+                                                    UserOrderVm="{Binding Path=UserOrder}"
+                                                    >
+                                <toolkit:MenuItem.Header>
+                                    <TextBlock Text="Csere-mennyiség módosítása" VerticalAlignment="Center" />
+                                </toolkit:MenuItem.Header>
+                            </common:ComplexMenuItem>
+
+                            <!--RemoveFromExchangeCart-->
+                            <common:ComplexMenuItem Click="ContextMenu_RemoveFromExchangeCart_Click"
+                                                    IsExchangeCartMenuItem="True"
+                                                    IsExchangeProduct="{Binding Path=IsExchangeProduct}"
+                                                    UserOrderVm="{Binding Path=UserOrder}"
+                                                    >
+                                <toolkit:MenuItem.Header>
+                                    <TextBlock Text="Kivétel a csere-kosárból" VerticalAlignment="Center" />
+                                </toolkit:MenuItem.Header>
+                            </common:ComplexMenuItem>
+
+                        </toolkit:ContextMenu>
+                    </toolkit:ContextMenuService.ContextMenu>
+                    <ContentControl Grid.Column="0" Template="{StaticResource BookBlockImage}" />
+                    <ContentControl Grid.Column="1" Template="{StaticResource BookBlockData}" />
+                </Grid>
+            </DataTemplate>
+            <!-- END BOOBLOCK DATATEMPLATE -->
+
+            <!--<ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="./ResourceDictionaries/BookBlockProduct.xaml"/>
+                <resourceDictionaries:BookBlock />
+            </ResourceDictionary.MergedDictionaries>-->
+
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

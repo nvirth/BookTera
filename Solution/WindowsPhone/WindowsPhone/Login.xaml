@@ -1,0 +1,75 @@
+﻿<pageBase:BookteraPageBase
+    x:Class="WindowsPhone.Login"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:pageBase="clr-namespace:WindowsPhone.Common.PageBase"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False"
+    ApplicationBar ="{StaticResource AppBar}"
+    >
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid x:Name="LayoutRoot" Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--TitlePanel contains the name of the application and page title-->
+            <StackPanel Grid.Row="0" Margin="12,17,0,28">
+                <TextBlock Text="{StaticResource MainTitleUPPERCASE}" Style="{StaticResource PhoneTextNormalStyle}"/>
+                <TextBlock Text="Bejelentkezés" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            </StackPanel>
+
+            <!--ContentPanel - place additional content here-->
+            <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" >
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}" />
+                        <Setter Property="HorizontalAlignment" Value="Right" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="0,40,0,0" />
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Margin" Value="0,40,0,0" />
+                    </Style>
+                    <Style TargetType="PasswordBox">
+                        <Setter Property="Margin" Value="0,40,0,0" />
+                    </Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="0,40,0,0" />
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Felhasználó név:" Grid.Column="0" Grid.Row="0" />
+                <TextBlock Text="Jelszó:" Grid.Column="0" Grid.Row="1" />
+
+                <TextBox x:Name="TbUserName" Grid.Column="1" Grid.Row="0" InputScope="LogOnName" />
+                <PasswordBox x:Name="TbPassword" Grid.Column="1" Grid.Row="1"  />
+
+                <Button x:Name="btnLogin" Content="Bejelentkezés" Grid.Column="0" Grid.Row="2" Click="Login_Click" />
+                <Button x:Name="btnRegister" Content="Regisztráció" Grid.Column="1" Grid.Row="2" Click="Register_Click"  />
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</pageBase:BookteraPageBase>

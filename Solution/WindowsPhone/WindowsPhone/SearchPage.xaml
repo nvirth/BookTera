@@ -1,0 +1,72 @@
+﻿<pageBase:BookteraPageBase
+    x:Name="Page"
+    x:Class="WindowsPhone.SearchPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sampleData="clr-namespace:WindowsPhone.SampleData"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:pageBase="clr-namespace:WindowsPhone.Common.PageBase"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False"
+    ApplicationBar ="{StaticResource AppBar}"
+    DataContext="{Binding ViewModel.SearchProducts.Products, RelativeSource={RelativeSource Self}}"
+    d:DataContext="{Binding Path=Products.Products, Source={d:DesignInstance Type=sampleData:ProductsInCategorySD, IsDesignTimeCreatable=True}}"
+    >
+    <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="TbStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Padding" Value="0,0,0,80" />
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource TbStyle}" />
+        <system:String x:Key="TitleFormatString">{0} - KERESÉS</system:String>
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{Binding Source={StaticResource MainTitleUPPERCASE},Converter={StaticResource StringFormatConverter},ConverterParameter={StaticResource TitleFormatString}}" 
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       x:Name="PageTitle"
+                       />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <toolkit:PhoneTextBox x:Name="SearchBox" Hint="Keresés..."
+                                  KeyDown="SearchBox_KeyDown" InputScope="Search" 
+                                  LengthIndicatorVisible="True"
+                                  DisplayedMaxLength="3"
+                                  ActionIcon="/Assets/search.png"
+                                  ActionIconTapped="SearchBox_OnActionIconTapped"
+                                  />
+            </Grid>
+        </StackPanel>
+
+        <Grid Grid.Row="1" Margin="20,0,0,0">
+            <TextBlock x:Name="LblEmptyProducts" Text="(Nincs találat)" Visibility="{Binding Count,Converter={StaticResource ShowIfZeroVisibilityConverter}}" />
+            <TextBlock x:Name="LblRootCategory" Text="(Írj be egy keresőkifejezést)" Visibility="Collapsed" />
+            <phone:LongListSelector Margin="0,0,-22,0" 
+                                    ItemsSource="{Binding}"
+                                    ItemTemplate="{StaticResource BookBlock_DataTemplate}"
+                                    />
+        </Grid>
+
+    </Grid>
+
+</pageBase:BookteraPageBase> 

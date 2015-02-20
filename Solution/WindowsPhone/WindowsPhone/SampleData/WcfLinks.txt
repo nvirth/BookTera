@@ -1,0 +1,14 @@
+﻿MainHighlightedProductsSD
+http://localhost:50135/EntityManagers/ProductManagerService.svc/GetMainHighlighteds?pageNumber=1&productsPerPage=8
+
+CategoryListSD
+http://localhost:50135/EntityManagers/CategoryManagerService.svc/GetCategoriesWithProductsInCategory?pageNumber=1&productsPerPage=5
+
+ProductsInCategorySD
+http://localhost:50135/EntityManagers/ProductManagerService.svc/GetProductsInCategory?categoryFriendlyUrl=Ezoterika&pageNumber=1&productsPerPage=8
+
+PgFullDetailedSD
+http://localhost:50135/EntityManagers/ProductGroupManagerService.svc/GetFullDetailed?friendlyUrl=Mely-forras&pageNumber=1&productsPerPage=100
+
+CartSD
+http://localhost:50135/TransactionManagerService.svc/GetUsersCartsVM?customerId=&vendorId=1

@@ -1,0 +1,229 @@
+﻿{
+
+    "BookBlockType": 0,
+    "Paging": {
+        "ActualPageNumber": 1,
+        "NumberOfPages": 1,
+        "NumberOfProducts": 8,
+        "ProductsPerPage": 8
+    },
+    "Products": [
+        {
+            "Product": {
+                "Description": "A képeken látható állapotú a könyv",
+                "HowMany": 1,
+                "ID": 28,
+                "ImageUrl": "P-Mely-forras-809340.jpg",
+                "IsDownloadable": true,
+                "PriceString": "2 268 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "Qvik",
+                "UserName": "Qvik"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Claus Reimann",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "Mi köti össze az asztrológiát a mesék világával? Hogyan tudjuk hasznosítani ezt a kapcsolatot egyéni fejlődésünkben, saját életutunkon?Claus Riemann több mint harminc éve foglalkozik az állatövvel és a bolygókkal, melyeket belső világunk ősképeinek tekint. C. G. Jung nyomán interpretálja a tizenkét állatövi jegyet, azok vonzalmait és ellenszenveit, erősségeit és gyengeségeit. Minden állatövi jegyet mítoszokkal, fabulákkal, mesékkel és legendákkal jellemez, melyek pontosan kifejezik a jegy archetipikus szerkezetét. Így például a Bátor szabólegény meséjébenfelfedezhetjük az Ikrek furfangosságát és ravaszságát, vagy a piros cipőkről szóló mesében a Kos jellegzetességeit. A tizenkét állatövi jegy és a hozzájuk tartozó élettémák leírása az Olvasót hasznos felismerésekhez vezeti, lehetőséget teremtve arra, hogy jobban megértse önmagát, és új fejlődési lehetőségeket fedezzen fel.",
+                "FriendlyUrl": "Mely-forras",
+                "ImageUrl": "PG-Mely-forras-297705.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Bioenergetic Kiadó",
+                "RatingPoints": 0,
+                "SubTitle": "A pszichológiai asztrológia tizenkét archetípusa",
+                "SumOfRatings": 0,
+                "Title": "Mély forrás"
+            }
+        },
+        {
+            "Product": {
+                "Description": "Néhány lapja hiányzik, de egyékbént jó állapotban van",
+                "HowMany": 1,
+                "ID": 123,
+                "ImageUrl": "P-Fel-labbal-a-foldon-673098.jpg",
+                "IsDownloadable": false,
+                "PriceString": "2 000 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "BigJoe",
+                "UserName": "BigJoe"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Oliver Sacks",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "A férfi, Oliver Sacks, nemcsak gyakorló ideggyógyász, hanem író is, bizarr neurológiai \"esetek\" lejegyzője, aki ezúttal saját könyve, sorskönyve kényszerű főszereplőjévé, a vele történtek hű krónikásává válik.Egy kivételes intelligenciájú és íráskészségű szakember örökíti meg tehát utolsó(nak vélt) órái megrázó élményét, az idő és az emlékek különös összesűrűsödését, lába abszurd \"elvesztésének\", majd \"előkerülésének\" megtapasztalását. Sacks páratlan megjelenítő erővel, helyenként mély öniróniával idézi fel a betegszereppel járó kínzó kiszolgáltatottságot, a világérzékelés radikális megváltozása miatti lelki megpróbáltatásokat s a láb \"megtalálásának\" eufóriáját. Mivel az átéltek pusztán szakmai magyarázatát nem találja kielégítőnek, irodalmi idézetekkel, filozófiatörténeti kitekintéssel keres párhuzamokat helyzetére, s próbálja értelmezni életének sorfordító eseményét, mely \"egy lélek utazása az alvilágba s onnan vissza: spirituális dráma - neurológiai alapon\".",
+                "FriendlyUrl": "Fel-labbal-a-foldon",
+                "ImageUrl": "PG-Fel-labbal-a-foldon-354152.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Park Könyvkiadó",
+                "RatingPoints": 0,
+                "SubTitle": "",
+                "SumOfRatings": 0,
+                "Title": "Fél lábbal a földön"
+            }
+        },
+        {
+            "Product": {
+                "Description": "Néhány lapja hiányzik, de egyékbént jó állapotban van",
+                "HowMany": 1,
+                "ID": 124,
+                "ImageUrl": null,
+                "IsDownloadable": true,
+                "PriceString": "2 125 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "Pertsi",
+                "UserName": "Pertsi"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Oliver Sacks",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "A férfi, Oliver Sacks, nemcsak gyakorló ideggyógyász, hanem író is, bizarr neurológiai \"esetek\" lejegyzője, aki ezúttal saját könyve, sorskönyve kényszerű főszereplőjévé, a vele történtek hű krónikásává válik.Egy kivételes intelligenciájú és íráskészségű szakember örökíti meg tehát utolsó(nak vélt) órái megrázó élményét, az idő és az emlékek különös összesűrűsödését, lába abszurd \"elvesztésének\", majd \"előkerülésének\" megtapasztalását. Sacks páratlan megjelenítő erővel, helyenként mély öniróniával idézi fel a betegszereppel járó kínzó kiszolgáltatottságot, a világérzékelés radikális megváltozása miatti lelki megpróbáltatásokat s a láb \"megtalálásának\" eufóriáját. Mivel az átéltek pusztán szakmai magyarázatát nem találja kielégítőnek, irodalmi idézetekkel, filozófiatörténeti kitekintéssel keres párhuzamokat helyzetére, s próbálja értelmezni életének sorfordító eseményét, mely \"egy lélek utazása az alvilágba s onnan vissza: spirituális dráma - neurológiai alapon\".",
+                "FriendlyUrl": "Fel-labbal-a-foldon",
+                "ImageUrl": "PG-Fel-labbal-a-foldon-354152.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Park Könyvkiadó",
+                "RatingPoints": 0,
+                "SubTitle": "",
+                "SumOfRatings": 0,
+                "Title": "Fél lábbal a földön"
+            }
+        },
+        {
+            "Product": {
+                "Description": "Néhány lapja hiányzik, de egyékbént jó állapotban van",
+                "HowMany": 1,
+                "ID": 122,
+                "ImageUrl": "P-Fel-labbal-a-foldon-269442.jpg",
+                "IsDownloadable": false,
+                "PriceString": "2 200 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "Klaus",
+                "UserName": "Klaus"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Oliver Sacks",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "A férfi, Oliver Sacks, nemcsak gyakorló ideggyógyász, hanem író is, bizarr neurológiai \"esetek\" lejegyzője, aki ezúttal saját könyve, sorskönyve kényszerű főszereplőjévé, a vele történtek hű krónikásává válik.Egy kivételes intelligenciájú és íráskészségű szakember örökíti meg tehát utolsó(nak vélt) órái megrázó élményét, az idő és az emlékek különös összesűrűsödését, lába abszurd \"elvesztésének\", majd \"előkerülésének\" megtapasztalását. Sacks páratlan megjelenítő erővel, helyenként mély öniróniával idézi fel a betegszereppel járó kínzó kiszolgáltatottságot, a világérzékelés radikális megváltozása miatti lelki megpróbáltatásokat s a láb \"megtalálásának\" eufóriáját. Mivel az átéltek pusztán szakmai magyarázatát nem találja kielégítőnek, irodalmi idézetekkel, filozófiatörténeti kitekintéssel keres párhuzamokat helyzetére, s próbálja értelmezni életének sorfordító eseményét, mely \"egy lélek utazása az alvilágba s onnan vissza: spirituális dráma - neurológiai alapon\".",
+                "FriendlyUrl": "Fel-labbal-a-foldon",
+                "ImageUrl": "PG-Fel-labbal-a-foldon-354152.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Park Könyvkiadó",
+                "RatingPoints": 0,
+                "SubTitle": "",
+                "SumOfRatings": 0,
+                "Title": "Fél lábbal a földön"
+            }
+        },
+        {
+            "Product": {
+                "Description": "Alig használt, sajtszagú könyv eladó",
+                "HowMany": 1,
+                "ID": 25,
+                "ImageUrl": "P-Mely-forras-627442.jpg",
+                "IsDownloadable": false,
+                "PriceString": "2 408 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "BMW",
+                "UserName": "BMW"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Claus Reimann",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "Mi köti össze az asztrológiát a mesék világával? Hogyan tudjuk hasznosítani ezt a kapcsolatot egyéni fejlődésünkben, saját életutunkon?Claus Riemann több mint harminc éve foglalkozik az állatövvel és a bolygókkal, melyeket belső világunk ősképeinek tekint. C. G. Jung nyomán interpretálja a tizenkét állatövi jegyet, azok vonzalmait és ellenszenveit, erősségeit és gyengeségeit. Minden állatövi jegyet mítoszokkal, fabulákkal, mesékkel és legendákkal jellemez, melyek pontosan kifejezik a jegy archetipikus szerkezetét. Így például a Bátor szabólegény meséjébenfelfedezhetjük az Ikrek furfangosságát és ravaszságát, vagy a piros cipőkről szóló mesében a Kos jellegzetességeit. A tizenkét állatövi jegy és a hozzájuk tartozó élettémák leírása az Olvasót hasznos felismerésekhez vezeti, lehetőséget teremtve arra, hogy jobban megértse önmagát, és új fejlődési lehetőségeket fedezzen fel.",
+                "FriendlyUrl": "Mely-forras",
+                "ImageUrl": "PG-Mely-forras-297705.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Bioenergetic Kiadó",
+                "RatingPoints": 0,
+                "SubTitle": "A pszichológiai asztrológia tizenkét archetípusa",
+                "SumOfRatings": 0,
+                "Title": "Mély forrás"
+            }
+        },
+        {
+            "Product": {
+                "Description": "Néhány lapja hiányzik, de egyékbént jó állapotban van",
+                "HowMany": 1,
+                "ID": 329,
+                "ImageUrl": "P-Sasok-es-angyalok-146565.jpg",
+                "IsDownloadable": false,
+                "PriceString": "2 141 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "Hypnotyx",
+                "UserName": "Hypnotyx"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Juli Zeh",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "Max, a szakmájában ismert jogász szerelmes a hatalommal felvértezett drogkereskedő lányába, Jessie-be. A lány kedvéért még a család sötét ügyleteibe is belekeveredik, de mialatt drogmámorban csempészkednek, Jessie úgy dönt, kiszáll. Max őrangyalként vigyáz a lányra, állását és karrierjét feladva Lipcsébe menekíti, de a múlt árnyaitól üldözött barátnő, egy telefonbeszélgetés során golyót ereszt a fejébe. Az önvád súlya alatt Max megpróbálja rekonstruálni kedvese életútját, de a növekvő kokainadagok végképp összemossák benne a valóságos és a paranoia-szülte világot. Max önromboló menekülési kísérlete a maffia hálójából, a politikai cselszövés és a pénz labirintusából eleve kudarcra van ítélve.Juli Zeh szövevényes utalásai és felfokozott ritmusú prózája, magas irodalmi alkotássá emelik ezt a thrillernek is kiváló regényt, amely számos nemzetközi díjat nyert, és amelyet több mint húsz nyelven adtak ki. Michel Houellebecq, Bret Easton Ellis és Quentin Tarantino rajongóknak kötelező.",
+                "FriendlyUrl": "Sasok-es-angyalok",
+                "ImageUrl": "PG-Sasok-es-angyalok-473805.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Athenaeum 2000 Kiadó",
+                "RatingPoints": 0,
+                "SubTitle": "",
+                "SumOfRatings": 0,
+                "Title": "Sasok és angyalok"
+            }
+        },
+        {
+            "Product": {
+                "Description": "Fűzött, remek állapotban (felvágatlan), sok oldal reklámmal. ",
+                "HowMany": 1,
+                "ID": 118,
+                "ImageUrl": "P-Fel-labbal-a-foldon-952992.jpg",
+                "IsDownloadable": false,
+                "PriceString": "2 275 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "SolteszCsaba",
+                "UserName": "SolteszCsaba"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Oliver Sacks",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "A férfi, Oliver Sacks, nemcsak gyakorló ideggyógyász, hanem író is, bizarr neurológiai \"esetek\" lejegyzője, aki ezúttal saját könyve, sorskönyve kényszerű főszereplőjévé, a vele történtek hű krónikásává válik.Egy kivételes intelligenciájú és íráskészségű szakember örökíti meg tehát utolsó(nak vélt) órái megrázó élményét, az idő és az emlékek különös összesűrűsödését, lába abszurd \"elvesztésének\", majd \"előkerülésének\" megtapasztalását. Sacks páratlan megjelenítő erővel, helyenként mély öniróniával idézi fel a betegszereppel járó kínzó kiszolgáltatottságot, a világérzékelés radikális megváltozása miatti lelki megpróbáltatásokat s a láb \"megtalálásának\" eufóriáját. Mivel az átéltek pusztán szakmai magyarázatát nem találja kielégítőnek, irodalmi idézetekkel, filozófiatörténeti kitekintéssel keres párhuzamokat helyzetére, s próbálja értelmezni életének sorfordító eseményét, mely \"egy lélek utazása az alvilágba s onnan vissza: spirituális dráma - neurológiai alapon\".",
+                "FriendlyUrl": "Fel-labbal-a-foldon",
+                "ImageUrl": "PG-Fel-labbal-a-foldon-354152.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Park Könyvkiadó",
+                "RatingPoints": 0,
+                "SubTitle": "",
+                "SumOfRatings": 0,
+                "Title": "Fél lábbal a földön"
+            }
+        },
+        {
+            "Product": {
+                "Description": "Jó állapotú könyv eladó",
+                "HowMany": 1,
+                "ID": 292,
+                "ImageUrl": null,
+                "IsDownloadable": false,
+                "PriceString": "2 779 Ft",
+                "ProductInOrderId": -1,
+                "UserFriendlyUrl": "Burkus",
+                "UserName": "Burkus"
+            },
+            "ProductGroup": {
+                "AuthorNames": "Szalai Vivien",
+                "CategoryFriendlyUrl": null,
+                "CategoryFullPath": null,
+                "Description": "A nő a legkeresettebb magyar luxusprostituált. A férfi budai milliárdos, a leggazdagabb üzletemberek egyike. Túlfűtött, durva szenvedélyen alapuló viszonyuk során elmerülnek a legmélyebb perverzióban, s közben a nő megjárja a poklok poklát...A Hamis gyönyörben megismert Szofi igaz története révén bepillantást nyerünk a hazai felső tízezer és a politikai elit eltitkolt, mocskos világába, Tel-Aviv luxusszállodáiba vagy éppen a Párizsban magyar szexrabszolgákat tartó szaúdi herceg hálószobájába. Az utazás végén ugyanúgy levonhatjuk a tanulságot, mint Szofi: az életben mindennek ára van, s mindenért meg kell fizetnünk...Szalai Vivien újságíró első könyvében, a Hamis gyönyörben megismerhették a legkeresettebb hazai luxusprostituáltat, Szofit. Igaz történetének folytatása, a Drága kéj élete későbbi szakaszát dolgozza fel: mindennapjait egy nős milliárdos oldalán.\"A téma nem hagyott nyugodni, számos modellel, fodrásszal, ruhatervezővel, ötcsillagos szálloda londinerével és elit ügyfelek számára lányokat biztosító futtatóval készítettem interjút: ezekből a beszélgetésekből megismert tények is belekerültek a második részbe\" - ígéri a szerző új regényében.Szofi sorsa szorosan összefonódik más prostituáltakéval és szexrabszolgákéval, és egy nőével, akit vele szemben örök piedesztálra emel a társadalom: a feleséggel.\"Sokan azt hiszik, a prostituáltak egy életre meggyűlölik a férfiakat azért, ahogyan velük bánnak. Pedig én nem gyűlölöm, inkább csak jobban ismerem őket, mint a többi nő. Az elmúlt években arra jöttem rá, hogy minden egyes férfi-nő kapcsolat az alapvető igények kielégítésére épül: a nők erőforrásokat, a férfiak pedig szolgáltatásokat várnak el a másik nemtől. Nem más ez is, mint színtiszta üzlet.\" - Szofi vallomását ajánljuk minden egyes nőnek és férfinak, aki kapcsolatok hálójában él. És mindazoknak, akik többet szeretnének tudni a hazai felső tízezer titkolt világáról.Szalai Vivien egy országos hetilap főszerkesztő-helyettese, oknyomozó riporter. A Drága kéj a második kötete.",
+                "FriendlyUrl": "Draga-kej",
+                "ImageUrl": "PG-Draga-kej-276125.jpg",
+                "IsCheckedByAdmin": false,
+                "PublisherName": "Art Nouveau Kiadó",
+                "RatingPoints": 0,
+                "SubTitle": "Egy magyar luxusprostituált és egy budai milliárdos története",
+                "SumOfRatings": 0,
+                "Title": "Drága kéj"
+            }
+        }
+    ]
+
+}

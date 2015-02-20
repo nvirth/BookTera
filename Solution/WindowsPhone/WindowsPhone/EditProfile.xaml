@@ -1,0 +1,63 @@
+﻿<pageBase:AuthPage
+    x:Class="WindowsPhone.EditProfile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:common="clr-namespace:WindowsPhone.Common"
+    xmlns:pageBase="clr-namespace:WindowsPhone.Common.PageBase"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False"
+    ApplicationBar ="{StaticResource AppBar}"
+    DataContext="{Binding ProfileVm.UserProfile, RelativeSource={RelativeSource Self}}"
+    >
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="{StaticResource MainTitleUPPERCASE}" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Adataim szerkesztése" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" FontSize="{StaticResource PhoneFontSizeExtraLarge}" TextWrapping="Wrap" />
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <ScrollViewer Grid.Row="1"  VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="ContentPanel" Margin="12,0,12,0">
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}" />
+                        <Setter Property="Margin" Value="15,40,0,0" />
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="Margin" Value="0,0,0,0" />
+                    </Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="0,40,0,0" />
+                    </Style>
+                </StackPanel.Resources>
+                <TextBlock Text="Teljes név:" />
+                <TextBox Text="{Binding FullName, Mode=TwoWay}" />
+
+                <TextBlock Text="E-mail cím:" />
+                <TextBox Text="{Binding EMail, Mode=TwoWay}" />
+
+                <TextBlock Text="Telefonszám:" />
+                <TextBox Text="{Binding PhoneNumber, Mode=TwoWay}" />
+
+                <Button Content="Változások mentése" Click="SaveChanges_Click" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+
+</pageBase:AuthPage>

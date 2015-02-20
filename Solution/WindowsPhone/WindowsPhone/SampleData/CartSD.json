@@ -1,0 +1,106 @@
+[
+
+    {
+        "ExchangeProducts": [ ],
+        "Products": [
+            {
+                "Product": {
+                    "Description": "A könyv egyben van gerincénél kisebb sérülés , hiánytalan szakadás mentes lapok , viszont elszínezodések vannak. ",
+                    "HowMany": 1,
+                    "ID": 275,
+                    "ImageUrl": "P-Varjak-lakomaja-646526.jpg",
+                    "IsDownloadable": false,
+                    "PriceString": "3 568 Ft",
+                    "ProductInOrderId": 38,
+                    "UserFriendlyUrl": "AAnt",
+                    "UserName": "AAnt"
+                },
+                "ProductGroup": {
+                    "AuthorNames": "George R. R. Martin",
+                    "CategoryFriendlyUrl": null,
+                    "CategoryFullPath": null,
+                    "Description": "A Varjak lakomája méltó folytatása George R. R. Martin világhíru fantasyciklusának, A tuz és jég dalának.A Trónok harcában megjeleno, az osi királyságot szétszakító kegyetlen erok, a Királyok csatájának kísértetei, vademberei, boszorkányai, a Kardok viharának a másvilágról eloretöro inváziója után a ciklus negyedik kötetében Martin ismét egy sokszereplos, tabudöntögeto muvel rukkolt elo.Az osi Westeros földjén lassan véget ér a hosszú, véres háború. Észak ifjú királya halott, családja osi székhelye romokban hever, a sebeiket nyalogató hadvezérek és királyi házak meghúzzák magukat. A nyugalom azonban csak látszólagos - a koncért mások is vetélkednek. A Vas-szigetek harcias népe a Hét Királyság zöld földjeire vágyik, miközben a kikötokben egyre több tengerész regél a Sárkánykirálynorol és három sárkányáról...A Varjak lakomája a sorozat elozo köteteitol megszokott színvonalu, lebilincselo és egyben felkavaró olvasmány.",
+                    "FriendlyUrl": "Varjak-lakomaja",
+                    "ImageUrl": "PG-Varjak-lakomaja-433947.jpg",
+                    "IsCheckedByAdmin": false,
+                    "PublisherName": "Alexandra Kiadó",
+                    "RatingPoints": 0,
+                    "SubTitle": "A tuz és jég dala IV.",
+                    "SumOfRatings": 0,
+                    "Title": "Varjak lakomája"
+                }
+            }
+        ],
+        "TransactionType": 1,
+        "UserOrder": {
+            "CustomerAddress": null,
+            "CustomerAddressId": null,
+            "CustomerFeedbackedSuccessful": null,
+            "CustomerFriendlyUrl": "Pimpoapo",
+            "CustomerName": "Pimpoapo",
+            "CustomersFeePercent": 0,
+            "Date": "/Date(1354959751000+0100)/",
+            "ID": 35,
+            "Status": 20,
+            "SumBookPrice": 3568,
+            "VendorAddress": null,
+            "VendorAddressId": null,
+            "VendorFeedbackedSuccessful": null,
+            "VendorFriendlyUrl": null,
+            "VendorName": null,
+            "VendorsFeePercent": 10
+        }
+    },
+    {
+        "ExchangeProducts": [ ],
+        "Products": [
+            {
+                "Product": {
+                    "Description": "A könyv egyben van gerincénél kisebb sérülés , hiánytalan szakadás mentes lapok , viszont elszínezodések vannak. ",
+                    "HowMany": 1,
+                    "ID": 275,
+                    "ImageUrl": "P-Varjak-lakomaja-646526.jpg",
+                    "IsDownloadable": false,
+                    "PriceString": "3 568 Ft",
+                    "ProductInOrderId": 124,
+                    "UserFriendlyUrl": "AAnt",
+                    "UserName": "AAnt"
+                },
+                "ProductGroup": {
+                    "AuthorNames": "George R. R. Martin",
+                    "CategoryFriendlyUrl": null,
+                    "CategoryFullPath": null,
+                    "Description": "A Varjak lakomája méltó folytatása George R. R. Martin világhíru fantasyciklusának, A tuz és jég dalának.A Trónok harcában megjeleno, az osi királyságot szétszakító kegyetlen erok, a Királyok csatájának kísértetei, vademberei, boszorkányai, a Kardok viharának a másvilágról eloretöro inváziója után a ciklus negyedik kötetében Martin ismét egy sokszereplos, tabudöntögeto muvel rukkolt elo.Az osi Westeros földjén lassan véget ér a hosszú, véres háború. Észak ifjú királya halott, családja osi székhelye romokban hever, a sebeiket nyalogató hadvezérek és királyi házak meghúzzák magukat. A nyugalom azonban csak látszólagos - a koncért mások is vetélkednek. A Vas-szigetek harcias népe a Hét Királyság zöld földjeire vágyik, miközben a kikötokben egyre több tengerész regél a Sárkánykirálynorol és három sárkányáról...A Varjak lakomája a sorozat elozo köteteitol megszokott színvonalu, lebilincselo és egyben felkavaró olvasmány.",
+                    "FriendlyUrl": "Varjak-lakomaja",
+                    "ImageUrl": "PG-Varjak-lakomaja-433947.jpg",
+                    "IsCheckedByAdmin": false,
+                    "PublisherName": "Alexandra Kiadó",
+                    "RatingPoints": 0,
+                    "SubTitle": "A tuz és jég dala IV.",
+                    "SumOfRatings": 0,
+                    "Title": "Varjak lakomája"
+                }
+            }
+        ],
+        "TransactionType": 1,
+        "UserOrder": {
+            "CustomerAddress": null,
+            "CustomerAddressId": null,
+            "CustomerFeedbackedSuccessful": null,
+            "CustomerFriendlyUrl": "Levko",
+            "CustomerName": "Levko",
+            "CustomersFeePercent": 0,
+            "Date": "/Date(1341804193000+0200)/",
+            "ID": 118,
+            "Status": 1,
+            "SumBookPrice": 3568,
+            "VendorAddress": null,
+            "VendorAddressId": null,
+            "VendorFeedbackedSuccessful": null,
+            "VendorFriendlyUrl": null,
+            "VendorName": null,
+            "VendorsFeePercent": 10
+        }
+    }
+
+]
