@@ -1,0 +1,62 @@
+@(Model: com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVMProductGroupVM)
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVMProductGroupVM
+@import java.util.Locale
+@import java.text.NumberFormat
+@import models.Profile.UserGroupVm
+@import java.text.SimpleDateFormat
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVm
+@import com.booktera.data.CommonModels_Models.UserAddressVM
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import controllers.routes
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import views.html.Profile.Partials.AddressRowPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+<h2>@Model.getTitle</h2>
+<h3>@Model.getSubTitle</h3>
+<div class="product-group-head">
+	<div class="product-group-image">
+		<img src="/img/ProductImages/@Model.getImageUrl" alt="@Model.getTitle" title="@Model.getTitle"/>
+	</div>
+	<div class="product-group-middle">
+		<div>Kiadó: @Model.getPublisherName</div>
+		<div>Szerzők: @Model.getAuthorNames</div>
+		<div>Árkategória: @Model.getPriceString</div>
+	</div>
+	<div class="product-group-right">
+		<div>
+			Értékelése:
+			<img class="rating-stars" src="/img/Ratings/@(Model.getRatingPoints + ".png")" alt="Értékelése: @(Model.getRatingPoints/2.0)" title="Értékelése: @(Model.getRatingPoints/2.0)" />
+			<div class="rating-text">@(if(Model.getSumOfRatings == 0) "(Értékelje Ön először!)" else "(" + Model.getSumOfRatings + " értékelés)")</div>
+		</div>
+		<div>
+			Kategória:
+            <a href="@routes.CategoryController.Index(Model.getCategoryFriendlyUrl)">
+                @Model.getCategoryFullPath
+            </a>
+		</div>
+		<div>Aktív könyvek a csoportban: @Model.getSumOfActiveProductsInGroup</div>
+		<div>Elfogyott könyvek a csoportban: @Model.getSumOfPassiveProductsInGroup</div>
+		<div>Befejezett vásárlások száma a csoportban: @Model.getSumOfBuys</div>
+	</div>
+</div>
+<div class="product-group-description">
+	@Model.getDescription
+</div>

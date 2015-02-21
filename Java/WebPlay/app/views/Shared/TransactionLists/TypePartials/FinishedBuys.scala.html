@@ -1,0 +1,69 @@
+@(Model: com.booktera.data.CommonModels_Models.UserOrderPLVM, h: models.Shared.TransactionLists.TypePartials.TransactionListTypePartialViewHelper = new models.Shared.TransactionLists.TypePartials.TransactionListTypePartialViewHelper)
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import com.booktera.data.CommonModels_Models.UserOrderPLVM
+@import play.mvc.Http.Context
+@import java.util.Locale
+@import utils.Utils
+@import java.text.NumberFormat
+@import views.html.Shared.TransactionLists.HelperPartials.FeedbackSuccessfulitySpanPartial
+@import models.Shared.TransactionLists.TypePartials.TransactionListTypePartialViewHelper
+
+@{
+	h.needFeedback = false
+    ""
+}
+<fieldset>
+	<legend>
+		@Html(Context.current().args.get("FieldsetLegendUserLink").asInstanceOf[String])
+        - @Utils.dateFormatterShort.format(Model.getUserOrder.getDate.getTime)
+	</legend>
+	@for(inBookBlockPvm <- Model.getProducts){
+        @controllers.HomeController.RenderBookBlockPartial(inBookBlockPvm)
+	}
+	<div class="transaction-summary">
+        <div>
+			A rendelés összege: <span class="transaction-sum-price">@h.toCurrency("Sum")</span>
+		</div>
+		<div>
+			Ebből jutalék: <span class="transaction-fee">@h.toCurrency("Fee") (@Model.getUserOrder.getCustomersFeePercent%)</span>
+			<input type="hidden" class="transaction-fee-percent" value="@Model.getUserOrder.getCustomersFeePercent" />
+		</div>
+		<div>
+            A rendelés címe: @Model.getUserOrder.getCustomerAddress
+		</div>
+	</div>
+	<div>
+		<div>
+			@if(Model.getUserOrder.getVendorFeedbackedSuccessful != null){
+				Az eladó visszajelzése:
+                @FeedbackSuccessfulitySpanPartial(Model.getUserOrder.getVendorFeedbackedSuccessful)
+			}else{
+				A vevő még nem értékelte a tranzakciót
+			}
+		</div>
+		<div>
+            @if(Model.getUserOrder.getCustomerFeedbackedSuccessful != null){
+				A Te visszajelzésed:
+                @FeedbackSuccessfulitySpanPartial(Model.getUserOrder.getCustomerFeedbackedSuccessful)
+			}else{
+				Te még nem értékelted a tranzakciót
+				@(h.needFeedback = true)
+			}
+		</div>
+	</div>
+	@if(h.needFeedback){
+		<div class="order-buttons">
+			<input type="button" value="Sikeres volt" name="close-successful-button" onclick="closeOrderSuccessful(this)" />
+			<input type="button" value="Sikertelen volt" name="close-unsuccessful-button" onclick="closeOrderUnsuccessful(this)" />
+			<input name="user-order-id" type="hidden" value="@Model.getUserOrder.getID" />
+		</div>
+	}@if(Model.getExchangeProducts.length > 0){
+		<fieldset>
+			<legend>Csere könyvek</legend>
+            @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+			@for(exchangeProduct <- Model.getExchangeProducts){
+                @controllers.HomeController.RenderBookBlockPartial(exchangeProduct)
+			}
+		</fieldset>
+	}
+</fieldset>

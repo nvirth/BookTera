@@ -1,0 +1,54 @@
+@(Model: play.data.Form[models.Profile.UserProfileEditVm])
+@import utils.Helpers.HtmlHelpers
+@import models.Profile.UserProfileEditVm
+@import helper._
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType;
+@import views.html.Shared.PagingPartials.PagingHiddensPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+@import utils.Helpers.HtmlHelpers
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Profilom - Szerkesztés")
+    ""
+}
+@scripts = {
+    <script src="/js/NuGet/jquery.unobtrusive-ajax.js"></script>
+    <script src="/js/NuGet/jquery.validate.js"></script>
+    <script src="/js/NuGet/jquery.validate.unobtrusive.js"></script>
+}
+@_Layout(scripts = scripts) {
+    <h2>Profilom szerkesztése</h2>
+
+    @form(routes.ProfileController.Edit_POST(),'enctype -> "multipart/form-data") {
+        @HtmlHelpers.errorSummary(Model, classOf[UserProfileEditVm])
+
+        <fieldset>
+            <legend>Profil szerkesztése</legend>
+
+            @HtmlHelpers.inputTextFull(Model("FullName"), classOf[UserProfileEditVm], "stringIn")
+            @HtmlHelpers.inputEmailFull(Model("EMail"), classOf[UserProfileEditVm])
+            @HtmlHelpers.inputTextFull(Model("PhoneNumber"), classOf[UserProfileEditVm], "stringIn")
+
+            <div class="editor-label">
+                @HtmlHelpers.getDisplayName(Model("ImageUrl"), classOf[UserProfileEditVm])
+            </div>
+            <div class="editor-field">
+                <input type="file" name="imageFile" />
+            </div>
+        </fieldset>
+        <p>
+            <input type="submit" value="Változások mentése" />
+        </p>
+    }
+}

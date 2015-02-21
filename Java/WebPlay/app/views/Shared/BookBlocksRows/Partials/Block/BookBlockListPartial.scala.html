@@ -1,0 +1,27 @@
+@(Model: com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM)
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import play.mvc.Http.Context
+
+@divId(model: BookBlockPLVM) = @{
+    String.format("paging-%s", model.getPaging.getActualPageNumber)
+}
+
+<h2>@Context.current().args.get("siteTitle") <span class="small-gray-number">(@Model.getPaging.getNumberOfProducts)</span></h2>
+
+@if(Model.getProducts.length == 0 && Context.current().args.get("EmptyMessage") != null){
+	@Context.current().args.get("EmptyMessage")
+}
+
+@PagingPartial(Model.getPaging)
+
+<div class="block-of-paged-books">
+	<div id="@divId(Model)" class="book-blocks books-paged">
+        @for(p <- Model.getProducts){
+            @controllers.HomeController.RenderBookBlockPartial(p)
+		}
+	</div>
+</div>
+
+@PagingPartial(Model.getPaging)

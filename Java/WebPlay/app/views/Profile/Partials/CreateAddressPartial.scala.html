@@ -1,0 +1,42 @@
+@(Model: play.data.Form[models.Profile.UserAddressVmWithValidation])
+@import com.booktera.data.CommonModels_Models_AccountModels.LoginModel
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVmWithValidation
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType;
+@import views.html.Shared.LayoutPartials.SuccessMessageIfExistPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+@SuccessMessageIfExistPartial()
+
+@form(routes.ProfileController.CreateAddress_POST(), 'id -> "address-create-form"){
+    @HtmlHelpers.errorSummary(Model, classOf[UserAddressVmWithValidation], true)
+
+    <fieldset>
+        <legend>Új cím felvétele</legend>
+
+        @HtmlHelpers.inputTextFull(Model("zipCode"), classOf[UserAddressVmWithValidation])
+        @HtmlHelpers.inputTextFull(Model("city"), classOf[UserAddressVmWithValidation])
+        @HtmlHelpers.inputTextFull(Model("streetAndHouseNumber"), classOf[UserAddressVmWithValidation])
+        @HtmlHelpers.inputTextFull(Model("country"), classOf[UserAddressVmWithValidation])
+
+        <p>
+            <input id="create-address-submit" type="button" value="Cím felvétele" onclick=" createAddress(this)" />
+        </p>
+    </fieldset>
+}

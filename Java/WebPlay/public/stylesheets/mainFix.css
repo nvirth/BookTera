@@ -1,0 +1,12 @@
+BODY
+{
+	background-image: url("/img/background.png");
+}
+#searchRow INPUT[type=submit].search-button
+{
+	background: url("/img/search.png") no-repeat;
+}
+#searchRow INPUT[type=submit].search-button:hover
+{
+	background: url("/img/search-hover.png") no-repeat;
+}

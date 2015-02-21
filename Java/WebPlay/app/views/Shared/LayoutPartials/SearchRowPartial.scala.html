@@ -1,0 +1,36 @@
+@()
+@import play.mvc.Http.Context.Implicit
+@import helper._
+
+@searchBoxText = @{
+    Implicit.request().getQueryString("searchBoxText")
+}
+
+@form(action = routes.SearchController.ProductGroup("")) {
+    <div id="searchRow">
+        <input type="text" placeholder="Keresés..." name="searchBoxText" id="searchBoxText" value="@searchBoxText" >
+        <input type="submit" name="btnSearch" value="" class="search-button" />
+        <input type="submit" name="btnDetailedSearch" value="Részletes keresés" />
+    </div>
+}
+@*
+
+@using (Html.BeginForm("ProductGroup","Search",FormMethod.Get))
+{
+<div id="searchRow">
+@Html.TextBox("searchBoxText", null, new{ placeholder = "Keresés..." })
+<input type="submit" name="btnSearch" value="" class="search-button" />
+<input type="submit" name="btnDetailedSearch" value="Részletes keresés" />
+</div>
+}
+*@
+
+@*
+- a form action így kigenerál randaságot is (query stringbe belerak)
+de ez csak randa; nem számít, a formbeli értékekkel felül lesznek ütve
+- a textBox -ba a request() objektumból ki lehetne szedni a searchBoxText értéket
+- az asp net mvc úgy csinálja, hogy mindenfelé lookup ol érte (request, viewData)
+- hátha ez is. Nézzük meg, hogy megcsináljuk a Form objektumot, és annak a Field-jéhez
+kötjük szabályosan (remélhetőleg az is a ThreadLocal -ból jön egyébként. Biztos, mert
+amúgy használhatatlan lenne
+*@

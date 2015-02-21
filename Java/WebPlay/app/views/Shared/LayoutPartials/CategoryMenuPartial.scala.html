@@ -1,0 +1,13 @@
+@(vm: models.Shared.LayoutPartials.CategoryMenuPartialVM)
+@import models.Shared.LayoutPartials.CategoryMenuPartialVM
+
+<div id="category-box" class="box">
+	<div class="box-title">
+		Kategóriák
+	</div>
+	<div class="box-main" style="display: @vm.display">
+		<ul>
+			@Html(vm.rawHtml)
+		</ul>
+	</div>
+</div>

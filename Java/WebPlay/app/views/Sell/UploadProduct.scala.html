@@ -1,0 +1,198 @@
+@(Model: play.data.Form[models.Sell.CreatePvm])
+@import utils.Helpers.HtmlHelpers
+@import models.Sell.CreatePvm
+@import helper._
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType;
+@import views.html.Shared.PagingPartials.PagingHiddensPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+@import utils.Helpers.HtmlHelpers
+
+@*******************************************@
+@PgFormStyle = @{
+    if(Model == null ||  Model("ProductGroup") != null && Model("ProductGroup.Id").valueOr("-1").equals("-1"))
+        ""
+    else
+        "display:none"
+}
+@isBookChecked = @{
+    if(Model == null || Model("Product.IsBook").valueOr("true").equals("false"))
+        ""
+    else
+        Html("\" checked=\"checked ")
+}
+@isAudioChecked = @{
+    if(Model == null || Model("Product.IsAudio").valueOr("false").equals("false"))
+        ""
+    else
+        Html("\" checked=\"checked ")
+}
+@isVideoChecked = @{
+    if(Model == null || Model("Product.IsVideo").valueOr("false").equals("false"))
+        ""
+    else
+        Html("\" checked=\"checked ")
+}
+@isUsedChecked = @{
+    if(Model == null || Model("Product.IsUsed").valueOr("false").equals("false"))
+        ""
+    else
+        Html("\" checked=\"checked ")
+}
+@isDownloadableChecked = @{
+    if(Model == null || Model("Product.IsDownloadable").valueOr("false").equals("false"))
+        ""
+    else
+        Html("\" checked=\"checked ")
+}
+@*******************************************@
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Eladás - Új könyv feltöltése")
+    ""
+}
+@scripts = {
+    <script src="/js/NuGet/jquery.unobtrusive-ajax.js"></script>
+    <script src="/js/NuGet/jquery.validate.js"></script>
+    <script src="/js/NuGet/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/Site/UploadProduct.js"></script>
+}
+@_Layout(scripts = scripts) {
+    <h2>Új könyv feltöltése</h2>
+
+    @form(routes.SellController.UploadProduct_POST(),'enctype -> "multipart/form-data") {
+        @HtmlHelpers.errorSummary(Model, classOf[CreatePvm])
+
+        <input type="hidden" id="product-upload-auto-completes-on" />
+
+        <fieldset class="product-upload-fieldset">
+            <legend>Új könyv feltöltése</legend>
+
+            <fieldset>
+                <legend>Könyv, mint csoport</legend>
+
+                <div class="editor-label">
+                    @HtmlHelpers.getDisplayName(Model("ProductGroup.Id"),classOf[CreatePvm])
+                </div>
+                <div class="editor-field">
+                    <select name="ProductGroup.Id" id="ProductGroup.Id" class="product-group-list selectIn"></select>
+                    <input type="hidden" value="@Model("ProductGroup.Id").value()" name="ProductGroup.Id" id="ProductGroup.Id" class="product-group-list-hidden">
+                    <input type="hidden" value="" name="productGroupName" id="productGroupName" class="product-group-name-hidden">
+                </div>
+
+                <div class="product-upload-product-group-datas" style="@PgFormStyle" >
+
+                    @HtmlHelpers.inputTextFull(Model("ProductGroup.Title"), classOf[CreatePvm], "stringIn")
+                    @HtmlHelpers.inputTextFull(Model("ProductGroup.SubTitle"), classOf[CreatePvm], "stringIn")
+                    @HtmlHelpers.inputTextFull(Model("ProductGroup.AuthorNames"), classOf[CreatePvm], "stringIn")
+                    @HtmlHelpers.inputTextFull(Model("ProductGroup.PublisherName"), classOf[CreatePvm], "stringIn")
+
+                    <div class="editor-label">
+                        @HtmlHelpers.getDisplayName(Model("ProductGroup.CategoryId"),classOf[CreatePvm])
+                    </div>
+                    <div class="editor-field">
+                        <select name="ProductGroup.CategoryId" id="ProductGroup.CategoryId" class="category-list selectIn"></select>
+                        <input type="hidden" value="@Model("ProductGroup.CategoryId").value()" name="ProductGroup.CategoryId" id="ProductGroup_CategoryId" class="category-list-hidden">
+                    </div>
+
+                    <div class="editor-label">
+                        @HtmlHelpers.getDisplayName(Model("ProductGroup.ImageUrl"),classOf[CreatePvm])
+                    </div>
+                    <div class="editor-field">
+                        <input type="file" name="productGroupImageFile" />
+                    </div>
+
+                    <div class="editor-label">
+                        @HtmlHelpers.getDisplayName(Model("ProductGroup.Description"),classOf[CreatePvm])
+                    </div>
+                    <div class="editor-field">
+                        @HtmlHelpers.textArea(Model("ProductGroup.Description"),classOf[CreatePvm],"","rows=\"2\" cols=\"20\" placeholder=\"A könyv hivatalos leírása, ajánlása (pl a könyv hátoldalán; leírja, hogy miről szól a könyv)\"")
+                        @HtmlHelpers.errorsFor(Model("ProductGroup.Description"),classOf[CreatePvm])
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>A Te konkrét könyved adatai</legend>
+
+                @HtmlHelpers.inputTextFull(Model("Product.Language"), classOf[CreatePvm], "stringIn")
+
+                <div class="editor-label">
+                    @HtmlHelpers.getDisplayName(Model("Product.Description"),classOf[CreatePvm])
+                </div>
+                <div class="editor-field">
+                    @HtmlHelpers.textArea(Model("Product.Description"),classOf[CreatePvm],"","rows=\"2\" cols=\"20\" placeholder=\"A Te saját könyved állapota, minősége; megjegyzések\"")
+                    @HtmlHelpers.errorsFor(Model("Product.Description"),classOf[CreatePvm])
+                </div>
+
+                @HtmlHelpers.inputTextFull(Model("Product.PublishYear"), classOf[CreatePvm], "numberIn")
+                @HtmlHelpers.inputTextFull(Model("Product.PageNumber"), classOf[CreatePvm], "numberIn")
+
+                <div class="editor-label">
+                    @HtmlHelpers.getDisplayName(Model("Product.Price"),classOf[CreatePvm])
+                </div>
+                <div class="editor-field">
+                    @HtmlHelpers.inputText(Model("Product.Price"), classOf[CreatePvm], "numberIn")
+                    Ft
+                    @HtmlHelpers.errorsFor(Model("Product.Price"),classOf[CreatePvm])
+                </div>
+
+                <div class="editor-label">
+                    @HtmlHelpers.getDisplayName(Model("Product.HowMany"),classOf[CreatePvm])
+                </div>
+                <div class="editor-field">
+                    @HtmlHelpers.inputText(Model("Product.HowMany"), classOf[CreatePvm], "numberIn")
+                    db
+                    @HtmlHelpers.errorsFor(Model("Product.HowMany"),classOf[CreatePvm])
+                </div>
+
+                @HtmlHelpers.inputTextFull(Model("Product.Edition"), classOf[CreatePvm], "numberIn")
+
+                <div class="editor-label">
+                    @HtmlHelpers.getDisplayName(Model("Product.ImageUrl"),classOf[CreatePvm])
+                </div>
+                <div class="editor-field">
+                    <input type="file" name="productImageFile" />
+                </div>
+
+                <div class="checkbox">
+                    <input type="checkbox" value="true" name="Product.IsBook" id="Product.IsBook" class="@isBookChecked">
+                    <input type="hidden" value="false" name="Product.IsBook">
+                    @HtmlHelpers.getDisplayName(Model("Product.IsBook"),classOf[CreatePvm])
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" value="true" name="Product.IsAudio" id="Product.IsAudio" class="@isAudioChecked">
+                    <input type="hidden" value="false" name="Product.IsAudio">
+                    @HtmlHelpers.getDisplayName(Model("Product.IsAudio"),classOf[CreatePvm])
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" value="true" name="Product.IsVideo" id="Product.IsVideo" class="@isVideoChecked">
+                    <input type="hidden" value="false" name="Product.IsVideo">
+                    @HtmlHelpers.getDisplayName(Model("Product.IsVideo"),classOf[CreatePvm])
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" value="true" name="Product.IsUsed" id="Product.IsUsed" class="@isUsedChecked">
+                    <input type="hidden" value="false" name="Product.IsUsed">
+                    @HtmlHelpers.getDisplayName(Model("Product.IsUsed"),classOf[CreatePvm])
+                </div>
+                <div class="checkbox">
+                    <input type="checkbox" value="true" name="Product.IsDownloadable" id="Product.IsDownloadable" class="@isDownloadableChecked">
+                    <input type="hidden" value="false" name="Product.IsDownloadable">
+                    @HtmlHelpers.getDisplayName(Model("Product.IsDownloadable"),classOf[CreatePvm])
+                </div>
+
+            </fieldset>
+        </fieldset>
+        <p>
+            <input type="submit" value="Feltöltés" />
+        </p>
+    }
+}

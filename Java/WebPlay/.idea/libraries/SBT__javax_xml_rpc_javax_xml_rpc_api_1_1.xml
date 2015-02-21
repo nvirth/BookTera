@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: javax.xml.rpc:javax.xml.rpc-api:1.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/javax.xml.rpc/javax.xml.rpc-api/jars/javax.xml.rpc-api-1.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/javax.xml.rpc/javax.xml.rpc-api/docs/javax.xml.rpc-api-1.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/javax.xml.rpc/javax.xml.rpc-api/srcs/javax.xml.rpc-api-1.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,39 @@
+@(Model: com.booktera.data.CommonPortable_Models.Paging)
+@import com.booktera.data.CommonPortable_Models.Paging
+
+@previousDeactive = @{
+    if(Model.getActualPageNumber == 1) "paging-deactive" else ""
+}
+@nextDeactive = @{
+    if(Model.getActualPageNumber == Model.getNumberOfPages) "paging-deactive" else "";
+}
+
+@if(Model.getNumberOfPages > 1){
+	<div class="paging-wrapper">
+		<div class="paging">
+
+			@* BACKWARD *@
+
+			<div class="paging-previous paging-edge @previousDeactive">
+				<div class="paging-arrow-left">
+				</div>
+			</div>
+
+			@* PAGING NUMBERS *@
+
+			<div class="paging-main">
+
+                @for(i <- 1 to Model.getNumberOfPages){
+					<div class="paging-div @(if(i == Model.getActualPageNumber) "paging-actual paging-deactive" else "") ">@i</div>
+                }
+			</div>
+
+			@* FORWARD *@
+
+			<div class="paging-next paging-edge @nextDeactive ">
+				<div class="paging-arrow-right">
+				</div>
+			</div>
+		</div>
+	</div>
+}

@@ -1,0 +1,155 @@
+@(Model: play.data.Form[models.Search.Partial.DetailedSearchInputsVm], h:models.Search.Partial.DetailedSearchViewHelper)
+@import java.util.Locale
+@import java.text.NumberFormat
+@import models.Profile.UserGroupVm
+@import models.Search.Partial.DetailedSearchInputsVm
+@import models.Search.Partial.DetailedSearchViewHelper
+@import java.text.SimpleDateFormat
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVm
+@import com.booktera.data.CommonModels_Models.UserAddressVM
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import controllers.routes
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import views.html.Profile.Partials.AddressRowPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+<h2>Részletes keresés</h2>
+
+@form(routes.SearchController.Detailed_POST(),'id -> "detailedSearch", 'name -> "detailedSearch") {
+    <fieldset>
+        <legend>
+            Részletes keresés
+        </legend>
+        <div class="detailed-search-column-1">
+            @* Comment: Here, into the "Title" field, the title of the site would be applied; because
+                we used to place that in the Context.Current.args, with key "Title". To avoid this, by
+                this field, we disable the "withValue" flag. Actually, by detaild search, it would not be
+                necessary in case of the other fields neither, since the new detaild search already uses
+                ajax; so after posting the query, the page will not refresh; so we actually do not have
+                to fill the fields again with the user's data
+                (An exception is the SearchingText field)*@
+
+            @HtmlHelpers.inputTextFull(Model("Author"),classOf[DetailedSearchInputsVm], "stringIn")
+            @HtmlHelpers.inputTextFull(Model("Publisher"),classOf[DetailedSearchInputsVm], "stringIn")
+            @HtmlHelpers.input(Model("Title"),classOf[DetailedSearchInputsVm], "stringIn", "", "text", /*withValue*/ false, /*withDivsAround*/ true, /*withValidationSpan*/ true)
+            @HtmlHelpers.inputTextFull(Model("Subtitle"),classOf[DetailedSearchInputsVm], "stringIn")
+            @HtmlHelpers.inputTextFull(Model("Description"),classOf[DetailedSearchInputsVm], "stringIn")
+
+        </div>
+        <div class="detailed-search-column-2">
+
+            <div class="editor-label">
+                 @HtmlHelpers.getDisplayName(Model("CategoryId"),classOf[DetailedSearchInputsVm])
+            </div>
+            <div class="editor-field">
+                <select name="CategoryId" id="CategoryId" class="category-list selectIn"></select>
+                <input type="hidden" value="" name="CategoryId" id="CategoryId" class="category-list-hidden">
+            </div>
+
+            @HtmlHelpers.inputTextFull(Model("SearchingText"),classOf[DetailedSearchInputsVm], "stringIn")
+
+            <div class="editor-label">
+                @HtmlHelpers.getDisplayName(Model("PublishYearFrom"),classOf[DetailedSearchInputsVm])
+            </div>
+            <div class="editor-field">
+
+                @HtmlHelpers.inputText(Model("PublishYearFrom"),classOf[DetailedSearchInputsVm], "numberIn")
+                &nbsp;-&nbsp;
+                @HtmlHelpers.inputText(Model("PublishYearTo"),classOf[DetailedSearchInputsVm], "numberIn")
+                @HtmlHelpers.errorsFor(Model("PublishYearFrom"),classOf[DetailedSearchInputsVm])
+                @HtmlHelpers.errorsFor(Model("PublishYearTo"),classOf[DetailedSearchInputsVm])
+            </div>
+
+            <div class="editor-label">
+                @HtmlHelpers.getDisplayName(Model("PageNumberFrom"),classOf[DetailedSearchInputsVm])
+            </div>
+            <div class="editor-field">
+
+                @HtmlHelpers.inputText(Model("PageNumberFrom"),classOf[DetailedSearchInputsVm], "numberIn")
+                &nbsp;-&nbsp;
+                @HtmlHelpers.inputText(Model("PageNumberTo"),classOf[DetailedSearchInputsVm], "numberIn")
+                @HtmlHelpers.errorsFor(Model("PageNumberFrom"),classOf[DetailedSearchInputsVm])
+                @HtmlHelpers.errorsFor(Model("PageNumberTo"),classOf[DetailedSearchInputsVm])
+            </div>
+
+            <div class="editor-label">
+                @HtmlHelpers.getDisplayName(Model("PriceFrom"),classOf[DetailedSearchInputsVm])
+            </div>
+            <div class="editor-field">
+
+                @HtmlHelpers.inputText(Model("PriceFrom"),classOf[DetailedSearchInputsVm], "numberIn")
+                &nbsp;-&nbsp;
+                @HtmlHelpers.inputText(Model("PriceTo"),classOf[DetailedSearchInputsVm], "numberIn")
+                @HtmlHelpers.errorsFor(Model("PriceFrom"),classOf[DetailedSearchInputsVm])
+                @HtmlHelpers.errorsFor(Model("PriceTo"),classOf[DetailedSearchInputsVm])
+            </div>
+        </div>
+        <div class="detailed-search-column-3">
+
+            <div class="radio-block">
+                <div class="radio-none count-2">
+                    <input type="radio" value="" name="IsDownloadable" id="IsDownloadable" class="@Html(h.isDownloadable_Null)" >
+                    Mindegy
+                </div>
+                <div class="radios">
+                    <input type="radio" value="true" name="IsDownloadable" id="IsDownloadable" class="@Html(h.isDownloadable_True)">
+                    Csak letölthő
+                    <br>
+                    <input type="radio" value="false" name="IsDownloadable" id="IsDownloadable" class="@Html(h.isDownloadable_False)">
+                    Csak nem letölthető
+                </div>
+            </div>
+
+            <div class="radio-block">
+                <div class="radio-none count-2">
+                    <input type="radio" value="" name="IsUsed" id="IsUsed" class="@Html(h.isUsed_Null)" >
+                    Mindegy
+                </div>
+                <div class="radios">
+                    <input type="radio" value="true" name="IsUsed" id="IsUsed" class="@Html(h.isUsed_True)">
+                    Csak használt
+                    <br>
+                    <input type="radio" value="false" name="IsUsed" id="IsUsed" class="@Html(h.isUsed_False)">
+                    Csak új
+                </div>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" value="true" name="IsBook" id="IsBook" class="@Html(h.isBookChecked)">
+                <input type="hidden" value="false" name="IsBook">
+                 @HtmlHelpers.getDisplayName(Model("IsBook"),classOf[DetailedSearchInputsVm])
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" value="true" name="IsAudio" id="IsAudio" class="@Html(h.isAudioChecked)">
+                <input type="hidden" value="false" name="IsAudio">
+                 @HtmlHelpers.getDisplayName(Model("IsAudio"),classOf[DetailedSearchInputsVm])
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" value="true" name="IsVideo" id="IsVideo" class="@Html(h.isVideoChecked)">
+                <input type="hidden" value="false" name="IsVideo">
+                 @HtmlHelpers.getDisplayName(Model("IsVideo"),classOf[DetailedSearchInputsVm])
+            </div>
+
+            <input type="button" name="btnDetailedSearch" id="btnDetailedSearch" value="Keresés" />
+        </div>
+    </fieldset>
+}

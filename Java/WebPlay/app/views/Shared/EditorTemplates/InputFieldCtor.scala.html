@@ -1,0 +1,81 @@
+@*
+Ez az FieldConstructor nincs használatban. Elég korlátozott ez a template-es mehanizmus, főleg Scala tudás
+(és rendes IDE nyelvi támogatás) nélkül. Inkább a Utils-ban StringBuilder-ekkel rakom össze, mint hajdanán :)
+
+Így lehetett használni:
+*@
+@*
+@implicitField = @{ FieldConstructor(views.html.Shared.EditorTemplates.InputFieldCtor.f) }
+*@
+
+
+@*
+
+@(elements: helper.FieldElements)
+@import utils.Utils
+
+*@
+
+@*
+<div class="@if(elements.hasErrors) {error}">
+<label for="@elements.id">@elements.label</label>
+<div class="input">
+    @elements.input
+    <span class="errors">@elements.errors.mkString(", ")</span>
+    <span class="help">@elements.infos.mkString(", ")</span>
+</div>
+</div>
+*@@*
+
+elements.label: @elements.label <br/>
+elements.infos: @elements.infos <br/>
+elements.fieldname: @elements.field.name <br/>
+elements.fieldvalue: @elements.field.value <br/>
+elements.fieldvalue: @elements.field.constraints <br/>
+
+<br/>
+
+elements.label: @elements.label.toString <br/>
+elements.infos: @elements.infos.toString <br/>
+elements.fieldname: @elements.field.name.toString <br/>
+elements.fieldvalue: @elements.field.value.toString <br/>
+elements.fieldvalue: @elements.field.constraints.toString <br/>
+
+
+@for(constraint <- elements.infos){
+
+}
+
+@for(constraint <- elements.field.constraints){
+    constraint.
+}
+*@
+@*elements.fieldform: @elements.field.form <br/>*@
+
+    @*
+<div class="editor-label">
+    <label for="loginPassword">Jelszó</label>
+</div>
+<div class="editor-field">
+    <input
+        type="password"
+        value=""
+        name="loginPassword"
+        id="loginPassword"
+        data-val-required="A következő mező megadása kötelező: Jelszó."
+        data-val="true"
+        class="text-box single-line password"
+
+        @for(constraint <- elements.field.constraints){
+            @constraint._1 match{
+                case "" =>{
+
+                }
+            }
+        }
+
+    >
+    @Utils.errors(elements.field)
+</div>
+
+    *@

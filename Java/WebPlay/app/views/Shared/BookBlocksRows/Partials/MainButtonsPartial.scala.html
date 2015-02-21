@@ -1,0 +1,51 @@
+@(vm: models.Shared.BookBlocksRows.Partials.MainButtonsPartialVM = new models.Shared.BookBlocksRows.Partials.MainButtonsPartialVM)
+@import models.Shared.BookBlocksRows.Partials.MainButtonsPartialVM
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import play.mvc.Http.Context
+@import java.lang.String
+@import utils.Config
+
+@{
+    vm.setUserName(Context.current().args.get("UserName").asInstanceOf[String])
+    vm.setHowMany(Context.current().args.get("HowMany").asInstanceOf[Int])
+    vm.setProductId(Context.current().args.get("ProductId").asInstanceOf[Int])
+    vm.setBookBlockType(Context.current().args.get("BookBlockType").asInstanceOf[BookBlockType])
+    vm.setProductInOrderId(Context.current().args.get("ProductInOrderId").asInstanceOf[Int])
+    vm.setUserOrderId(Context.current().args.get("UserOrderId").asInstanceOf[Int])
+    if(vm.getUserOrderId == 0)
+        vm.setUserOrderId(Context.current().args.get("UserOrderID").asInstanceOf[Int])
+    ""
+}
+
+@if(Config.isUserAuthenticated){
+	<input type="hidden" name="product-id" value="@vm.getProductId"/>
+
+    @vm.getBookBlockType match {
+		case BookBlockType.Product => {
+
+            @*A felhasználó saját könyve*@
+			@if(vm.getUserName.toLowerCase == Context.current().session().get(Config.SESSION_USER_NAME).toLowerCase){
+                <input type="button" name="edit-own-product" class="book-block-main-button" value="Szerkesztés" onclick="editOwnProduct(this)" />
+            }else{
+                 @if(vm.getHowMany != 0){ @*Nem fogyott el és nem saját*@
+                    <input type="button" name="add-to-cart" class="book-block-main-button" value="Kosárba" onclick="addToCartOrExchange(this) "/>
+                 }
+            }
+        }
+        case BookBlockType.ProductInCart =>{
+            <input type="hidden" name="product-in-order-id" value="@vm.getProductInOrderId"/>
+		    <input type="button" name="remove-from-cart" class="book-block-main-button" value="Kivétel" onclick="removeFromCartOrExchange(this) "/>
+        }
+        case BookBlockType.ProductInExchangeCart =>{
+            <input type="hidden" name="product-in-order-id" value="@vm.getProductInOrderId"/>
+            <input type="button" name="remove-from-exchange" class="book-block-main-button" value="Kivétel" onclick="removeFromCartOrExchange(this) "/>
+        }
+        case BookBlockType.ProductForExchange =>{
+                <input type="hidden" name="user-order-id" value="@vm.getUserOrderId"/>
+                <input type="button" name="add-to-exchange-cart" class="book-block-main-button" value="Csere-Kosárba" onclick="addToCartOrExchange(this) "/>
+        }
+        case _ =>{
+
+        }
+    } @* No buttons for: ProductGroup, ProductInOrder *@
+}

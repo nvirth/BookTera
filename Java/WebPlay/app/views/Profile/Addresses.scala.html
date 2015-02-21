@@ -1,0 +1,94 @@
+@(Model: Array[com.booktera.data.CommonModels_Models.UserAddressVM], h: models.Profile.AddressesViewHelper)
+@import com.booktera.data.CommonModels_Models_AccountModels.LoginModel
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVm
+@import com.booktera.data.CommonModels_Models.UserAddressVM
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import controllers.routes
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import views.html.Profile.Partials.AddressRowPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Profilom - Címeim")
+    h.UserOrderId = Context.current().args.get("UserOrderId").asInstanceOf[Integer]
+    h.IsCustomer = Context.current().args.get("IsCustomer").asInstanceOf[Boolean]
+    h.noAddresses = Model.isEmpty
+    ""
+}
+@{
+    /*faszom*/
+    h.UserOrderId = 1 //... some integer value/**/
+    h.IsCustomer = true //... some boolean value
+    h.noAddresses = Model.isEmpty
+    ""
+}
+@scripts = {
+    <script src="/js/NuGet/jquery.unobtrusive-ajax.js"></script>
+    <script src="/js/NuGet/jquery.validate.js"></script>
+    <script src="/js/NuGet/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/Site/Addresses.js"></script>
+}
+@backLink = @{
+    if(h.IsCustomer) routes.BuyController.Carts() else routes.SellController.InProgressTransactions()
+}
+@_Layout(scripts = scripts) {
+    <h2>Címeim</h2>
+    @if(h.UserOrderId != null) {
+        <p>
+            <a href="@backLink">
+                <input type="button" value="Vissza" />
+            </a>
+        </p>
+    }
+    <div class="@Html(if(h.noAddresses) "" else "\" style=\"display:none")" >
+        Még nem adtál meg címet!
+        <input type="hidden" id="is-first-address" value="@h.noAddresses" />
+        <input type="hidden" id="user-order-id" value="@h.UserOrderId" />
+        <input type="hidden" id="is-customer" value="@(if(h.IsCustomer != null) h.IsCustomer else "")" />
+    </div>
+    <table class="@Html(if(h.noAddresses) "\" style=\"display:none" else "")">
+        <tr>
+            <th>
+                @HtmlHelpers.getDisplayName("isDefault", classOf[UserAddressVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("zipCode", classOf[UserAddressVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("city", classOf[UserAddressVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("streetAndHouseNumber", classOf[UserAddressVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("country", classOf[UserAddressVm])
+            </th>
+            <th>
+                    <!-- Buttons -->
+            </th>
+        </tr>
+        @for(item <- Model){
+            @AddressRowPartial(item)
+        }
+    </table>
+
+    <p>
+        <input id="create-address-button" type="button" value="Új cím felvétele" />
+    </p>
+}

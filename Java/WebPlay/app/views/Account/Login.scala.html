@@ -1,0 +1,62 @@
+@(Model: play.data.Form[models.Account.LoginVM])
+@import com.booktera.data.CommonModels_Models_AccountModels.LoginModel
+@import models.Account.LoginVM
+@import helper._
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType;
+@import views.html.Shared.PagingPartials.PagingHiddensPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Bejelentkezés")
+    ""
+}
+@rememberMeChecked = @{
+    if(Model("rememberMe").valueOr("false").toBoolean) Html("\" checked=\"checked\" ") else Html.empty
+}
+@scripts = {
+    <script src="/js/NuGet/jquery.unobtrusive-ajax.js"></script>
+    <script src="/js/NuGet/jquery.validate.js"></script>
+    <script src="/js/NuGet/jquery.validate.unobtrusive.js"></script>
+}
+@_Layout(scripts = scripts) {
+    <h2>Bejelentkezés</h2>
+
+    @form(routes.AccountController.Login_POST(Context.current().args.get("returnUrl").asInstanceOf[String])) {
+        @* TODO @Html.AntiForgeryToken() *@
+        @HtmlHelpers.errorSummary(Model, classOf[LoginVM])
+
+        <fieldset>
+            <legend>Bejelentkezés</legend>
+
+            @HtmlHelpers.inputTextFull(Model("loginUserName"), classOf[LoginVM], "stringIn")
+            @HtmlHelpers.inputPasswordFull(Model("loginPassword"), classOf[LoginVM], "text-box single-line password")
+
+            @* rememberMe *@
+            <div class="editor-label">
+            </div>
+            <div class="editor-field">
+                <div class="checkbox">
+                    <input type="checkbox" value="true" name="rememberMe" id="rememberMe @rememberMeChecked">
+                    <input type="hidden" value="false" name="rememberMe">
+                    Emlékezz rám
+                </div>
+            </div>
+        </fieldset>
+        <p>
+            <input type="submit" value="Bejelentkezés" />
+        </p>
+    }
+}

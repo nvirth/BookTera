@@ -1,0 +1,39 @@
+@(Model: com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVM)
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType;
+@import views.html.Shared.PagingPartials.PagingHiddensPartial
+@import views.html.Shared.BookBlocksRows.Partials.Row.BookRowListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Row.BookRowListAjaxPartial
+
+@{
+    Context.current().args.put("BookBlockType", BookBlockType.Product)
+    ""
+}
+@scripts = {
+    <script src="/js/Site/Paging.js"></script>
+    <script src="/js/Site/AddProductToCartOrExchange.js"></script>
+}
+@styles = {
+    <link rel="stylesheet" href="/css/BookRow.css" >
+    <link rel="stylesheet" href="/css/Paging.css" >
+}
+@if(!Utils.isAjax){
+    @{
+        Context.current().args.put("Title", Config.MainTitleOfSite + " - " + Model.getProductGroup.getTitle)
+        ""
+    }
+    @_Layout(styles = styles, scripts = scripts){
+
+        @PagingHiddensPartial()
+		@BookRowListPartial(Model)
+    }
+}else{ @* AJAX *@
+
+    @BookRowListAjaxPartial(Model)
+}

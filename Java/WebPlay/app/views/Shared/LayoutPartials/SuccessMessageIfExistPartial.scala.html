@@ -1,0 +1,10 @@
+@()
+@import play.mvc.Http.Context.Implicit
+@import play.mvc.Http.Context
+
+@if(Implicit.flash().containsKey("Success") || Context.current().args.containsKey("Success") ){
+    <div class="success-message">
+        @Implicit.flash().get("Success")
+        @Context.current().args.get("Success")
+    </div>
+}

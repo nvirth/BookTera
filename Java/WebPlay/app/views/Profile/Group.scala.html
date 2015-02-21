@@ -1,0 +1,94 @@
+@(Model: Array[com.booktera.data.CommonModels_Models_EntityFramework.UserGroup], usersGroup: models.Profile.UserGroupVm)
+@import java.util.Locale
+@import java.text.NumberFormat
+@import models.Profile.UserGroupVm
+@import com.booktera.data.CommonModels_Models_EntityFramework.UserGroup
+@import java.text.SimpleDateFormat
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVm
+@import com.booktera.data.CommonModels_Models.UserAddressVM
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import controllers.routes
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import views.html.Profile.Partials.AddressRowPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Profilom - Rangom")
+    ""
+}
+@scripts = {
+    <script src="/js/Site/UserGroup.js"></script>
+}
+@_Layout(scripts = scripts) {
+    <h2>Rangom</h2>
+
+    A rangod jelenleg "@usersGroup.getGroupName", amivel @usersGroup.getBuyFeePercent% vásárlási, és @usersGroup.getSellFeePercent% eladási jutalékot
+    kell fizetned a BookTera oldalnak tranzakciónként; valamint köteles vagy az általad feltöltött könyveket @usersGroup.getMonthsToKeepBooks
+    hónapig eladásra készen tartani (addig nem is törölheted őket).
+    <p>
+        Szeretnél nagyobb kedvezményt?
+    </p>
+
+    <table>
+        <tr>
+            <th>
+                @HtmlHelpers.getDisplayName("groupName",classOf[UserGroupVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("buyFeePercent",classOf[UserGroupVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("sellFeePercent",classOf[UserGroupVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("monthsToKeepBooks",classOf[UserGroupVm])
+            </th>
+            <th>
+                @HtmlHelpers.getDisplayName("price",classOf[UserGroupVm])
+            </th>
+            <th>
+
+            </th>
+        </tr>
+        @for(item <- Model){
+            <tr class="@(if(item.getID == usersGroup.getID) "users-group" else "" )" >
+                <td class="user-group-name">
+                    @item.getGroupName()
+                </td>
+                <td>
+                    @item.getBuyFeePercent()%
+                </td>
+                <td>
+                    @item.getSellFeePercent()%
+                </td>
+                <td>
+                    @item.getMonthsToKeepBooks()
+                </td>
+                <td>
+                    @NumberFormat.getCurrencyInstance(Locale.forLanguageTag("HU-HU")).format(item.getPrice())
+                </td>
+                <td>
+                    <input type="hidden" name="user-group-id" value="@item.getID" />
+                    <input type="button" name="buy-user-group" value="Megveszem" />
+                </td>
+            </tr>
+        }
+    </table>
+}

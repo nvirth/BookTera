@@ -1,0 +1,75 @@
+@(title: String = null, styles: Html = Html.empty, scripts: Html = Html.empty)(body: Html)
+    @import views.html.Shared.LayoutPartials.SuccessMessageIfExistPartial
+    @import views.html.Shared.LayoutPartials.MainTitlePartial
+    @import views.html.Shared.LayoutPartials.FooterPartial
+    @import views.html.Shared.LayoutPartials.SearchRowPartial
+    @import java.lang.String
+    @import play.mvc.Http.Context
+
+    @siteTitle(title: String) = @{
+        if(title != null && !title.isEmpty)
+            title
+        else if(Context.current().args.containsKey("Title"))
+            Context.current().args.get("Title")
+        else
+            "BookTera"
+    }
+
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>@siteTitle(title)</title>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width" />
+
+            <link rel="stylesheet" href="/css/main/Footer.css" >
+            <link rel="stylesheet" href="/css/main/Header.css" >
+            <link rel="stylesheet" href="/css/main/LeftMenu.css" >
+            <link rel="stylesheet" href="/css/main/MainMenu.css" >
+            <link rel="stylesheet" href="/css/main/Site.css" >
+            <link rel="stylesheet" href="/css/local/mainFix.css" >
+
+            <link rel="stylesheet" href="/css/base/jquery-ui.css" >
+
+            <script src="/js/NuGet/modernizr-2.6.2.js"></script>
+
+            @styles
+
+        </head>
+        <body>
+            <header>
+                @MainTitlePartial()
+                @SearchRowPartial()
+            </header>
+            <div id="under-header">
+                <div id="leftMenu">
+                    @controllers.HomeController.RenderLoginBoxPartial()
+                    @controllers.HomeController.RenderMainMenuPartial()
+                    @controllers.CategoryController.CategoryMenu()
+                </div>
+                <div id="main">
+                    @SuccessMessageIfExistPartial()
+                    @body
+                </div>
+            </div>
+            <footer>
+            @FooterPartial()
+            </footer>
+
+            <script src="/js/Extensions/CookieFunctions.js"></script>
+            <script src="/js/Extensions/QueryStringFunctions.js"></script>
+            <script src="/js/Extensions/StringFunctions.js"></script>
+            <script src="/js/Extensions/Constants.js"></script>
+            <script src="/js/NuGet/jquery-1.9.1.js"></script>
+            <script src="/js/Extensions/JQueryHelpers.Animations.js"></script>
+            <script src="/js/Extensions/JQueryHelpers.DropDowns.js"></script>
+
+            <script src="/js/NuGet/jquery-ui-1.10.2.js"></script>
+
+            <script src="/js/Site/AutoCompletes.js"></script>
+
+            <script src="/js/Site/LayoutBoxes.js"></script>
+
+            @scripts
+        </body>
+    </html>

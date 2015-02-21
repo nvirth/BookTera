@@ -1,0 +1,23 @@
+@(errorContent: Html = Html.empty)
+@import views.html.Shared.LayoutPartials.SuccessMessageIfExistPartial
+@import views.html.Shared.LayoutPartials.MainTitlePartial
+@import views.html.Shared.LayoutPartials.FooterPartial
+@import views.html.Shared.LayoutPartials.SearchRowPartial
+@import java.lang.String
+@import play.mvc.Http.Context
+@import utils.Config
+@import views.html.Shared._Layout
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Hiba")
+    ""
+}
+@_Layout(){
+    <hgroup class="title">
+        <h1 class="error">Hiba!</h1>
+        <h2 class="error">Hiba történt a kérés feldolgozása közben.</h2>
+    </hgroup>
+    <div class="error">
+        @errorContent
+    </div>
+}

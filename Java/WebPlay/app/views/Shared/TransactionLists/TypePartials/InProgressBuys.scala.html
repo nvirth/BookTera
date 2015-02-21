@@ -1,0 +1,68 @@
+@(Model: com.booktera.data.CommonModels_Models.UserOrderPLVM, h: models.Shared.TransactionLists.TypePartials.TransactionListTypePartialViewHelper = new models.Shared.TransactionLists.TypePartials.TransactionListTypePartialViewHelper)
+@import com.booktera.data.CommonPortable_Enums.UserOrderStatus
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import com.booktera.data.CommonModels_Models.UserOrderPLVM
+@import play.mvc.Http.Context
+@import java.util.Locale
+@import utils.Utils
+@import java.text.NumberFormat
+@import views.html.Shared.TransactionLists.HelperPartials.FeedbackSuccessfulitySpanPartial
+@import models.Shared.TransactionLists.TypePartials.TransactionListTypePartialViewHelper
+@import utils.EnumHelpers.UserOrderStatusEnumHelper
+
+<fieldset>
+	<legend>
+		@Html(Context.current().args.get("FieldsetLegendUserLink").asInstanceOf[String])
+        - @Utils.dateFormatterShort.format(Model.getUserOrder.getDate.getTime)
+	</legend>
+	@for(inBookBlockPvm <- Model.getProducts){
+        @controllers.HomeController.RenderBookBlockPartial(inBookBlockPvm)
+	}
+	<div class="transaction-summary">
+        <div>
+			A rendelés összege: <span class="transaction-sum-price">@h.toCurrency("Sum")</span>
+		</div>
+		<div>
+			Ebből jutalék: <span class="transaction-fee">@h.toCurrency("Fee") (@Model.getUserOrder.getCustomersFeePercent%)</span>
+			<input type="hidden" class="transaction-fee-percent" value="@Model.getUserOrder.getCustomersFeePercent" />
+		</div>
+		<div>
+            A rendelés címe: @Model.getUserOrder.getCustomerAddress
+		</div>
+	</div>
+	<div>
+		A rendelés állapota: @UserOrderStatusEnumHelper.toDescriptionString(Model.getUserOrder.getStatus)
+	</div>
+	@if(Model.getUserOrder.getStatus == UserOrderStatus.BuyedExchangeOffered){
+		<div class="order-buttons">
+			<input type="button" value="Csere elfogadása" name="exchange-accept-button" onclick="finalizeOrderAcceptExchange(this)" />
+			<input type="button" value="Nem cserélek, fizetek" name="exchange-denied-button" onclick="finalizeOrderDenyExchange(this)" />
+			<input name="user-order-id" type="hidden" value="@Model.getUserOrder.getID" />
+		</div>
+        <fieldset>
+			<legend>Csere könyvek</legend>
+            @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+			@for(exchangeProduct <- Model.getExchangeProducts){
+                @controllers.HomeController.RenderBookBlockPartial(exchangeProduct)
+			}
+		</fieldset>
+	}else{
+	    @if(Model.getUserOrder.getStatus == UserOrderStatus.FinalizedCash ||
+                Model.getUserOrder.getStatus == UserOrderStatus.FinalizedExchange){
+            <div class="order-buttons">
+                <input type="button" value="Sikeres volt" name="close-successful-button" onclick="closeOrderSuccessful(this)" />
+                <input type="button" value="Sikertelen volt" name="close-unsuccessful-button" onclick="closeOrderUnsuccessful(this)" />
+                <input name="user-order-id" type="hidden" value="@Model.getUserOrder.getID" />
+            </div>
+            @if(Model.getUserOrder.getStatus == UserOrderStatus.FinalizedExchange){
+                <fieldset>
+                    <legend>Csere könyvek</legend>
+                    @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+                    @for(exchangeProduct <- Model.getExchangeProducts){
+                        @controllers.HomeController.RenderBookBlockPartial(exchangeProduct)
+                    }
+                </fieldset>
+            }
+        }
+	}
+</fieldset>

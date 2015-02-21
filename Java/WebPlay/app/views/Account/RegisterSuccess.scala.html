@@ -1,0 +1,19 @@
+@(errors: java.util.List[String])
+@import play.mvc.Http.Context
+@import utils.Config
+@import views.html.Shared._Layout
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Sikeres regisztráció")
+    ""
+}
+@_Layout() {
+    @if(errors == null || errors.isEmpty) {
+        Sikeres regisztráció!
+    }else{
+        A registrációd sikeres volt, de nem volt hibamentes <br />
+        @for(error <- errors){
+            @error  <br />
+        }
+    }
+}

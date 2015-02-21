@@ -1,0 +1,1 @@
+activator compile | tee logs\logFromCmd

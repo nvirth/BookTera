@@ -1,0 +1,43 @@
+@(vm: models.Shared.LayoutPartials.LoginBoxPartialVM)
+@import helper._
+@import models.Shared.LayoutPartials.LoginBoxPartialVM
+@import utils.Config
+
+<div id = "loginBox" class="box" >
+	@if(Config.isUserAuthenticated){
+		<div class="box-title">
+			Profilom
+		</div>
+		<div class="box-main" style="display: @vm.display">
+			<div class="left-column">
+				<div class="user-name">@vm.userName</div>
+				<img src="/img/UserImages/@vm.userImageUrl" alt="@vm.userName" title="@vm.userImageTitle" />
+			</div>
+			<div class="right-column">
+				<a href="@routes.BuyController.Carts()">
+					<img src="/img/Carts/cart_black.png" title="Kosaraim">
+				</a>
+                @form(routes.AccountController.LogOff(), 'id -> ""){
+                    @* TODO @Html.AntiForgeryToken() *@
+                    <input type="submit" value="Kilépés">
+                }
+			</div>
+		</div>
+	}else{
+		<div class="box-title">
+			Bejelentkezés
+		</div>
+		<div class="box-main" style="display: @vm.display">
+            @form(routes.AccountController.Login_POST(vm.returnUrl), 'id -> "loginBoxForm", 'name -> "loginBoxForm"){
+                @* TODO @Html.AntiForgeryToken() *@
+                <input type="text" placeholder="Felhasználó név" name="loginUserName" id="loginUserName"><br />
+                <input type="password" placeholder="Jelszó" name="loginPassword" id="loginPassword">
+                <input type="submit" value="OK" /><br />
+                <input type="checkbox" value="true" name="rememberMe" id="rememberMe">
+                Jegyezz meg<br />
+                <a href="@routes.AccountController.Register()">Regisztráció</a> &nbsp;|&nbsp;
+                <a href="#">Jelszó emlékeztető</a>
+			}
+		</div>
+	}
+</div>

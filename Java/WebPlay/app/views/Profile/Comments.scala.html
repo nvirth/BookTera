@@ -1,0 +1,52 @@
+@(Model: Array[com.booktera.data.CommonModels_Models.CommentWithProductGroupVM])
+@import com.booktera.data.CommonModels_Models.CommentWithProductGroupVM
+@import java.text.SimpleDateFormat
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVm
+@import com.booktera.data.CommonModels_Models.UserAddressVM
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import controllers.routes
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import views.html.Profile.Partials.AddressRowPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Profilom - Hozzászólásaim")
+    ""
+}
+@_Layout() {
+
+    <h2>Hozzászólásaim</h2>
+
+    @if(Model.isEmpty){
+        Még nem szóltál hozzá egy könyvhöz sem.
+    }
+
+    @for(item <- Model){
+        <fieldset>
+            <legend>@(Utils.dateFormatterShort.format(item.getComment.getCreatedDate.getTime))</legend>
+
+            @controllers.HomeController.RenderBookBlockPartial(item.getProduct)
+
+            <div class="display-label">
+                @item.getComment.getText
+            </div>
+        </fieldset>
+    }
+}

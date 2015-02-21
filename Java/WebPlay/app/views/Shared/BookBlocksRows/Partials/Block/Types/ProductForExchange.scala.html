@@ -1,0 +1,23 @@
+@(Model: models.Shared.BookBlocksRows.InBookBlockPvm)
+@import models.Shared.BookBlocksRows.InBookBlockPvm
+@import views.html.Shared.BookBlocksRows.Partials.MainButtonsPartial
+@import java.lang.String
+@import utils.Utils
+
+<div class="book-block book-block-grey-frame" title="@Model.getDescription">
+	<a href="@routes.ProductController.Details(Model.getProductGroup.getFriendlyUrl, Model.getProduct.getID)">
+		<img class="book-image" src="/img/ProductImages/@Model.getImageFileName" alt="@Model.getProductGroup.getTitle" />
+	</a>
+	<div class="text-block">
+		<a href="@routes.ProductController.Details(Model.getProductGroup.getFriendlyUrl, Model.getProduct.getID)">
+			<div class="title" title="@Model.getProductGroup.getTitle" >@Utils.truncate(Model.getProductGroup.getTitle, Model.getMaxLetters)</div>
+		</a>
+		<div class="subtitle" title="@Model.getProductGroup.getSubTitle" >@Utils.truncate(Model.getProductGroup.getSubTitle, Model.getMaxLetters)</div>
+		<div class="authors" title="@Model.getProductGroup.getAuthorNames" >@Utils.truncate(Model.getProductGroup.getAuthorNames, Model.getMaxLetters)</div>
+		<div class="publisher" title="@Model.getProductGroup.getPublisherName" >@Utils.truncate(Model.getProductGroup.getPublisherName, Model.getMaxLetters)</div>
+
+		<div class="price">@Model.getProduct.getPriceString</div>
+		<div class="quantity">@(if(Model.getProduct.getIsDownloadable) "Elektronikus" else String.format("%s db", Model.getProduct.getHowMany))</div>
+		@MainButtonsPartial(Model.getMainButtonsPartialVM)
+	</div>
+</div>

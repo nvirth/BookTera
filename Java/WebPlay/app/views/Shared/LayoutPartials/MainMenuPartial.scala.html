@@ -1,0 +1,105 @@
+@(vm: models.Shared.LayoutPartials.MainMenuPartialVM)
+@import models.Shared.LayoutPartials.MainMenuPartialVM
+
+<div id="main-menu-box" class="box">
+    <div class="box-title"> 
+        Főmenü
+    </div>
+    <div class="box-main" style="display: @vm.boxDisplay">
+        <ul>
+
+            <!-- HOME MENU ITEM -->
+
+            @{ vm.isOpened = vm.openedMenuIds.contains("mmo01"); }
+            <li class="level1 @(if(vm.isOpened) "opened" else "closed") ">
+                <a id="mmo01" class="ul-openable">Főoldal</a>
+                <ul style="display: @(if(vm.isOpened) "block" else "none")">
+                    <li class="@(if(vm.action == "Highlighteds" && vm.controller == "Product") "selected" else "")"  >
+                        <a id="mmo01.01" href="@routes.ProductController.Highlighteds()">Kiemelt termékek</a>
+                    </li>
+                    <li class="@(if(vm.action == "Newests" && vm.controller == "Product") "selected" else "")" >
+                        <a id="mmo01.02" href="@routes.ProductController.Newests()">Legújabb termékek</a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- PROFILE MENU ITEM -->
+
+            @{ vm.isOpened = vm.openedMenuIds.contains("mmo02"); }
+            <li class="level1 @(if(vm.isUserAuthenticated) (if(vm.isOpened) "opened" else "closed") else "deactive")" title="@vm.titleIfDeactive">
+                <a id="mmo02" class="ul-openable">Profilom</a>
+                @if(vm.isUserAuthenticated){
+                    <ul style="display: @(if(vm.isOpened) "block" else "none")">
+                        <li class="@(if(vm.action == "Edit" && vm.controller == "Profile") "selected" else "")" >
+                            <a id="mmo02.01" href="@routes.ProfileController.Edit()">Szerkesztés</a>
+                        </li>
+                        <li class="@(if(vm.action == "Addresses" && vm.controller == "Profile") "selected" else "")" >
+                            <a id="mmo02.02" href="@routes.ProfileController.Addresses()">Címeim</a>
+                        </li>
+                        <li class="@(if(vm.action == "Group" && vm.controller == "Profile") "selected" else "")" >
+                            <a id="mmo02.03" href="@routes.ProfileController.Group()">Rangom</a>
+                        </li>
+                        <li class="@(if(vm.action == "Comments" && vm.controller == "Profile") "selected" else "")" >
+                         <a id="mmo02.04" href="@routes.ProfileController.Comments()">Hozzászólásaim</a>
+                        </li>
+                        <li class="@(if(vm.action == "Ratings" && vm.controller == "Profile") "selected" else "")" >
+                            <a id="mmo02.05" href="@routes.ProfileController.Ratings()">Értékeléseim</a>
+                        </li>
+                    </ul>
+                }
+            </li>
+
+            <!-- BUY MENU ITEM -->
+
+            @{ vm.isOpened = vm.openedMenuIds.contains("mmo03"); }
+            <li class="level1 @(if(vm.isUserAuthenticated) (if(vm.isOpened) "opened" else "closed") else "deactive")" title="@vm.titleIfDeactive">
+                <a id="mmo03" class="ul-openable">Vásárlás</a>
+                @if(vm.isUserAuthenticated){
+                    <ul style="display: @(if(vm.isOpened) "block" else "none")">
+                        <li class="@(if(vm.action == "Carts" && vm.controller == "Buy") "selected" else "")" >
+                            <a id="mmo03.01" href="@routes.BuyController.Carts()">Kosaraim</a>
+                        </li>
+                        <li class="@(if(vm.action == "InProgressOrders" && vm.controller == "Buy") "selected" else "")" >
+                           <a id="mmo03.02" href="@routes.BuyController.InProgressOrders()">Megrendeltek</a>
+                        </li>
+                        <li class="@(if(vm.action == "EarlierOrders" && vm.controller == "Buy") "selected" else "")" >
+                          <a id="mmo03.03" href="@routes.BuyController.EarlierOrders()">Korábbiak</a>
+                        </li>
+                    </ul>
+                }
+            </li>
+
+                <!-- SELL MENU ITEM -->
+
+            @{ vm.isOpened = vm.openedMenuIds.contains("mmo04"); }
+            <li class="level1 @(if(vm.isUserAuthenticated) (if(vm.isOpened) "opened" else "closed") else "deactive")" title="@vm.titleIfDeactive">
+                <a id="mmo04" class="ul-openable">Eladás</a>
+                @if(vm.isUserAuthenticated){
+                    <ul style="display: @(if(vm.isOpened) "block" else "none")">
+                        <li class="@(if(vm.action == "UploadedProducts" && vm.controller == "Sell") "selected" else "")" >
+                            <a id="mmo04.01" href="@routes.SellController.UploadedProducts()">Feltöltött könyveim</a>
+                        </li>
+                        <li class="@(if(vm.action == "UploadProduct" && vm.controller == "Sell") "selected" else "")" >
+                            <a id="mmo04.02" href="@routes.SellController.UploadProduct()">Új könyv feltöltése</a>
+                        </li>
+                        @{ vm.isOpened = vm.openedMenuIds.contains("mmo04.03"); }
+                        <li class="@(if(vm.isOpened) "opened" else "closed")">
+                            <a id="mmo04.03" class="ul-openable">Tranzakcióim</a>
+                            <ul style="display: @(if(vm.isOpened) "block" else "none")">
+                                <li class="@(if(vm.action == "InCartTransactions" && vm.controller == "Sell") "selected" else "")" >
+                                    <a id="mmo04.03.01" href="@routes.SellController.InCartTransactions()">Más kosarában</a>
+                                </li>
+                                <li class="@(if(vm.action == "InProgressTransactions" && vm.controller == "Sell") "selected" else "")" >
+                                    <a id="mmo04.03.03" href="@routes.SellController.InProgressTransactions()">Folyamatban</a>
+                                </li>
+                                <li class="@(if(vm.action == "FinishedTransactions" && vm.controller == "Sell") "selected" else "")" >
+                                    <a id="mmo04.03.04" href="@routes.SellController.FinishedTransactions()">Befejezett</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+            </li>
+        </ul>
+    </div>
+</div>

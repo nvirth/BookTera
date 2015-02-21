@@ -1,0 +1,12 @@
+!activator-launch-1.2.2.jar
+.cache
+.history
+dist
+logs
+project/project
+project/target
+RUNNING_PID
+server.pid
+target
+test-result
+tmp

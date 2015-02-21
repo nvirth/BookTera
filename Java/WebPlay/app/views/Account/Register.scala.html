@@ -1,0 +1,115 @@
+@(Model: play.data.Form[models.Account.RegisterVm])
+@import utils.Helpers.HtmlHelpers
+@import models.Account.RegisterVm
+@import helper._
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType;
+@import views.html.Shared.PagingPartials.PagingHiddensPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+@import utils.Helpers.HtmlHelpers
+
+@{
+    Context.current().args.put("Title", Config.MainTitleOfSite + " - Regisztráció")
+    ""
+}
+@scripts = {
+    <script src="/js/NuGet/jquery.unobtrusive-ajax.js"></script>
+    <script src="/js/NuGet/jquery.validate.js"></script>
+    <script src="/js/NuGet/jquery.validate.unobtrusive.js"></script>
+    <script src="/js/Site/Register.js"></script>
+}
+@styles = {
+    <link rel="stylesheet" href="/css/Register.css" >
+}
+@_Layout(scripts = scripts, styles = styles) {
+    <h2>Regisztráció</h2>
+
+    @form(routes.AccountController.Register_POST(),'enctype -> "multipart/form-data", 'class -> "register") {
+        @* TODO @Html.AntiForgeryToken() *@
+        @HtmlHelpers.errorSummary(Model, classOf[RegisterVm])
+
+        <input type="hidden" id="registration-auto-completes-on" />
+
+        <fieldset class="register-fieldset">
+            <legend>Regisztráció</legend>
+            <div class="register-left-div">
+                <fieldset class="register-subfieldset register-required">
+                    <legend>Kötelező mezők</legend>
+
+                    @HtmlHelpers.inputTextFull(Model("UserName"), classOf[RegisterVm], "stringIn")
+                    @HtmlHelpers.inputPasswordFull(Model("Password"), classOf[RegisterVm], "")
+                    @HtmlHelpers.inputPasswordFull(Model("ConfirmPassword"), classOf[RegisterVm], "")
+                    @HtmlHelpers.inputEmailFull(Model("EMail"), classOf[RegisterVm], "text-box single-line")
+
+                </fieldset>
+                <fieldset class="register-subfieldset register-author-publisher">
+                    <legend>Szerző-Kiadó</legend>
+
+                        <div class="radio-block">
+                            <div class="radio-none count-2">
+                                <input type="radio" value="Neither" name="authorPublisher" id="authorPublisher" checked="checked">
+                                Sem szerzőt, sem kiadót nem képviselek
+                            </div>
+                            <div class="radios">
+                                <input type="radio" value="Author" name="authorPublisher" id="authorPublisher">
+                                Én egy szerző vagyok, a nevem
+                                <br>
+                                <input type="radio" value="Publisher" name="authorPublisher" id="authorPublisher">
+                                Én egy kiadó vagyok, a nevem
+                            </div>
+                        </div>
+
+                    <div class="radio-textboxes">
+                        <div>
+                            @HtmlHelpers.inputText(Model("AuthorName"), classOf[RegisterVm], "stringIn", "disabled=\"disabled\"")
+                        </div>
+                        <div>
+                            @HtmlHelpers.inputText(Model("PublisherName"), classOf[RegisterVm], "stringIn", "disabled=\"disabled\"")
+                        </div>
+                    </div>
+                    <div>@HtmlHelpers.errorsFor(Model("AuthorName"), classOf[RegisterVm])</div>
+                    <div>@HtmlHelpers.errorsFor(Model("PublisherName"), classOf[RegisterVm])</div>
+                </fieldset>
+            </div>
+            <div class="register-right-div">
+                <fieldset class="register-subfieldset register-others">
+                    <legend>Egyéb adatok</legend>
+
+                    @HtmlHelpers.inputTextFull(Model("FullName"), classOf[RegisterVm], "stringIn")
+                    @HtmlHelpers.inputTextFull(Model("PhoneNumber"), classOf[RegisterVm], "stringIn")
+
+                    @* imageUrl *@
+                    <div class="editor-label">
+                        @HtmlHelpers.getDisplayName(Model("ImageUrl"), classOf[RegisterVm])
+                    </div>
+                    <div class="editor-field">
+                        <input type="file" name="imageFile" />
+                    </div>
+                </fieldset>
+                <fieldset class="register-subfieldset register-address">
+                    <legend>Címem</legend>
+
+                    @HtmlHelpers.inputTextFull(Model("UserAddress.zipCode"), classOf[RegisterVm], "numberIn")
+                    @HtmlHelpers.inputTextFull(Model("UserAddress.city"), classOf[RegisterVm], "stringIn")
+                    @HtmlHelpers.inputTextFull(Model("UserAddress.streetAndHouseNumber"), classOf[RegisterVm], "stringIn")
+                    @HtmlHelpers.inputTextFull(Model("UserAddress.country"), classOf[RegisterVm], "stringIn")
+
+                </fieldset>
+            </div>
+        </fieldset>
+        <br />
+        <p>
+            <input type="submit" value="Regisztráció" />
+        </p>
+    }
+}

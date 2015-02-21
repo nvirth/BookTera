@@ -1,0 +1,71 @@
+@(Model: com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVMProductVM, defaultImageUrl:javax.xml.rpc.holders.StringHolder = new javax.xml.rpc.holders.StringHolder)
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVMProductVM
+@import views.html.Shared.BookBlocksRows.Partials.MainButtonsPartial
+@import javax.xml.rpc.holders.StringHolder
+@import java.util.Locale
+@import java.text.NumberFormat
+@import models.Profile.UserGroupVm
+@import java.text.SimpleDateFormat
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVm
+@import com.booktera.data.CommonModels_Models.UserAddressVM
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookBlockPLVM
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import controllers.routes
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import views.html.Profile.Partials.AddressRowPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+@{
+    defaultImageUrl.value = Model.getImages.apply(0)
+	Model.setImages(Model.getImages.takeRight(Model.getImages.length-1)) // Take out the first
+
+    Context.current().args.put("UserName",Model.getUserName)
+    Context.current().args.put("HowMany",Model.getHowMany)
+    Context.current().args.put("ProductId",Model.getID)
+    ""
+}
+
+<div class="book-row">
+	<div class="book-row-images">
+		<img src="/img/ProductImages/@defaultImageUrl.value" style="display: block"/>
+        @for(imageUrl <- Model.getImages){
+			<img src="/img/ProductImages/@imageUrl" style="display: none" />
+		}
+	</div>
+	<div class="book-row-2nd-column">
+		<div class="user-name"><a href="@routes.ProductController.Users(Model.getUserFriendlyUrl)">@Model.getUserName</a></div>
+		<div class="price">@Model.getPriceString</div>
+		<div class="quantity">@(if(Model.getIsDownloadable) "" else String.format("%1$s db", Model.getHowMany))</div>
+	</div>
+	<div class="book-row-description">@Model.getDescription</div>
+	<div class="book-row-4th-column">
+		<div>Nyelv: @Model.getLanguage</div>
+		<div>Oldalszám: @Model.getPageNumber</div>
+		<div>Kiadás éve: @Model.getPublishYear</div>
+		<div>Kiadás száma: @Model.getEdition</div>
+	</div>
+	<div class="book-row-5th-column">
+		<div>Elektronikuselse @(if(Model.getIsDownloadable) "Igen" else "Nem")</div>
+		<div>Könyvelse @(if(Model.getIsBook) "Igen" else "Nem")</div>
+		<div>Hangoskönyvelse @(if(Model.getIsAudio) "Igen" else "Nem")</div>
+		<div>Videóelse @(if(Model.getIsVideo) "Igen" else "Nem")</div>
+		<div>Használtelse @(if(Model.getIsUsed) "Igen" else "Nem")</div>
+	</div>
+	<div>@MainButtonsPartial()</div>
+</div>

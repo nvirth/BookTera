@@ -1,0 +1,21 @@
+@(Model: com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVM)
+@import com.booktera.data.CommonPortable_Models_ProductModels.BookRowPLVM
+@import com.booktera.data.CommonPortable_Models.Paging
+@import java.lang.String
+@import views.html.Shared.BookBlocksRows.Partials.Row.BookRowPartial
+@import views.html.Shared.BookBlocksRows.Partials.Row.BookRowProductGroupPartial
+@import views.html.Shared.PagingPartials.PagingPartial
+
+@BookRowProductGroupPartial(Model.getProductGroup)
+
+@PagingPartial(Model.getPaging)
+
+<div class="block-of-paged-books block-of-book-rows">
+	<div id="@String.format("paging-%1$s", Model.getPaging.getActualPageNumber)" class="book-rows books-paged">
+		@for(productVm <- Model.getProductsInGroup){
+			@BookRowPartial(productVm)
+		}
+	</div>
+</div>
+
+@PagingPartial(Model.getPaging)

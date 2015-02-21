@@ -1,0 +1,107 @@
+@(Model: Array[com.booktera.data.CommonModels_Models.UserOrderPLVM], h: models.Shared.TransactionLists.TransactionListViewHelper = new models.Shared.TransactionLists.TransactionListViewHelper)
+@import models.Shared.TransactionLists.TransactionListViewHelper
+@import com.booktera.data.CommonPortable_Enums.TransactionType
+@import com.booktera.data.CommonModels_Models.UserOrderPLVM
+@import java.util.Locale
+@import views.html.Shared.PagingPartials.PagingHiddensPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+@import com.booktera.data.CommonModels_Models.DetailedSearchVM
+@import models.Search.DetailedSearchVm
+@import java.text.NumberFormat
+@import models.Profile.UserGroupVm
+@import models.Search.Partial.DetailedSearchInputsVm
+@import models.Search.Partial.DetailedSearchViewHelper
+@import java.text.SimpleDateFormat
+@import models.Account.LoginVM
+@import helper._
+@import models.Profile.UserAddressVm
+@import com.booktera.data.CommonModels_Models.UserAddressVM
+@import models.Profile.AddressesViewHelper
+@import play.api.data.Field
+@import play.data.Form
+@import play.data.Form.Field
+@import views.html.Shared.PagingPartials.PagingPartial
+@import java.lang.String
+@import java.util.List
+@import controllers.routes
+@import play.mvc.Http.Context
+@import utils.Utils
+@import utils.Helpers.HtmlHelpers
+@import utils.Helpers.HtmlHelpers.errorSummary
+@import utils.Config
+@import views.html.Shared._Layout
+@import com.booktera.data.CommonPortable_Enums.BookBlockType
+@import views.html.Search.Partial.DetailedSearchPartial
+@import views.html.Profile.Partials.AddressRowPartial
+@import views.html.Shared.TransactionLists.TypePartials._
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListPartial
+@import views.html.Shared.BookBlocksRows.Partials.Block.BookBlockListAjaxPartial
+
+@{
+    h.isBuy = Utils.getControllerName().toLowerCase().equals("buy")
+    h.titlePre = if(h.isBuy) "Vásárlás" else "Eladás"
+    h.siteTitle = Context.current().args.get("SiteTitle").asInstanceOf[String]
+    h.viewData.put("Title", String.format("%1$s - %2$s - %3$s", Config.MainTitleOfSite, h.titlePre, h.siteTitle))
+    ""
+}
+@scripts = {
+    <script src="/js/Site/CartAndExchangeOperations.js"></script>
+    <script src="/js/Site/TransactionOperations.js"></script>
+}
+@styles = {
+    <link rel="stylesheet" href="/css/BookBlock.css" >
+    <link rel="stylesheet" href="/css/Paging.css" >
+}
+@_Layout(styles = styles, scripts = scripts){
+
+    <h2>@h.viewData.get("SiteTitle")</h2>
+
+    @if(Model.length == 0){
+        @h.viewData.getOrDefault("EmptyMessage","")
+    }else{
+        @if(Model.length > 1 && Model(0).getTransactionType == TransactionType.CartOwn){
+            <div class="delete-all-carts-button">
+                <input type="button" value="Minden kosár törlése" onclick="deleteAllCarts()" />
+            </div>
+        }
+        @for(modelItem <- Model){
+            @if(h.isBuy){
+                @h.viewDataPutSilent("FieldsetLegendUserLink", "<a href=\"" + routes.ProductController.Users(modelItem.getUserOrder.getVendorFriendlyUrl) + "\">" + modelItem.getUserOrder.getVendorName + "</a>")
+                @h.viewDataPutSilent("Fee",(modelItem.getUserOrder.getSumBookPrice * modelItem.getUserOrder.getCustomersFeePercent / 100.0).toInt.asInstanceOf[Integer])
+                @h.viewDataPutSilent("Sum", (h.viewData.get("Fee").asInstanceOf[Integer] + modelItem.getUserOrder.getSumBookPrice).asInstanceOf[Integer])
+            }else{
+                @h.viewDataPutSilent("FieldsetLegendUserLink", "<a href=\"" + routes.ProductController.Users(modelItem.getUserOrder.getCustomerFriendlyUrl) + "\">" + modelItem.getUserOrder.getCustomerName + "</a>")
+                @h.viewDataPutSilent("Fee",(modelItem.getUserOrder.getSumBookPrice * modelItem.getUserOrder.getVendorsFeePercent / 100.0).toInt.asInstanceOf[Integer])
+                @h.viewDataPutSilent("Sum", modelItem.getUserOrder.getSumBookPrice)
+            }
+
+            @Model(0).getTransactionType match{
+                case TransactionType.CartOwn =>{
+                    @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInCart)
+                    @CartBuys(modelItem)
+                }
+                case TransactionType.CartOthers =>{
+                    @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+                    @CartSells(modelItem)
+                }
+                case TransactionType.InProgressOrderOwn =>{
+                    @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+                    @InProgressBuys(modelItem)
+                }
+                case TransactionType.InProgressOrderOthers =>{
+                    @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+                    @InProgressSells(modelItem)
+                }
+                case TransactionType.FinishedOrderOwn =>{
+                    @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+                    @FinishedBuys(modelItem)
+                }
+                case TransactionType.FinishedOrderOthers =>{
+                    @h.viewDataPutSilent("BookBlockType", BookBlockType.ProductInOrder)
+                    @FinishedSells(modelItem)
+                }
+            }
+        }
+    }
+}
