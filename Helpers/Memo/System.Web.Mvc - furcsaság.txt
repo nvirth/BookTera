@@ -1,0 +1,76 @@
+﻿Néha a WcfHost nem fordult (v nem futott) egy Newtonsoft.Json hiba miatt. Ezért arra gondoltam, egységesítem a projetkekben használt Json.net verziókat. Ezt NuGet -tel végig is csináltam:
+
+************
+
+PM> Update-Package Newtonsoft.Json
+
+Updating 'Newtonsoft.Json' from version '6.0.1' to '6.0.5' in project 'DAL'.
+Removing 'Newtonsoft.Json 6.0.1' from DAL.
+Successfully removed 'Newtonsoft.Json 6.0.1' from DAL.
+Adding 'Newtonsoft.Json 6.0.5' to DAL.
+Installing 'Newtonsoft.Json 6.0.5'.
+Successfully installed 'Newtonsoft.Json 6.0.5'.
+Successfully added 'Newtonsoft.Json 6.0.5' to DAL.
+
+Updating 'Newtonsoft.Json' from version '6.0.3' to '6.0.5' in project 'WcfHost'.
+Removing 'Newtonsoft.Json 6.0.3' from WcfHost.
+Successfully removed 'Newtonsoft.Json 6.0.3' from WcfHost.
+Adding 'Newtonsoft.Json 6.0.5' to WcfHost.
+Successfully added 'Newtonsoft.Json 6.0.5' to WcfHost.
+Uninstalling 'Newtonsoft.Json 6.0.3'.
+Successfully uninstalled 'Newtonsoft.Json 6.0.3'.
+
+Updating 'Newtonsoft.Json' from version '5.0.6' to '6.0.5' in project 'WEB'.
+Removing 'Newtonsoft.Json 5.0.6' from WEB.
+Successfully removed 'Newtonsoft.Json 5.0.6' from WEB.
+Adding 'Newtonsoft.Json 6.0.5' to WEB.
+Successfully added 'Newtonsoft.Json 6.0.5' to WEB.
+Uninstalling 'Newtonsoft.Json 5.0.6'.
+Successfully uninstalled 'Newtonsoft.Json 5.0.6'.
+
+Updating 'Newtonsoft.Json' from version '6.0.1' to '6.0.5' in project 'TileUpdaterAgent'.
+Removing 'Newtonsoft.Json 6.0.1' from TileUpdaterAgent.
+Successfully removed 'Newtonsoft.Json 6.0.1' from TileUpdaterAgent.
+Adding 'Newtonsoft.Json 6.0.5' to TileUpdaterAgent.
+Successfully added 'Newtonsoft.Json 6.0.5' to TileUpdaterAgent.
+
+Updating 'Newtonsoft.Json' from version '6.0.1' to '6.0.5' in project 'WindowsPhone'.
+Removing 'Newtonsoft.Json 6.0.1' from WindowsPhone.
+Successfully removed 'Newtonsoft.Json 6.0.1' from WindowsPhone.
+Adding 'Newtonsoft.Json 6.0.5' to WindowsPhone.
+Successfully added 'Newtonsoft.Json 6.0.5' to WindowsPhone.
+
+---
+Kiderült, h a projektek egy részében nem is NuGet-tel volt telepítve a Newtonsoft. Meg ahol telepítve volt, ott is össze-vissza verziószámokkal. Szóval, most telepítjük a maradékhoz is, ahova kell
+---
+
+PM> Get-Package -ProjectName UtilsLocal
+No packages installed.
+PM> Install-Package Newtonsoft.Json -ProjectName UtilsLocal
+'Newtonsoft.Json 6.0.5' already installed.
+Adding 'Newtonsoft.Json 6.0.5' to UtilsLocal.
+Successfully added 'Newtonsoft.Json 6.0.5' to UtilsLocal.
+
+PM> Install-Package Newtonsoft.Json -ProjectName MetroWpf
+'Newtonsoft.Json 6.0.5' already installed.
+Adding 'Newtonsoft.Json 6.0.5' to MetroWpf.
+Successfully added 'Newtonsoft.Json 6.0.5' to MetroWpf.
+
+PM> Install-Package Newtonsoft.Json -ProjectName WinStore\WinStoreClientProxy
+'Newtonsoft.Json 6.0.5' already installed.
+Adding 'Newtonsoft.Json 6.0.5' to WinStoreClientProxy.
+Successfully added 'Newtonsoft.Json 6.0.5' to WinStoreClientProxy.
+
+PM> Install-Package Newtonsoft.Json -ProjectName BLL
+'Newtonsoft.Json 6.0.5' already installed.
+Adding 'Newtonsoft.Json 6.0.5' to BLL.
+Successfully added 'Newtonsoft.Json 6.0.5' to BLL.
+
+
+
+***********
+
+Ezután fordult is és működött is aznap. Pár nappal később viszont (hozzá se értem a 2 között) nem is fordult. A System.Web.Mvc referenciával volt baja.
+Egy napot tököltem az egésszel, nuget package-eztem meg minden, a megoldás csak ennyi volt:
+ahol megjelent a hiba, ott jobb klikk, Add Reference, (Extension, ill. Recent), System.Web.Mvc --> Be lesz pipálva. Először ki kell venni a pipát (sztem pont ugyanezt tenné, ha kézzel kitörölnénk a References listából), majd OK; aztán újra Add Reference, és adjuk hozzá vissza.
+Fogalmam sincs, hogy ez mi a faszt változtat, de így most fordul (remélem h nem csak átmeneti ideig)

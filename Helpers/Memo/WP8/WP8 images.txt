@@ -1,0 +1,4 @@
+
+Háttérkép:
+Include in project, jobb gomb, properties, build action: resource
+(app bar icon esetén nem kell, az marad content)

@@ -1,0 +1,22 @@
+Log4net
+
+NuGet package után: (sajnos nem adja hozzá a megfelelõ bejegyzéseket a web.config-hoz)
+
+<configSections>
+...
+	<section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,Log4net"/>
+...
+</configSections>
+
+<log4net>
+    <appender name="elmahappender" type="elmahappender_log4net.ELMAHAppender, elmahappender_log4net">
+      <layout type="log4net.Layout.PatternLayout">
+        <conversionPattern value="%date [thread] %-5level %logger - %message%newline" />
+      </layout>
+      <UseNullContext>False</UseNullContext>
+    </appender>
+    <root>
+      <level value="ALL" />
+      <appender-ref ref="elmahappender" />
+    </root>
+  </log4net>

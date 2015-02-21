@@ -1,0 +1,2 @@
+wget -O productmanager_getnewests.json "http://localhost:50135/EntityManagers/ProductManagerService.svc/GetNewests?numOfProducts=16&pageNumber=2&productsPerPage=8"
+wget -O productmanager_getmainhighlighteds.json "http://localhost:50135/EntityManagers/ProductManagerService.svc/GetMainHighlighteds?pageNumber=1&productsPerPage=8"

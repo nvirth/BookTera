@@ -1,0 +1,9 @@
+﻿WcfHost - Validáció
+
+Amikor Asp.Net Mvc Controller szintű validációt akarunk végrehajtani a WcfHost projektben, ami ugye egy Asp.Net Mvc 
+projekt, az nem fog menni egyből "TryValidateModel" vagy "ModelState.IsValid" hívásokkal, mert ezek a Controller osztály
+protected láthatóságú tagjai (nem statikusak). Készítettem egy "Validator" nevű osztályt, ami példányosít egy 
+Controller objektumot, és inicializálja ahhoz, hogy a TryValidateModel hívható legyen rajta, és a ModelState
+dictionary-ben a hibák fellelhetők legyenek.
+Ha valamiért reprodukálni kéne a folyamatot, a "Moq" nevű NuGet package telepítése szükséges a kód újrafelhasználása
+előtt

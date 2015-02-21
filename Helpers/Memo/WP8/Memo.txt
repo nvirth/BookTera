@@ -1,0 +1,19 @@
+﻿- Telepítve lett a Windows Phone Toolkit nuget package
+- Telepítve lett: Coding4Fun.Toolkit.Controls
+
+- Ha nincs bekapcsolva a wifi a telefonon, akkor a LAN -ba címzett üzenetek NotFound lesznek :)
+- Új WindowsPhone projekt hozzáadásakor a BUILD/Configuration Manager -ben x86-ról ANY CPU -ra 
+- Másodlagos csempe NavigationUri-ja nem megy fragment-tel :D (csak QueryString -gel)
+- Ha debug közben kilép, de amúgy megy az app, csak újra kell indítani a telefont
+	* Nokia Lumia 520, meghülyül időnként. 3 óra volt, míg először rájöttem, h a teló szivat, és csak újra kellett indítani
+
+-----
+Egyéb
+-----
+
+Ha a PhoneApp..Page -nek állítok DataContext-et, akkor RelativeSource Self -fel kell, 
+nem szabad ElementName=<phoneApp_name> módon, mert az nem működik (sztem bug, sztem működnie kéne)
+
+A WCF service client -eket Safe-re keretező metódusok regex-e:
+(^.*return.*$)
+\t\t\ttry\r\n\t\t\t\{\r\n\t\1\r\n\t\t\t\}\r\n\t\t\tcatch \(Exception e\)\r\n\t\t\t\{\r\n\t\t\t\tRestServiceClientBase\.ShowDefaultErrorMsg\(\);\r\n\t\t\t\}\r\n\t\t\treturn null;

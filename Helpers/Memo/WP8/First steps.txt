@@ -1,0 +1,41 @@
+﻿http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj684580%28v=vs.105%29.aspx
+(Saved version: How to connect to a local web service from WP8.mht)
+
+1. Create a firewall exception to allow HTTP requests through the firewall on the port that IIS Express is using.
+	50135 <- WcfHost
+	50308 <- WEB
+	- Mivel az "otthoni hálózat"-om nincs otthoninak konfigurálva, hanem csak nyilvános hálózat; ezért ha a helyi hálózatról másik gépről rá akarok nézni, akkor is engedélyezni kell a nyilvános hálózatokról való hozzáférést
+	- WP Device-hoz sztem nem kell a nyilvánost engedélyezni
+2. ...
+3. ...
+4. Open applicationhost.config with Notepad or another text editor and make the following changes.
+	c:\Users\Norbert\Documents\IISExpress\config\applicationhost.config 
+	(applicationhost.lnk in the Helpers\WP8 dir)
+	            <site name="WEB" id="2">
+                <application path="/" applicationPool="Clr4IntegratedAppPool">
+                    <virtualDirectory path="/" physicalPath="C:\Norbi\Development\BookTera\Solution\WEB" />
+                </application>
+                <bindings>
+                    <binding protocol="http" bindingInformation="*:50308:localhost" />
+					<!-- Update to the actual local IP address -->
+					<binding protocol="http" bindingInformation="*:50308:192.168.1.102" />
+                </bindings>
+            </site>
+            <site name="WcfHost" id="3">
+                <application path="/" applicationPool="Clr4IntegratedAppPool">
+                    <virtualDirectory path="/" physicalPath="C:\Norbi\Development\BookTera\Solution\WCF\WcfHost" />
+                </application>
+                <bindings>
+                    <binding protocol="http" bindingInformation="*:50135:localhost" />
+					<!-- Update to the actual local IP address -->
+                    <binding protocol="http" bindingInformation="*:50135:192.168.1.102" />
+                </bindings>				
+            </site>
+N+1. lépés:
+  <system.serviceModel>
+	...
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true" />
+  </system.serviceModel>
+
+Szükséges itt felvenni ezt: multipleSiteBindingsEnabled="true"
+Ellenkező esetben Exception: "This collection already contains an address with scheme http.  There can be at most one address per scheme in this collection..."

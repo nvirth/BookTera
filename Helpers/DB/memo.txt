@@ -1,0 +1,1 @@
+Az All.sql fájl a teljes DB szkript; a biztonság kedvéért mindig 2 helyen tároltam. A másik DB projektben van, amit a VS menedzsel; kb csak biztosra akartam menni, h nem törli nekem magic módon

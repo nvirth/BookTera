@@ -1,0 +1,16 @@
+http://localhost:50135/BookManagerService.svc?wsdl
+http://localhost:50135/ForGeneratingModelsService.svc?wsdl
+http://localhost:50135/RegistrationManagerService.svc?wsdl
+http://localhost:50135/TransactionManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/AuthorManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/CategoryManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/CommentManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/ImageManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/ProductGroupManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/ProductManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/PublisherManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/RatingManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/UserAddressManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/UserGroupManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/UserOrderManagerService.svc?wsdl
+http://localhost:50135/EntityManagers/UserProfileManagerService.svc?wsdl

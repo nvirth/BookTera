@@ -1,0 +1,3 @@
+WCF - Add Service Reference
+
+Alapból minden gyûjteményt tömbbé parszol fel; én pedig általában List-tel dolgozom, ezért célszerû átállítani az alapbeállítást

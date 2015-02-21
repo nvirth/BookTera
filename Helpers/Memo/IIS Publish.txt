@@ -1,0 +1,33 @@
+IIS Publish
+
+1.Run:
+IIS manager
+(ha nincs: Vezérlõpult\Programok és szolgáltatások\Windows szolgáltatások be- és kikapcsolása\Internet Information Services)
+Do:
+- Add new Application Pool
+	- Name: BookTera
+	- .NET FrameWork: v4
+- Advanced Options (magyarul speciális beállítások) on BookTera AppPool
+	- Auto start: false (ha nem akarjuk)
+	- ProcessModel/Identity: ApplicationPoolIdentity
+- Helyek -> Új webhely hozzáadása
+	- Értelemszerûen...
+- Majd ugyanez a WcfHost-nak is
+	- A port számnak meg kell egyezie a projektben beállítottal
+
+2.Run (as administrator):
+Visual Studio Command Prompt
+(vagy Developer Command Prompt for VS2012; ez együtt települ vele)
+Type:
+aspnet_regiis -i
+	
+3.Run:
+MS SQL Management Sudio
+Do:
+- Connect to server
+- Security/Logins: right click, new Login
+	- Login name: IIS APPPOOL\BookTera
+	- (Windows Authentication)
+	- User Mapping tab
+		- Select db: ebookDB
+		- Select roles: db_datareader, db_datawriter

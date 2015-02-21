@@ -1,0 +1,8 @@
+Át kell írni több helyen is, nem csak a kódban:
+1. applicationhost.config fájlban (lsd: First steps.txt, 4. lépés)
+2. Át kell írni a ServiceReference-eket is: WinPhoneClientProxy/ServiceReferences.ClientConfig fájlban a régi IP címeket cserélni az újra.
+3. App.xaml -ben: <sys:String x:Key="ProductImagesDirFormat">http://192.168.1.102:50308/Content/Images/ProductImages/{0}</sys:String>
+4. WinPhoneClientProxy.WcfProxy.Base.RestServiceClientBase . ActualIp
+5. TileUpdaterAgent project - TileManager osztály members
+6. Java\Android\AndroidClientProxy\src\main\java\com\booktera\androidclientproxy\lib\proxy\base\RestServiceClientBase.java: actualIp
+7. Java\Android\Android\src\main\java\com\booktera\android\common\Config.java

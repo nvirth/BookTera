@@ -1,0 +1,25 @@
+﻿Projekt összenyomása kis méretre
+
+--- Törölhetők (újrafordítás szükséges a helyretételhez):
+bin
+obj
+*.bak
+\Solution\DataBase\DB\DB.dbmdl
+\Solution\theSolution\packages 
+\Solution\WCF\WcfHost\messages.svclog 
+\Solution\WEB\Content\Images\ProductImages 
+\Solution\WEB\Content\Images\UserImages 
+\Solution\InitSolution\init.log 
+Minden fájl a theSolution mappában, a .sln fájl kivételével)
+ BookTera.sln.DotSettings 
+ UpgradeLog.htm 
+ BookTera.v12.suo 
+ BookTera.sln.DotSettings.user 
+ 
+--- Törölhetők (InitSolution futtatása szükséges a helyretétlhez):
+\Solution\DataBase\TestData\Resources 
+
+--- NEM törölhető semmiképp:
+\Solution\WEB\Scripts\NuGet 
+\Solution\WEB\Content\themes\base 
+\Solution\WindowsPhone\WindowsPhone\Assets 

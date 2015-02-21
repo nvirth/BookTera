@@ -1,0 +1,12 @@
+Elmah
+
+Nem elég a NuGet package. Ez beleír a Web.Config-ba, de csak in-memory log-olást. Perzisztensé tenni így:
+<elmah>
+...
+	<errorLog type="Elmah.SqlErrorLog, Elmah" connectionStringName="BookTeraDB" applicationName="BookTera" />
+...
+</elmah>
+És persze további config itt: ELMAH-1.2-sp2-sample-web.config  (bár egyszerûbb google-zni)
+A DB-be telepíteni kell ezt: ELMAH-1.2-db-SQLServer.sql
+Elérni pedig: localhost/elmah.axd
+Tud teszt exceptiont is: localhost/elmah.axd/test

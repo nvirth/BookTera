@@ -1,0 +1,1 @@
+- Profilom szerkesztése során, ha átír egy property-t, de nem kattint a változások mentése gombra, vissza lépéskor már akkor is a megváltoztatott állapotot látja

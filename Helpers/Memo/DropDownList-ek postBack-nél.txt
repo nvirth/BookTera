@@ -1,0 +1,22 @@
+DropDownList-ek postBack-nél
+
+példa:
+
+@Html.DropDownListFor(model => model.ProductGroup.CategoryId, new List<SelectListItem>(), new{ @class = "category-list selectIn"})
+@Html.HiddenFor(model => model.ProductGroup.CategoryId, new{ @class = "category-list-hidden" })
+
+A HiddenFor-nak mindenképp késõbb kell lennie, mert a postban ez lesz:
+ProductGroup.CategoryId={elsõ}&ProductGroup.CategoryId={második
+
+Model építéshez pedig az elsõt használja
+Ha a HiddenFor helyett Hidden-t használnék, és ott más nevet adnék neki, az is megoldaná; de attól még azt is be-post-olná 
+(csak semmi nem használná semmire) és akkor "model. ..." helyett "Model. ..." -ot kéne használni; ami a HiddenFor-ban egyébként
+ugyanazt eredményezné, mint a "kisbetüs"; de a Hidden-ben figyelni kéne rá, hogy ne legyen null a Model; mert akkor nincs 
+Model.ProductGroup; és az se legyen null, mert akkor nincs Model.ProductGroup.CategoryId sem, és voálá exception.
+Ha pedig még mindig ez az út tetszene jobban; pl kontrollerbõl példányosítanám a Model-t, és a propery-eit; fennáll a probléma,
+ha van primitív, érték típusú propertyje is (pl int), annak a default értéke beíródik a többi EditorFor-ban a viewban. Tehát pl
+minden int-nél 0 -val kitölti a textBox input mezõt.
+Megj.: akármiFor -t ha úgy akarom használni, h a Model néha null, akkor kell legyen neki parameter less ctor -ja. (Néha kijött az
+exception, néha nem...). Nem elég az sem, ha pl ctor(int i = 0) van benne; ilyenkor néha elfogadta, de néha nem
+
+(Megj.: Ez az információ fél napomba került)

@@ -1,0 +1,3 @@
+Sajnos az nem jött össze, hogy wcf-en keresztül lehívja a valós adatokat, mint ahogy pl a win8-as projekt teszi.
+Helyette SampleData/*.json file-ból olvassa; de azt is "kézzel" parse-olja be egy *.cs fájlban.
+Na, ebben a fájlban fontos, hogy ABSOLUTE PATH -fal van megadva a json fájl; ha a projekt elmozdul, kézzel kell frissíteni
