@@ -1,0 +1,2 @@
+# This was used for 'git add <folder>' diffs
+dir /S /B /A:-D > dir.txt
