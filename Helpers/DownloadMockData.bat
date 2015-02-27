@@ -6,3 +6,6 @@ wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productgroupmanager_
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\categorymanager_getcategorieswithproductsincategory.json "http://localhost:50135/EntityManagers/CategoryManagerService.svc/GetCategoriesWithProductsInCategory?baseCategoryFu=Ezoterika&pageNumber=1&productsPerPage=0"
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productmanager_getproductsincategory.json "http://localhost:50135/EntityManagers/ProductManagerService.svc/GetProductsInCategory?pageNumber=1&productsPerPage=100&categoryFriendlyUrl=Ezoterika--Parapszichologia"
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productmanager_getusersproductsbyfriendlyurl.json "http://localhost:50135/EntityManagers/ProductManagerService.svc/GetUsersProductsByFriendlyUrl?forExchange=false&pageNumber=1&friendlyUrl=Boldano&productsPerPage=100"
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productgroupmanager_getfulldetailed.json "http://localhost:50135/EntityManagers/ProductGroupManagerService.svc/GetFullDetailed?pageNumber=1&friendlyUrl=Emma-lanya&productsPerPage=100"
+
+
