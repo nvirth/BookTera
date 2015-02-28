@@ -67,7 +67,6 @@ crashlytics-build.properties
 **.pydevproject
 .metadata
 bin/
-tmp/
 **.tmp
 **.bak
 **.swp
