@@ -120,6 +120,8 @@ namespace WinPhoneClientProxy.WcfProxy.Base
 							}
 						}
 
+						//TODO this way there will be a 'no connection' error msg even if we are just redircted to the login page
+						//(if changing, do sync with the Android version)
 						if (todoWithWebException != null && !handled)
 							todoWithWebException(we);
 						else
