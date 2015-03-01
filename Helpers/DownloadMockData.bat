@@ -9,6 +9,10 @@ wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productmanager_getpr
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productmanager_getusersproductsbyfriendlyurl.json "http://localhost:50135/EntityManagers/ProductManagerService.svc/GetUsersProductsByFriendlyUrl?forExchange=false&pageNumber=1&friendlyUrl=Boldano&productsPerPage=100"
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productgroupmanager_getfulldetailed.json "http://localhost:50135/EntityManagers/ProductGroupManagerService.svc/GetFullDetailed?pageNumber=1&friendlyUrl=Emma-lanya&productsPerPage=100"
 
+REM --- void ---
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\bookteraauthentication_logout.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\registrationmanager_registeruser.json
+
 REM --- Auth ---
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\bookteraauthentication_loginandgetid.json ^
      --save-cookies Temp\cookies.txt ^
@@ -19,3 +23,5 @@ wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\tmp.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/EntityManagers/UserProfileManagerService.svc/GetForEdit"
 :COMMENT
+
+
