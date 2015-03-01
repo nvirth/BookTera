@@ -17,11 +17,6 @@ REM --- Auth ---
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\bookteraauthentication_loginandgetid.json ^
      --save-cookies Temp\cookies.txt ^
      "http://localhost:50135/Authentication/BookteraAuthenticationService.svc/LoginAndGetId?userName=zomidudu&password=asdqwe123&persistent=true"
-REM TEST
-GOTO COMMENT
-wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\tmp.json ^
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\userprofilemanager_getforedit.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/EntityManagers/UserProfileManagerService.svc/GetForEdit"
-:COMMENT
-
-
