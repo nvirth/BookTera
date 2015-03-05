@@ -12,6 +12,7 @@ wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\productgroupmanager_
 REM --- void ---
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\bookteraauthentication_logout.json
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\registrationmanager_registeruser.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\userprofilemanager_update.json
 
 REM --- Auth ---
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\bookteraauthentication_loginandgetid.json ^
