@@ -162,6 +162,7 @@ namespace WindowsPhone.Common
 
 							StaticData.UserData.IsAuthenticated = false;
 							StaticData.UserData.UserName = "";
+							StaticData.UserData.UserId = 0;
 
 							// Step back one, if it's an auth required page (this step will start a chain back-process)
 							var frame = (PhoneApplicationFrame)Application.Current.RootVisual;
