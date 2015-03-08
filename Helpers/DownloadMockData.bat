@@ -24,21 +24,21 @@ wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\bookteraauthenticati
 wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\userprofilemanager_getforedit.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/EntityManagers/UserProfileManagerService.svc/GetForEdit"
-wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getuserscartsvm.json ^
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getuserscartsvm_vendorid.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/TransactionManagerService.svc/GetUsersCartsVM?vendorId=287&customerId="
-wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersinprogressordersvm.json ^
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersinprogressordersvm_vendorid.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/TransactionManagerService.svc/GetUsersInProgressOrdersVM?vendorId=287&customerId="
-wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersfinishedtransactionsvm.json ^
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersfinishedtransactionsvm_vendorid.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/TransactionManagerService.svc/GetUsersFinishedTransactionsVM?vendorId=287&customerId="
-wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getuserscartsvm.json ^
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getuserscartsvm_customerid.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/TransactionManagerService.svc/GetUsersCartsVM?vendorId=&customerId=287"
-wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersinprogressordersvm.json ^
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersinprogressordersvm_customerid.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/TransactionManagerService.svc/GetUsersInProgressOrdersVM?vendorId=&customerId=287"
-wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersfinishedtransactionsvm.json ^
+wget -O ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_getusersfinishedtransactionsvm_customerid.json ^
      --load-cookies Temp\cookies.txt ^
      "http://localhost:50135/TransactionManagerService.svc/GetUsersFinishedTransactionsVM?vendorId=&customerId=287"
