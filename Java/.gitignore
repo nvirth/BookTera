@@ -3,7 +3,7 @@
 **.class
 
 # Mobile Tools for Java (J2ME)
-.mtj.tmp/
+**/.mtj.tmp/
 
 # Package Files #
 **.jar
@@ -11,7 +11,7 @@
 **.ear
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+**/hs_err_pid*
 
 ### Intellij  ###
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
@@ -24,24 +24,24 @@ hs_err_pid*
 # if you remove the above rule, at least ignore the following:
 
 # User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/find.xml
-.idea/dictionaries
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/find.xml
+**/.idea/dictionaries
 
 # Sensitive or high-churn files:
-.idea/dataSources.ids
-.idea/dataSources.xml
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+**/.idea/dataSources.ids
+**/.idea/dataSources.xml
+**/.idea/sqlDataSources.xml
+**/.idea/dynamic.xml
+**/.idea/uiDesigner.xml
 
 # Gradle:
-.idea/gradle.xml
-.idea/libraries
+**/.idea/gradle.xml
+**/.idea/libraries
 
 # Mongo Explorer plugin:
-.idea/mongoSettings.xml
+**/.idea/mongoSettings.xml
 
 ## File-based project format:
 **.ipr
@@ -50,69 +50,69 @@ hs_err_pid*
 ## Plugin-specific files:
 
 # IntelliJ
-out/
+**/out/
 
 # mpeltonen/sbt-idea plugin
 # .idea_modules/
 
 # JIRA plugin
-atlassian-ide-plugin.xml
+**/atlassian-ide-plugin.xml
 
 # Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
+**/com_crashlytics_export_strings.xml
+**/crashlytics.properties
+**/crashlytics-build.properties
 
 ### Eclipse ###
 **.pydevproject
-.metadata
-bin/
+**/.metadata
+**/bin/
 **.tmp
 **.bak
 **.swp
 **~.nib
-local.properties
-.settings/
-.loadpath
+**/local.properties
+**/.settings/
+**/.loadpath
 
 # Eclipse Core
-.project
+**/.project
 
 # External tool builders
-.externalToolBuilders/
+**/.externalToolBuilders/
 
 # Locally stored "Eclipse launch configurations"
 **.launch
 
 # CDT-specific
-.cproject
+**/.cproject
 
 # JDT-specific (Eclipse Java Development Tools)
-.classpath
+**/.classpath
 
 # PDT-specific
-.buildpath
+**/.buildpath
 
 # sbteclipse plugin
-.target
+**/.target
 
 # TeXlipse plugin
-.texlipse
+**/.texlipse
 
 ### Maven ###
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
+**/target/
+**/pom.xml.tag
+**/pom.xml.releaseBackup
+**/pom.xml.versionsBackup
+**/pom.xml.next
+**/release.properties
 
 ### Gradle ###
-.gradle
-build/
+**/.gradle
+**/build/
 
 # Ignore Gradle GUI config
-gradle-app.setting
+**/gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
