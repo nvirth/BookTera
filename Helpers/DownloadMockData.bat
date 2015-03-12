@@ -13,6 +13,8 @@ REM --- void ---
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\bookteraauthentication_logout.json
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\registrationmanager_registeruser.json
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\userprofilemanager_update.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_removeuserscart.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_removeusersallcarts.json
 
 REM --- Auth ---
 
