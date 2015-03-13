@@ -22,7 +22,8 @@ namespace WcfInterfaces.EntityManagers
 		void UpdateViaViewModel(UserAddressVM userAddressVm);
 
 		[OperationContract]
-		[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		[WebInvoke(Method = "*", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		//[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
 		void Delete(int userAddressId, bool isDefault);
 	}
 }

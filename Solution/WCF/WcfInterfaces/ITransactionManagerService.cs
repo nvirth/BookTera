@@ -17,15 +17,18 @@ namespace WcfInterfaces
 		void UpdateProductInCart(int productInOrderId, int newHowMany);
 
 		[OperationContract]
-		[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		[WebInvoke(Method = "*", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		//[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
 		void RemoveUsersCart(int userOrderId);
 
 		[OperationContract]
-		[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		[WebInvoke(Method = "*", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		//[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
 		void RemoveUsersAllCarts();
 
 		[OperationContract]
-		[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		[WebInvoke(Method = "*", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		//[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
 		void RemoveProductFromCart(int productInOrderId);
 
 		[OperationContract]
@@ -41,11 +44,13 @@ namespace WcfInterfaces
 		void UpdateExchangeProduct(int productInOrderId, int newHowMany);
 		
 		[OperationContract]
-		[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		[WebInvoke(Method = "*", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		//[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
 		void RemoveExchangeProduct(int productInOrderId);
 
 		[OperationContract]
-		[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		[WebInvoke(Method = "*", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+		//[WebInvoke(Method = "DELETE", BodyStyle = WebMessageBodyStyle.WrappedRequest)]
 		void RemoveExchangeCart(int userOrderId);
 
 		[OperationContract]
