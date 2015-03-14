@@ -1,0 +1,4 @@
+Error msg:
+The provided anti-forgery token was meant for user "", but the current user is "ZomiDudu".
+
+-> I got this after my session timed out on 3 tabs, pressed F5 on every, and then started to log in again on every. The 1. one worked, the 2. one ended up with this
