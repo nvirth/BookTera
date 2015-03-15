@@ -189,19 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Readme\Elmah.txt" />
-    <Content Include="Content\Images\AspNet\accent.png" />
-    <Content Include="Content\Images\AspNet\bullet.png" />
-    <Content Include="Content\Images\AspNet\heroAccent.png" />
-    <Content Include="Content\Images\AspNet\orderedList0.png" />
-    <Content Include="Content\Images\AspNet\orderedList1.png" />
-    <Content Include="Content\Images\AspNet\orderedList2.png" />
-    <Content Include="Content\Images\AspNet\orderedList3.png" />
-    <Content Include="Content\Images\AspNet\orderedList4.png" />
-    <Content Include="Content\Images\AspNet\orderedList5.png" />
-    <Content Include="Content\Images\AspNet\orderedList6.png" />
-    <Content Include="Content\Images\AspNet\orderedList7.png" />
-    <Content Include="Content\Images\AspNet\orderedList8.png" />
-    <Content Include="Content\Images\AspNet\orderedList9.png" />
     <Content Include="Content\Images\background.png" />
     <Content Include="Content\Images\Carts\cart_black.png" />
     <Content Include="Content\Images\ProductImages\default.jpg" />
