@@ -15,6 +15,22 @@ echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\registrationmanager_
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\userprofilemanager_update.json
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_removeuserscart.json
 echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_removeusersallcarts.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_sendorder.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_removeexchangecart.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_sendexchangeoffer.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_finalizeorderwithoutexchange.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_finalizeorderacceptexchange.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_finalizeorderdenyexchange.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_closeordersuccessful.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_closeorderunsuccessful.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_removeproductfromcart.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_removeexchangeproduct.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_updateexchangeproduct.json
+echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_updateproductincart.json
+
+REM --- void, but not applied --- (because they wouldn't make sense)
+REM echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_addproducttocart.json
+REM echo. > ..\Java\Android\AndroidClientProxy\src\main\res\raw\transactionmanager_addexchangeproduct.json
 
 REM --- Auth ---
 
