@@ -1,0 +1,24 @@
+Proper mock data for Transactions
+
+With these, we can try out most of the functionality also without internet_connection/server_running.
+In details, these are the mock data:
+
+Buy
+* Carts
+** 2 electronic book
+** 1 normal book
+* InProgress
+** FinalizedCash, 1 book
+** BuyedWaiting, 1 book
+* Finished
+** Feedbecked: null, ok; 1 book
+** Feedbecked: ok, null; 1 book
+
+Sell
+* Carts (other took my book to its cart)
+** 1 normal book
+* InProgress
+** BuyedWaiting, 1 book, 1 exchangeBook
+* Finished
+** Feedbecked: ok, nok; 1 book
+** Feedbecked: ok, ok; 1 book
