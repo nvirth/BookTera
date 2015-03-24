@@ -25,7 +25,7 @@ namespace WinPhoneClientProxy.WcfProxy.Base
 
 		protected readonly string BaseAddress;
 		protected readonly Uri BaseAddressUri;
-		private const string ActualIp = "192.168.1.103";
+		private const string ActualIp = "192.168.1.101";
 
 		protected RestServiceClientBase(string baseAddress)
 		{

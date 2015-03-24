@@ -24,7 +24,7 @@ namespace TileUpdaterAgent
 		private const string SecondTileFragment = "isSecondaryTile";
 		private const string ImageFolder = @"\Shared\ShellContent";
 		private const string SharedImageFormat = "TileImage{0}.jpg";
-		private const string ProductImagesDirFormat = "http://192.168.1.103:50308/Content/Images/ProductImages/{0}";
+		private const string ProductImagesDirFormat = "http://192.168.1.101:50308/Content/Images/ProductImages/{0}";
 		private const string SecondaryTileTitle = "BookTera - Kiemeltek";
 
 		public readonly ShellTile SecondaryTile =
