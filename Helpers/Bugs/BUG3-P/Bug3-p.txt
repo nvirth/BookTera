@@ -1,0 +1,1 @@
+I think this date format is not HTTP-date compatible; but it wasn't tried.

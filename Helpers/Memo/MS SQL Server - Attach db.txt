@@ -1,0 +1,1 @@
+To attach a database (mdf & ldf files) to an ms sql server instance, from Management Studio, you have to run it as Administrator (or at least this is the easiest solution)
