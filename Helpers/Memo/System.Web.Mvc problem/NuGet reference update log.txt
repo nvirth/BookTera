@@ -1,0 +1,198 @@
+These contain reference to System.Web.Mvc
+
+CommonModels
+UtilsLocal
+UtilsShared
+WcfHost
+WcfInterfaces
+BLL
+WEB
+
+---
+
+CommonModels
+
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName CommonModels
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+Adding 'Microsoft.Web.Infrastructure 1.0.0.0' to CommonModels.
+Successfully added 'Microsoft.Web.Infrastructure 1.0.0.0' to CommonModels.
+Adding 'Microsoft.AspNet.Razor 2.0.20710.0' to CommonModels.
+Successfully added 'Microsoft.AspNet.Razor 2.0.20710.0' to CommonModels.
+Adding 'Microsoft.AspNet.WebPages 2.0.20710.0' to CommonModels.
+Successfully added 'Microsoft.AspNet.WebPages 2.0.20710.0' to CommonModels.
+Adding 'Microsoft.AspNet.Mvc 4.0.40804.0' to CommonModels.
+Successfully added 'Microsoft.AspNet.Mvc 4.0.40804.0' to CommonModels.
+
+
+UtilsLocal
+
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName UtilsLocal
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+Adding 'Microsoft.Web.Infrastructure 1.0.0.0' to UtilsLocal.
+Successfully added 'Microsoft.Web.Infrastructure 1.0.0.0' to UtilsLocal.
+Adding 'Microsoft.AspNet.Razor 2.0.20710.0' to UtilsLocal.
+Successfully added 'Microsoft.AspNet.Razor 2.0.20710.0' to UtilsLocal.
+Adding 'Microsoft.AspNet.WebPages 2.0.20710.0' to UtilsLocal.
+Successfully added 'Microsoft.AspNet.WebPages 2.0.20710.0' to UtilsLocal.
+Adding 'Microsoft.AspNet.Mvc 4.0.40804.0' to UtilsLocal.
+Successfully added 'Microsoft.AspNet.Mvc 4.0.40804.0' to UtilsLocal.
+
+
+UtilsShared
+
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName UtilsShared
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+Adding 'Microsoft.Web.Infrastructure 1.0.0.0' to UtilsShared.
+Successfully added 'Microsoft.Web.Infrastructure 1.0.0.0' to UtilsShared.
+Adding 'Microsoft.AspNet.Razor 2.0.20710.0' to UtilsShared.
+Successfully added 'Microsoft.AspNet.Razor 2.0.20710.0' to UtilsShared.
+Adding 'Microsoft.AspNet.WebPages 2.0.20710.0' to UtilsShared.
+Successfully added 'Microsoft.AspNet.WebPages 2.0.20710.0' to UtilsShared.
+Adding 'Microsoft.AspNet.Mvc 4.0.40804.0' to UtilsShared.
+Successfully added 'Microsoft.AspNet.Mvc 4.0.40804.0' to UtilsShared.
+
+
+WcfHost
+
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName WcfHost
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+Adding 'Microsoft.Web.Infrastructure 1.0.0.0' to WcfHost.
+Successfully added 'Microsoft.Web.Infrastructure 1.0.0.0' to WcfHost.
+Adding 'Microsoft.AspNet.Razor 2.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.Razor 2.0.20710.0' to WcfHost.
+Adding 'Microsoft.AspNet.WebPages 2.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.WebPages 2.0.20710.0' to WcfHost.
+Adding 'Microsoft.AspNet.Mvc 4.0.40804.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.Mvc 4.0.40804.0' to WcfHost.
+
+
+WcfInterfaces
+
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName WcfInterfaces
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+Adding 'Microsoft.Web.Infrastructure 1.0.0.0' to WcfInterfaces.
+Successfully added 'Microsoft.Web.Infrastructure 1.0.0.0' to WcfInterfaces.
+Adding 'Microsoft.AspNet.Razor 2.0.20710.0' to WcfInterfaces.
+Successfully added 'Microsoft.AspNet.Razor 2.0.20710.0' to WcfInterfaces.
+Adding 'Microsoft.AspNet.WebPages 2.0.20710.0' to WcfInterfaces.
+Successfully added 'Microsoft.AspNet.WebPages 2.0.20710.0' to WcfInterfaces.
+Adding 'Microsoft.AspNet.Mvc 4.0.40804.0' to WcfInterfaces.
+Successfully added 'Microsoft.AspNet.Mvc 4.0.40804.0' to WcfInterfaces.
+
+
+BLL
+
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName BLL
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+Adding 'Microsoft.Web.Infrastructure 1.0.0.0' to BLL.
+Successfully added 'Microsoft.Web.Infrastructure 1.0.0.0' to BLL.
+Adding 'Microsoft.AspNet.Razor 2.0.20710.0' to BLL.
+Successfully added 'Microsoft.AspNet.Razor 2.0.20710.0' to BLL.
+Adding 'Microsoft.AspNet.WebPages 2.0.20710.0' to BLL.
+Successfully added 'Microsoft.AspNet.WebPages 2.0.20710.0' to BLL.
+Adding 'Microsoft.AspNet.Mvc 4.0.40804.0' to BLL.
+Successfully added 'Microsoft.AspNet.Mvc 4.0.40804.0' to BLL.
+
+
+WEB
+
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName WEB
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+WEB already has a reference to 'Microsoft.AspNet.Mvc 4.0.40804.0'.
+//2. try
+PM> Install-Package Microsoft.AspNet.Mvc -Version 4.0.40804 -ProjectName WEB
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages (≥ 2.0.20710.0)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.Razor (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.Mvc 4.0.40804.0' already installed.
+Adding 'Microsoft.AspNet.Mvc 4.0.40804.0' to WEB.
+Successfully added 'Microsoft.AspNet.Mvc 4.0.40804.0' to WEB.
+
+---
+
+WcfHost had got later more NuGet packages
+
+
+PM> Install-Package Microsoft.AspNet.Web.Optimization -Version 1.0.0
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0)'.
+Attempting to resolve dependency 'WebGrease (≥ 1.1.0)'.
+'Microsoft.AspNet.Web.Optimization 1.0.0' already installed.
+Adding 'WebGrease 1.1.0' to WcfHost.
+Successfully added 'WebGrease 1.1.0' to WcfHost.
+Adding 'Microsoft.AspNet.Web.Optimization 1.0.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.Web.Optimization 1.0.0' to WcfHost.
+
+PM> Install-Package Microsoft.AspNet.WebApi -Version 4.0.20710.0
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 4.0.20710.0 && < 4.1)'.
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 4.0.20710.0 && < 4.1)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 4.0.20710.0 && < 4.1)'.
+Attempting to resolve dependency 'Microsoft.Net.Http (≥ 2.0.20710.0 && < 2.1)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.6)'.
+'Microsoft.AspNet.WebApi 4.0.20710.0' already installed.
+Adding 'Microsoft.Net.Http 2.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.Net.Http 2.0.20710.0' to WcfHost.
+Adding 'Microsoft.AspNet.WebApi.Client 4.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.WebApi.Client 4.0.20710.0' to WcfHost.
+Adding 'Microsoft.AspNet.WebApi.Core 4.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.WebApi.Core 4.0.20710.0' to WcfHost.
+Adding 'Microsoft.AspNet.WebApi.WebHost 4.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.WebApi.WebHost 4.0.20710.0' to WcfHost.
+Adding 'Microsoft.AspNet.WebApi 4.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.WebApi 4.0.20710.0' to WcfHost.
+
+PM> Install-Package Microsoft.AspNet.WebApi.Client -Version 4.0.20710.0
+Attempting to resolve dependency 'Microsoft.Net.Http (≥ 2.0.20710.0 && < 2.1)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.6)'.
+'Microsoft.AspNet.WebApi.Client 4.0.20710.0' already installed.
+WcfHost already has a reference to 'Microsoft.AspNet.WebApi.Client 4.0.20710.0'.
+
+PM> Install-Package Microsoft.AspNet.WebApi.Core -Version 4.0.20710.0
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 4.0.20710.0 && < 4.1)'.
+Attempting to resolve dependency 'Microsoft.Net.Http (≥ 2.0.20710.0 && < 2.1)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.6)'.
+'Microsoft.AspNet.WebApi.Core 4.0.20710.0' already installed.
+WcfHost already has a reference to 'Microsoft.AspNet.WebApi.Core 4.0.20710.0'.
+
+PM> Install-Package Microsoft.AspNet.WebApi.WebHost -Version 4.0.20710.0
+Attempting to resolve dependency 'Microsoft.Web.Infrastructure (≥ 1.0.0.0)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Core (≥ 4.0.20710.0 && < 4.1)'.
+Attempting to resolve dependency 'Microsoft.AspNet.WebApi.Client (≥ 4.0.20710.0 && < 4.1)'.
+Attempting to resolve dependency 'Microsoft.Net.Http (≥ 2.0.20710.0 && < 2.1)'.
+Attempting to resolve dependency 'Newtonsoft.Json (≥ 4.5.6)'.
+'Microsoft.AspNet.WebApi.WebHost 4.0.20710.0' already installed.
+WcfHost already has a reference to 'Microsoft.AspNet.WebApi.WebHost 4.0.20710.0'.
+
+PM> Install-Package Microsoft.AspNet.WebPages.Data -Version 2.0.20710.0
+'Microsoft.AspNet.WebPages.Data 2.0.20710.0' already installed.
+Adding 'Microsoft.AspNet.WebPages.Data 2.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.WebPages.Data 2.0.20710.0' to WcfHost.
+
+PM> Install-Package Microsoft.AspNet.WebPages.WebData -Version 2.0.20710.0
+Attempting to resolve dependency 'Microsoft.AspNet.WebPages.Data (≥ 2.0.20710.0 && < 2.1)'.
+'Microsoft.AspNet.WebPages.WebData 2.0.20710.0' already installed.
+Adding 'Microsoft.AspNet.WebPages.WebData 2.0.20710.0' to WcfHost.
+Successfully added 'Microsoft.AspNet.WebPages.WebData 2.0.20710.0' to WcfHost.
+
+PM> 
