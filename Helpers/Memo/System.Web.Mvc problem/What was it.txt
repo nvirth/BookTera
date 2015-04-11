@@ -1,0 +1,10 @@
+http://stackoverflow.com/questions/26393157/windows-update-caused-mvc3-and-mvc4-stop-working
+
+Saved version:
+"Windows update caused MVC3 and MVC4 stop working - Stack Overflow.mht"
+
+---
+http://blogs.msdn.com/b/webdev/archive/2014/10/16/microsoft-asp-net-mvc-security-update-broke-my-build.aspx
+
+Saved version:
+"Microsoft Asp.Net MVC Security Update MS14-059 broke my build.mht" 
