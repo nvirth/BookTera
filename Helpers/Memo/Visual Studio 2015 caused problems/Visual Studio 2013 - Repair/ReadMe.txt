@@ -1,0 +1,1 @@
+After this Visual Studio 2013 repair was done, there was an error. It seems not important - as long as I don't want to interop with Office - but the logs got saved here

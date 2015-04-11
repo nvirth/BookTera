@@ -1,0 +1,13 @@
+After installing Visual Studio 2015 Preview, a lot of things got ruined:
+* The app won't build. There are problems around
+** WinStore projects
+** Portable projects (fixed)
+** MS SQL Server instance (fixed)
+*** This one I manually reinstalled, that seemed to solve the problem
+
+Solution for the Portable projects I found here:
+"Visual Studio 2013 error  ‘Windows.props’ not found. - Joydeep Ghosh.mht"
+* Reinstall Windows Phone 8.1 SDK
+** The 8.1 version is needed, the 8.0 is not enough; even if there wasn't 8.1 on the machine before
+* Repair Visual Studio 2013 in Control Panel/Programs and ...
+* Clean the Solution, also manually delete the bin and obj folders. If there are still problems, try to checkout/clone the repository into a new, virgin folder
