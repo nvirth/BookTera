@@ -24,7 +24,7 @@ namespace UtilsLocal
 		public static readonly string Web_productGroupImagesPath = Web_ImagesPath + @"ProductImages\";
 
 		// -- TestDataPath
-		public static readonly string TestDataPath = SolutoinsRootPath + @"DataBase\TestData\";
+		public static readonly string TestDataPath = SolutoinsRootPath + @"Tools\TestData\";
 
 		public static readonly string Test_resources = TestDataPath + @"Resources\";
 
@@ -34,7 +34,7 @@ namespace UtilsLocal
 		public static readonly string Test_userImagesPath = Test_resources + @"Images\UserImages\";
 
 		// -- InitSolution
-		public static readonly string InitSolutionPath = SolutoinsRootPath + @"InitSolution\";
+		public static readonly string InitSolutionPath = SolutoinsRootPath + @"Tools\InitSolution\";
 		public static readonly string InitSolution_log = InitSolutionPath + @"init.log";
 
 		// -- PlayPath

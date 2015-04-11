@@ -55,15 +55,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\UtilsLocal\UtilsLocal.csproj">
+    <ProjectReference Include="..\..\Common\UtilsLocal\UtilsLocal.csproj">
       <Project>{CF59FD01-0918-4603-9406-E7D01314F6E9}</Project>
       <Name>UtilsLocal</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\UtilsSharedPortable\UtilsSharedPortable.csproj">
+    <ProjectReference Include="..\..\Common\UtilsSharedPortable\UtilsSharedPortable.csproj">
       <Project>{1E7F5799-80FC-445D-A0B1-C970AA3CDC2A}</Project>
       <Name>UtilsSharedPortable</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Common\UtilsShared\UtilsShared.csproj">
+    <ProjectReference Include="..\..\Common\UtilsShared\UtilsShared.csproj">
       <Project>{2B9F1FFF-A277-4DC1-81CF-E6A3AFA5B4EF}</Project>
       <Name>UtilsShared</Name>
     </ProjectReference>
