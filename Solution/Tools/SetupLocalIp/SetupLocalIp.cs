@@ -20,10 +20,10 @@ namespace SetupLocalIp
 	{
 		#region Locations
 
-		private static readonly string BackupDirRoot = Path.Combine(Paths.InitSolutionPath, @"BackupData");
+		private static readonly string BackupDirRoot = Path.Combine(Paths.SetupLocalIpPath, @"BackupData");
 		private static readonly string WpProjectRoot = Path.Combine(Paths.SolutoinsRootPath, @"WindowsPhone\WindowsPhone\");
 		private static readonly string WpProxyProjectRoot = Path.Combine(Paths.SolutoinsRootPath, @"WindowsPhone\WinPhoneClientProxy\");
-		private static readonly string AndroidProjectRoot = Path.Combine(Paths.SolutoinsRootPath, @"..\Java\Android\");
+		private static readonly string AndroidProjectRoot = Path.GetFullPath(Path.Combine(Paths.SolutoinsRootPath, @"..\Java\Android\"));
 
 		private static readonly string UserProfile_EnvVar = Environment.ExpandEnvironmentVariables(@"%USERPROFILE%");
 
@@ -115,6 +115,7 @@ namespace SetupLocalIp
 					Console.Write("Do you want to skip this file? (");
 					GeneralFunctions.WriteToConsoleYellow("s");
 					Console.WriteLine(":skip, other:continue)");
+					Console.WriteLine("NOTE: If you run this tool the first time after manually setting up your actual, valid local IP address in this file, you can it now. ");
 
 					var readLine = Console.ReadLine();
 					Console.Write("-->");
@@ -144,6 +145,13 @@ namespace SetupLocalIp
 				//var oldFileLines = File.ReadLines(fullPath).Select(line => line.Replace(oldIp, newIp));
 				//File.WriteAllLines(fullPath, oldFileLines);
 			}
+
+			// -- Write out new ip
+			using(var writer = LastIpFile.CreateText())
+			{
+				writer.Write(_newIp);
+			}
+
 			Console.WriteLine();
 			Console.WriteLine("Process ended successfully!");
 			if(existSkipped)
@@ -162,6 +170,7 @@ namespace SetupLocalIp
 				GeneralFunctions.WriteLineToConsoleYellow(_lastIp);
 				Console.WriteLine("If this is not valid, please restart this app after writing your previously used local IP into this file:");
 				Console.WriteLine(LastIpFilePath);
+				Console.WriteLine("NOTE: You should leave this IP as it is, if you are running this tool the first time now.");
 				Console.WriteLine();
 			}
 			else
@@ -184,13 +193,6 @@ namespace SetupLocalIp
 
 			while(_newIp == null)
 				_newIp = PromptAndValidateIp("Invalid IP Address. Try again: ");
-
-			// -- Write out new ip
-			using(var writer = LastIpFile.CreateText())
-			{
-				writer.Write(_newIp);
-			}
-
 		}
 
 		private static List<string> GetMyLocalIPAddresses()
