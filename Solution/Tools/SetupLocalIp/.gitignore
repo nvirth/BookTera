@@ -1,0 +1,5 @@
+# This file is needed, because if it changes, part of the source code also changes
+# And you will need this information to alter it again
+!BackupData
+BackupData/*
+!BackupData/lastIp.txt

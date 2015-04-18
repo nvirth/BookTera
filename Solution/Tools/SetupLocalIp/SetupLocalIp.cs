@@ -61,7 +61,7 @@ namespace SetupLocalIp
 
 		static void Main(string[] args)
 		{
-			Console.Write("This program will setup your local IP address to be able to use the Windows Phone 8.0 client of the BookTera application. ");
+			Console.Write("This program will setup your local IP address to be able to use the Windows Phone 8.0 and Android clients of the BookTera application. ");
 			Console.Write("Before start, read the '");
 			GeneralFunctions.WriteToConsoleYellow("Installation Guidelines");
 			Console.WriteLine("' documentation, if you have not yet. ");
