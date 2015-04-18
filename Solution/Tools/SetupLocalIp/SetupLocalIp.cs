@@ -20,7 +20,7 @@ namespace SetupLocalIp
 	{
 		#region Locations
 
-		private static readonly string BackupDirRoot = Path.Combine(Paths.SolutoinsRootPath, @"WindowsPhone\SetupLocalIp\BackupData");
+		private static readonly string BackupDirRoot = Path.Combine(Paths.InitSolutionPath, @"BackupData");
 		private static readonly string WpProjectRoot = Path.Combine(Paths.SolutoinsRootPath, @"WindowsPhone\WindowsPhone\");
 		private static readonly string WpProxyProjectRoot = Path.Combine(Paths.SolutoinsRootPath, @"WindowsPhone\WinPhoneClientProxy\");
 		private static readonly string AndroidProjectRoot = Path.Combine(Paths.SolutoinsRootPath, @"..\Java\Android\");
@@ -267,9 +267,13 @@ namespace SetupLocalIp
 
 		private static DirectoryInfo GetBackupDir()
 		{
+			var backupDirRoot = new DirectoryInfo(BackupDirRoot);
+			if(!backupDirRoot.Exists)
+				backupDirRoot.Create();
+
 			var backupDirStart = DateTime.Now.ToString("yyyy-MM-dd");
 
-			var lastDir = new DirectoryInfo(BackupDirRoot).EnumerateDirectories()
+			var lastDir = backupDirRoot.EnumerateDirectories()
 				.Where(dir => dir.Name.StartsWith(backupDirStart))
 				.OrderByDescending(dir => dir.CreationTime)
 				.FirstOrDefault();
