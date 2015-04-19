@@ -1,2 +1,6 @@
-# This was used for 'git add <folder>' diffs
+REM This was used for 'git add <folder>' diffs
 dir /S /B /A:-D > dir.txt
+
+REM /S    - Displays files in specified directory and all subdirectories.
+REM /B    - Uses bare format (no heading information or summary).
+REM /A:-D - Without listing the Directories themselves
