@@ -1,2 +1,1 @@
-cd ..\..\Java\WebPlay\
-debugCalm.bat
+..\..\Java\WebPlay\debugCalm.bat
