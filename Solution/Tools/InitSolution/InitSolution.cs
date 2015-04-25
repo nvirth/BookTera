@@ -17,17 +17,32 @@ namespace InitSolution
 {
 	public static class InitSolution
 	{
+		#region Download links
+
+		/// <summary>
+		/// You need to pass the GDrive ID into this to get the direct download link
+		/// </summary>
+		private const string GDriveDirectDownloadFormat = "https://drive.google.com/uc?export=download&id={0}";
+
 		/// <summary>
 		/// Google Drive direct download link to: TestData-Resources-v1-2014-10-18.zip
 		/// (~5MB)
 		/// </summary>
-		const string TestdataResourcesUrl = "https://drive.google.com/uc?export=download&id=0B2aHj_zBJI1KRGFQbnhOdDJ0WW8";
+		private static readonly string TestdataResourcesUrl = string.Format(GDriveDirectDownloadFormat, "0B2aHj_zBJI1KRGFQbnhOdDJ0WW8");
 
 		/// <summary>
 		/// Google Drive direct download link to: Resources-fast-test.rar
 		/// (~130KB)
 		/// </summary>
-		const string TestArchive_FastDownload = "https://drive.google.com/uc?export=download&id=0B2aHj_zBJI1KekhFM3Qzd29rTms";
+		private static readonly string TestArchive_FastDownload = string.Format(GDriveDirectDownloadFormat, "0B2aHj_zBJI1KekhFM3Qzd29rTms");
+
+		/// <summary>
+		/// Google Drive direct download link to: Web-Contet-Images-v1-2015-04-25.rar
+		/// (~130KB)
+		/// </summary>
+		private static readonly string WebContentImagesUrl = string.Format(GDriveDirectDownloadFormat, "0B2aHj_zBJI1KYzVWR0NSVE1nTjA");
+
+		#endregion
 
 		private const bool IsTest = false;
 
@@ -55,6 +70,9 @@ namespace InitSolution
 			MessagePresenter.WriteLine("-Initializing the TestData project...");
 			await InitTestdata().ExecuteWithTimeMeasuringAsync("-TestData initialized");
 
+			MessagePresenter.WriteLine("-Initializing the Web project...");
+			await InitWeb().ExecuteWithTimeMeasuringAsync("-Web initialized");
+
 			MessagePresenter.WriteLine("-Initializing the Play project...");
 			Action initPlay = InitPlay;
 			initPlay.ExecuteWithTimeMeasuring("-Play initialized");
@@ -69,7 +87,7 @@ namespace InitSolution
 		private static void InitWidowsPhone()
 		{
 			// If the Solution's (both java and .net part, the full) size overgrows
-			// 15MB, which is the upload size limit of the Diplomaterv Portál;
+			// 15MB, which is the upload size limit of the Diplomaterv Portal;
 			// then we can place the WP8 assets also to the web, and download it here
 		}
 
@@ -168,16 +186,30 @@ namespace InitSolution
 		#region InitTestdata
 
 		/// <summary>
-		/// Downloads the content of the dircetory \Solution\DataBase\TestData\Resources\ 
+		/// Downloads the content of the dircetory \Solution\Tools\TestData\Resources\ 
 		/// (from Google Drive)
 		/// </summary>
-		/// <returns></returns>
 		private static async Task InitTestdata()
 		{
 			try
 			{
-				var compressedStream = await InitTestdata_Download();
-				InitTestdata_Decompress(compressedStream);
+				var requestUrl = TestdataResourcesUrl;
+				if(IsTest)
+					requestUrl = TestArchive_FastDownload;
+
+				var compressedStream =
+					await Download(
+						requestUrl,
+						beforeMsg: "--Downloading TestData resources (~5MB)...",
+						destinationPath: Paths.Test_resources
+					);
+
+				Decompress(
+					compressedStream, 
+					destinationPath: Paths.Test_resources, 
+					archiveFileName: "TestdataResources.zip",
+					archiveUrl: requestUrl
+					);
 			}
 			catch(Exception e)
 			{
@@ -185,24 +217,68 @@ namespace InitSolution
 			}
 		}
 
-		private static async Task<Stream> InitTestdata_Download()
+		#endregion
+
+		#region InitWeb
+
+		/// <summary>
+		/// Downloads the default content of the dircetory \Solution\WEB\Content\Images
+		/// (from Google Drive)
+		/// </summary>
+		private static async Task InitWeb()
+		{
+			try
+			{
+				var compressedStream =
+					await Download(
+						WebContentImagesUrl,
+						beforeMsg: "--Downloading Web resources (~130KB)...",
+						destinationPath: Paths.Web_ImagesPath
+					);
+
+				Decompress(
+					compressedStream,
+					destinationPath: Paths.Web_ImagesPath,
+					archiveFileName: "WebContentImages.rar",
+					archiveUrl: WebContentImagesUrl
+					);
+			}
+			catch(Exception e)
+			{
+				MessagePresenter.WriteException(e);
+			}
+		}
+
+		#endregion
+
+
+		#region Helper methods
+
+		/// <summary>
+		/// Downloads the given url resource. With messages. 
+		/// </summary>
+		/// <param name="beforeMsg">
+		///		<para>In format like this: </para>
+		///		<para>"--Downloading TestData resources (~5MB)..."</para>
+		/// </param>
+		private static async Task<Stream> Download(string requestUrl, string beforeMsg, string destinationPath)
 		{
 			Stream compressedStream;
 			try
 			{
-				MessagePresenter.WriteLine("--Downloading TestData resources (~5MB)...");
+				MessagePresenter.WriteLine(beforeMsg);
 
-				compressedStream = await DownloadTestdataResources()
+				compressedStream = await Download(requestUrl)
 					.ExecuteWithTimeMeasuringAsync("--Downloading finished");
 			}
 			catch(Exception e)
 			{
 				MessagePresenter.WriteError("---ERROR");
-				MessagePresenter.WriteError("---Some error occured while downloading TestData resources");
+				MessagePresenter.WriteError("---Some error occured while downloading a resource");
 				MessagePresenter.WriteError("---You can download it manually from:");
-				MessagePresenter.WriteError(TestdataResourcesUrl);
+				MessagePresenter.WriteError(requestUrl);
 				MessagePresenter.WriteError("---And then decompress it here:");
-				MessagePresenter.WriteError(Paths.Test_resources);
+				MessagePresenter.WriteError(destinationPath);
 				MessagePresenter.WriteError("---ERROR");
 
 				throw;
@@ -210,67 +286,11 @@ namespace InitSolution
 			return compressedStream;
 		}
 
-		private static void InitTestdata_Decompress(Stream compressedStream)
+		/// <summary>
+		/// Downloads the given url resource. 
+		/// </summary>
+		private static async Task<Stream> Download(string requestUrl)
 		{
-			try
-			{
-				Action decompress =
-					() =>
-					{
-						using(compressedStream)
-						{
-							Directory.CreateDirectory(Paths.Test_resources); // create if not exists
-							_compressManager.Decompress(compressedStream, Paths.Test_resources);
-						}
-					};
-
-				MessagePresenter.WriteLine("--Decompressing downloaded data to: ");
-				MessagePresenter.WriteLine("---" + Paths.Test_resources);
-				decompress.ExecuteWithTimeMeasuring("--Decompressing finished");
-			}
-			catch(Exception e)
-			{
-				string archiveFilePath;
-				try
-				{
-					archiveFilePath = Path.Combine(Paths.InitSolutionPath, "TestdataResources.zip");
-					using(var archiveFileStream = File.Create(archiveFilePath))
-					{
-						compressedStream.CopyTo(archiveFileStream);
-					}
-				}
-				catch(Exception ex)
-				{
-					MessagePresenter.WriteError("---ERROR");
-					MessagePresenter.WriteError("---Some error occured while decompressing TestData resources");
-					MessagePresenter.WriteError("---Also the downloaded file could not be saved to file system");
-					MessagePresenter.WriteError("---You can download it manually from:");
-					MessagePresenter.WriteError(TestdataResourcesUrl);
-					MessagePresenter.WriteError("---And then decompress it here:");
-					MessagePresenter.WriteError(Paths.Test_resources);
-					MessagePresenter.WriteError("---ERROR");
-
-					throw;
-				}
-
-				MessagePresenter.WriteError("---ERROR");
-				MessagePresenter.WriteError("---Some error occured while decompressing TestData resources");
-				MessagePresenter.WriteError("---The downloaded archive file is saved here:");
-				MessagePresenter.WriteError(archiveFilePath);
-				MessagePresenter.WriteError("---You can manually decompress it here:");
-				MessagePresenter.WriteError(Paths.Test_resources);
-				MessagePresenter.WriteError("---ERROR");
-
-				throw;
-			}
-		}
-
-		private static async Task<Stream> DownloadTestdataResources()
-		{
-			var requestUrl = TestdataResourcesUrl;
-			if(IsTest)
-				requestUrl = TestArchive_FastDownload;
-
 			var webRequest = WebRequest.Create(requestUrl);
 			webRequest.Proxy = null;
 
@@ -287,9 +307,65 @@ namespace InitSolution
 			return seekableStream;
 		}
 
-		#endregion
+		/// <summary>
+		/// Decompresses the given archive Stream to the given deistination path. With messages. 
+		/// </summary>
+		/// <param name="archiveFileName">For saving it, if there was any error</param>
+		/// <param name="archiveUrl">For telling it to the user, if there was any error</param>
+		private static void Decompress(Stream compressedStream, string destinationPath, string archiveFileName, string archiveUrl)
+		{
+			try
+			{
+				Action decompress =
+					() =>
+					{
+						using(compressedStream)
+						{
+							Directory.CreateDirectory(destinationPath); // create if not exists
+							_compressManager.Decompress(compressedStream, destinationPath);
+						}
+					};
 
-		#region LogInit
+				MessagePresenter.WriteLine("--Decompressing downloaded data to: ");
+				MessagePresenter.WriteLine("---" + destinationPath);
+				decompress.ExecuteWithTimeMeasuring("--Decompressing finished");
+			}
+			catch(Exception e)
+			{
+				string archiveFilePath;
+				try
+				{
+					archiveFilePath = Path.Combine(Paths.InitSolutionPath, archiveFileName);
+					using(var archiveFileStream = File.Create(archiveFilePath))
+					{
+						compressedStream.CopyTo(archiveFileStream);
+					}
+				}
+				catch(Exception ex)
+				{
+					MessagePresenter.WriteError("---ERROR");
+					MessagePresenter.WriteError("---Some error occured while decompressing");
+					MessagePresenter.WriteError("---Also the downloaded file could not be saved to file system");
+					MessagePresenter.WriteError("---You can download it manually from:");
+					MessagePresenter.WriteError(archiveUrl);
+					MessagePresenter.WriteError("---And then decompress it here:");
+					MessagePresenter.WriteError(destinationPath);
+					MessagePresenter.WriteError("---ERROR");
+
+					throw;
+				}
+
+				MessagePresenter.WriteError("---ERROR");
+				MessagePresenter.WriteError("---Some error occured while decompressing");
+				MessagePresenter.WriteError("---The downloaded archive file is saved here:");
+				MessagePresenter.WriteError(archiveFilePath);
+				MessagePresenter.WriteError("---You can manually decompress it here:");
+				MessagePresenter.WriteError(destinationPath);
+				MessagePresenter.WriteError("---ERROR");
+
+				throw;
+			}
+		}
 
 		private static void LogInit()
 		{
@@ -302,10 +378,9 @@ namespace InitSolution
 			var body = _consoleCopy.ToString();
 
 			var email = new Email(subject, body);
-			email.SendAsync(force: true);
+			email.Send(force: true);
 		}
 
 		#endregion
-
 	}
 }
