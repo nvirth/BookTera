@@ -91,11 +91,19 @@ namespace SetupLocalIp
 			foreach(var fullPath in FilesToModify)
 			{
 				var fileName = Path.GetFileName(fullPath);
-				Console.Write("-{0}: ", fileName);
+				Console.Write("* {0}: ", fileName);
 
 				var backupFilePath = Path.Combine(backupDir.FullName, fileName);
 
 				var fileInfo = new FileInfo(fullPath);
+				if(!fileInfo.Exists)
+				{
+					existSkipped = true;
+					GeneralFunctions.WriteLineToConsoleYellow("NOT FOUND");
+					GeneralFunctions.WriteLineToConsoleYellow("You have to modify this file manually!");
+					continue;
+				}
+
 				fileInfo.CopyTo(backupFilePath);
 
 				string fileRead;
