@@ -511,6 +511,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="_AppStart.cshtml" />
+    <Content Include="Views\Shared\Redirect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

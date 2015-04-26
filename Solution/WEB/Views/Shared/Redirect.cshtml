@@ -1,0 +1,16 @@
+﻿@using WEB
+@model String
+@{
+    // This file is not in use!
+    // This would be an empty page with JS redirect
+    
+    ViewBag.Title = Config.MainTitleOfSite + " - Átirányítás";
+    Layout = null;
+}
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    $(function() {
+        window.location.replace("@Model");
+    });
+</script>

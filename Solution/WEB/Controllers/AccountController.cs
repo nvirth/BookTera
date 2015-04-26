@@ -49,8 +49,12 @@ namespace WEB.Controllers
 		{
 			if(ModelState.IsValid)
 				if(AuthenticationManager.Login(loginModel.LoginUserName, loginModel.LoginPassword, loginModel.RememberMe))
-					//if(WebSecurity.Login(loginModel.LoginUserName, loginModel.LoginPassword, persistCookie: loginModel.RememberMe))
-						return RedirectToLocal(returnUrl);
+				{
+					// TODO Auth cookie name extract
+					// This is here, because IE and Chrome won't set any cookie anymore with domain localhost
+					Response.Cookies.Get(".ASPXAUTH").Domain = "";
+					return RedirectToLocal(returnUrl);
+				}
 
 			// If we got this far, something failed, redisplay form
 			ModelState.AddModelError("", "Hibás felhasználó név és/vagy jelszó");
