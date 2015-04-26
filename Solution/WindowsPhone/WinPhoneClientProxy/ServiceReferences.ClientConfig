@@ -15,13 +15,13 @@
       </basicHttpBinding>
     </bindings>
     <client>
-      <endpoint address="http://192.168.1.101:50135/EntityManagers/ProductManagerService.svc/basic"
+      <endpoint address="http://192.168.1.100:50135/EntityManagers/ProductManagerService.svc/basic"
           binding="basicHttpBinding" bindingConfiguration="ProductBasic"
           contract="ProductManagerService.IProductManager" name="ProductBasic" />
-      <endpoint address="http://192.168.1.101:50135/EntityManagers/CategoryManagerService.svc/basic"
+      <endpoint address="http://192.168.1.100:50135/EntityManagers/CategoryManagerService.svc/basic"
           binding="basicHttpBinding" bindingConfiguration="CategoryBasic"
           contract="CategoryManagerService.ICategoryManager" name="CategoryBasic" />
-      <endpoint address="http://192.168.1.101:50135/EntityManagers/ProductGroupManagerService.svc/basic"
+      <endpoint address="http://192.168.1.100:50135/EntityManagers/ProductGroupManagerService.svc/basic"
           binding="basicHttpBinding" bindingConfiguration="ProductGroupBasic"
           contract="ProductGroupManagerService.IProductGroupManager"
           name="ProductGroupBasic" />

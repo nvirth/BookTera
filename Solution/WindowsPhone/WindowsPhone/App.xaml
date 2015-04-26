@@ -41,8 +41,8 @@
             <converters:PgProductsConverter x:Key="PgProductsConverter" />
             <converters4fun:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
 
-            <sys:String x:Key="ProductImagesDirFormat">http://192.168.1.101:50308/Content/Images/ProductImages/{0}</sys:String>
-            <sys:String x:Key="UserImagesDirFormat">http://192.168.1.101:50308/Content/Images/UserImages/{0}</sys:String>
+            <sys:String x:Key="ProductImagesDirFormat">http://192.168.1.100:50308/Content/Images/ProductImages/{0}</sys:String>
+            <sys:String x:Key="UserImagesDirFormat">http://192.168.1.100:50308/Content/Images/UserImages/{0}</sys:String>
             <sys:String x:Key="MainTitleUPPERCASE">BOOKTERA</sys:String>
             <sys:String x:Key="MainTitle">BookTera</sys:String>
 
