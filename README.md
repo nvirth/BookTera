@@ -2,6 +2,7 @@ BookTera
 ========
 
 This is a book exchange application. (My master's thesis.)
+... (description coming soon) ...
 
 Getting started
 ---------------
@@ -13,30 +14,21 @@ Architecture
 
 ![Architecture][Architecture]
 
-Authentication
-------------
+### Other diagrams about the app's operation
 
-![Authentication][Authentication]
-
-Database
-------------
-
-![Database][Database]
-
-TransactionOpportunities
-------------
-
-![TransactionOpportunities][TransactionOpportunities]
-
-BookTypes
-------------
-
-![BookTypes][BookTypes]
+* [Authentication system][Authentication]
+* [Database diagram][Database]
+* [Transactional state machine][TransactionOpportunities]
+* [All the distinguished types of books][BookTypes]
+* [User groups (have not been implemented)][UserGroups]
 
 Screenshots
 -----------
 
+The web applications' start pages look like this:
 ![WebStartPage][WebStartPage]
+
+And here are the mobile clients' start pages as well. First the WindowsPhone, and the Android next.
 ![WindowsPhoneStartPage][WindowsPhoneStartPage]
 ![AndroidStartPage][AndroidStartPage]
 
