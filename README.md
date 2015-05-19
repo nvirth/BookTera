@@ -3,7 +3,7 @@ BookTera
 
 This is a book exchange application(, and my master's thesis). Has a full .NET backend (MS SQL database, Entity Framework 5 as ORM). Contains 5 executable projects:
 *	ASP.NET MVC 4 based web application (.NET)
-*	Play Framework 2.3.0 based web application (Java/Scala)
+*	Play Framework 2.3.0 based web application (replica) (Java/Scala)
 *	Windows 8.1 client stub (.NET)
 *	Windows Phone 8 client (.NET)
 *	Android 4.4 client (Java)
@@ -25,7 +25,6 @@ Architecture
 * [Transactional state machine][TransactionOpportunities]
 * [All the distinguished types of books][BookTypes]
 * [User groups (have not been implemented)][UserGroups]
-
 * [Speed tests: ASP.NET MVC 4 vs Play][SpeedTests]
 
 Screenshots
