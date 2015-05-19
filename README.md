@@ -31,7 +31,7 @@ Architecture
 Screenshots
 -----------
 
-The web applications' start pages look like this:
+The web applications' (both ASP.NET MVC and Play) start pages look like this:
 ![WebStartPage][WebStartPage]
 
 Here is the Windows Store stub's start page:
