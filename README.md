@@ -39,6 +39,8 @@ Here is the Windows Store stub's start page: <br />
 And here are the mobile clients' start pages as well. First the WindowsPhone, and the Android next <br />
 ![WindowsPhoneStartPage][WindowsPhoneStartPage]
 ![AndroidStartPage][AndroidStartPage]
+* [More WindowsPhone screenshots][WindowsPhone screenshots]
+* [More Android screenshots][Android screenshots]
 
 
 
@@ -56,3 +58,6 @@ And here are the mobile clients' start pages as well. First the WindowsPhone, an
 [Win8StartPage]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/Win8%20-%20StartPage.png "Win8StartPage"
 [AndroidStartPage]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/Android%20-%20StartPage.png "AndroidStartPage"
 [WindowsPhoneStartPage]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/WindowsPhone%20-%20StartPage.png "WindowsPhoneStartPage"
+
+[WindowsPhone screenshots]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/WindowsPhone/ "WindowsPhone screenshots"
+[Android screenshots]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/Android/ "Android screenshots"
