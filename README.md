@@ -1,8 +1,12 @@
 BookTera
 ========
 
-This is a book exchange application. (My master's thesis.)
-... (description coming soon) ...
+This is a book exchange application(, and my master's thesis). Has a full .NET backend (MS SQL database, Entity Framework 5 as ORM). Contains 5 executable projects:
+*	ASP.NET MVC 4 based web application (.NET)
+*	Play Framework 2.3.0 based web application (Java/Scala)
+*	Windows 8.1 client stub (.NET)
+*	Windows Phone 8 client (.NET)
+*	Android 4.4 client (Java)
 
 Getting started
 ---------------
@@ -14,7 +18,7 @@ Architecture
 
 ![Architecture][Architecture]
 
-### Other diagrams about the app's operation
+### Other diagrams about the app, and it's operation
 
 * [Authentication system][Authentication]
 * [Database diagram][Database]
@@ -22,15 +26,21 @@ Architecture
 * [All the distinguished types of books][BookTypes]
 * [User groups (have not been implemented)][UserGroups]
 
+* [Speed tests: ASP.NET MVC 4 vs Play][SpeedTests]
+
 Screenshots
 -----------
 
 The web applications' start pages look like this:
 ![WebStartPage][WebStartPage]
 
-And here are the mobile clients' start pages as well. First the WindowsPhone, and the Android next.
+Here is the Windows Store stub's start page:
+![Win8StartPage][Win8StartPage]
+
+And here are the mobile clients' start pages as well. First the WindowsPhone, and the Android next_
 ![WindowsPhoneStartPage][WindowsPhoneStartPage]
 ![AndroidStartPage][AndroidStartPage]
+
 
 
 [Installation Guidelines]: https://github.com/nvirth/BookTera/blob/master/Helpers/Installation%20Guidelines/Installation%20Guidelines.docx
@@ -41,7 +51,9 @@ And here are the mobile clients' start pages as well. First the WindowsPhone, an
 [Database]: https://github.com/nvirth/BookTera/blob/master/Helpers/Diagrams/Database.png "Database"
 [TransactionOpportunities]: https://github.com/nvirth/BookTera/blob/master/Helpers/Diagrams/Transaction%20opportunities.png "TransactionOpportunities"
 [UserGroups]: https://github.com/nvirth/BookTera/blob/master/Helpers/Diagrams/UserGroups.png "UserGroups"
+[SpeedTests]: https://github.com/nvirth/BookTera/blob/master/Helpers/Diagrams/SpeedTests/ "SpeedTests"
 
 [WebStartPage]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/Web%20-%20StartPage.png "WebStartPage"
+[Win8StartPage]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/Win8%20-%20StartPage.png "Win8StartPage"
 [AndroidStartPage]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/Android%20-%20StartPage.png "AndroidStartPage"
 [WindowsPhoneStartPage]: https://github.com/nvirth/BookTera/blob/master/Helpers/Screenshots/WindowsPhone%20-%20StartPage.png "WindowsPhoneStartPage"
