@@ -29,7 +29,7 @@ Made with [UrlStress][UrlStress]. Multiple measurements were done...
 ![StressTest - Big][StressTest - Big]
 ... And finally, after the shock was over, the first smaller type of measurement were repeated a few times. I did not want to believe that Play could be so much faster, so I started to seek my code for unoptimized solutions, and google ASP.NET MVC optimizations. Found a few, implemented them; and after each one was finished, rerun the smaller stress test. The results can be seemed in one diagram: <br />
 ![StressTest - Little - After ASP.NET MVC optimization][StressTest - Little - After ASP.NET MVC optimization] <br />
-<sub>Little note: The later optimized forms were added to the formers. So e.g. the 2. one ("asp without log") means without log and without ViewBad (which is the 1. one), and so on.</sub>
+<sup>Little note: The later optimized forms were added to the formers. So e.g. the 2. one ("asp without log") means without log and without ViewBag (which is the 1. one), and so on.</sup>
 
 **Can't believe it? Try it out yourself!**
 
