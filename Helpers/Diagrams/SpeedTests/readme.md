@@ -11,10 +11,10 @@ Per-request test
 
 Hand-made with Firefox :)
 
-Result:
+Result: <br />
 ![PerRequestTest][PerRequestTest]
 
-Dispersions:
+Dispersions: <br />
 ![PerRequestTest - Asp dispersion][PerRequestTest - Asp dispersion]
 ![PerRequestTest - Play dispersion][PerRequestTest - Play dispersion]
 
@@ -23,13 +23,13 @@ Stress test
 
 Made with [UrlStress][UrlStress]. Multiple measurements were done...
 
-... First a smaller one, set up UrlStress to 1.000 requests and 100 threads
+... First a smaller one, set up UrlStress to 1.000 requests and 100 threads <br />
 ![StressTest - Little][StressTest - Little]
-... Later a bigger one with 10.000 requests and 300 threads
+... Later a bigger one with 10.000 requests and 300 threads <br />
 ![StressTest - Big][StressTest - Big]
-... And finally, after the shock was over, the firs smaller type of measurement were repeated a few times. I did not want to believe that Play could be so much faster, so I started to seek my code for unoptimized solutions, and google ASP.NET MVC optimizations. Found a few, implemented them; and after each one finished, rerun the smaller stress test. The results can be seemed in one diagram:
-![StressTest - Little - After ASP.NET MVC optimization][StressTest - Little - After ASP.NET MVC optimization]
-Little note: The later optimized forms were added to the formers. So e.g. the 2. one ("asp without log") means without log and without ViewBad (which is the 1. one), and so on.
+... And finally, after the shock was over, the first smaller type of measurement were repeated a few times. I did not want to believe that Play could be so much faster, so I started to seek my code for unoptimized solutions, and google ASP.NET MVC optimizations. Found a few, implemented them; and after each one was finished, rerun the smaller stress test. The results can be seemed in one diagram: <br />
+![StressTest - Little - After ASP.NET MVC optimization][StressTest - Little - After ASP.NET MVC optimization] <br />
+<sub>Little note: The later optimized forms were added to the formers. So e.g. the 2. one ("asp without log") means without log and without ViewBad (which is the 1. one), and so on.</sub>
 
 **Can't believe it? Try it out yourself!**
 

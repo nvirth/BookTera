@@ -30,13 +30,13 @@ Architecture
 Screenshots
 -----------
 
-The web applications' (both ASP.NET MVC and Play) start pages look like this:
+The web applications' (both ASP.NET MVC and Play) start pages look like this: <br />
 ![WebStartPage][WebStartPage]
 
-Here is the Windows Store stub's start page:
+Here is the Windows Store stub's start page: <br />
 ![Win8StartPage][Win8StartPage]
 
-And here are the mobile clients' start pages as well. First the WindowsPhone, and the Android next_
+And here are the mobile clients' start pages as well. First the WindowsPhone, and the Android next <br />
 ![WindowsPhoneStartPage][WindowsPhoneStartPage]
 ![AndroidStartPage][AndroidStartPage]
 
