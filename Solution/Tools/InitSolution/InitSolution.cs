@@ -67,6 +67,23 @@ namespace InitSolution
 
 		private static async Task DoInit()
 		{
+			try
+			{
+				await DoInitImpl();
+			}
+			catch(Exception e)
+			{
+				MessagePresenter.WriteError("-FATAL");
+				MessagePresenter.WriteError("-Unhandled exception occured during execution");
+				MessagePresenter.WriteException(e);
+			}
+			finally
+			{
+				LogInit();
+			}
+		}
+		private static async Task DoInitImpl()
+		{
 			MessagePresenter.WriteLine("-Initializing the TestData project...");
 			await InitTestdata().ExecuteWithTimeMeasuringAsync("-TestData initialized");
 
@@ -78,8 +95,6 @@ namespace InitSolution
 			initPlay.ExecuteWithTimeMeasuring("-Play initialized");
 
 			InitWidowsPhone();
-
-			LogInit();
 		}
 
 		#region InitWidowsPhone
@@ -205,8 +220,8 @@ namespace InitSolution
 					);
 
 				Decompress(
-					compressedStream, 
-					destinationPath: Paths.Test_resources, 
+					compressedStream,
+					destinationPath: Paths.Test_resources,
 					archiveFileName: "TestdataResources.zip",
 					archiveUrl: requestUrl
 					);
@@ -368,6 +383,19 @@ namespace InitSolution
 		}
 
 		private static void LogInit()
+		{
+			try
+			{
+				LogInitImpl();
+			}
+			catch(Exception e)
+			{
+				MessagePresenter.WriteError("-WARNING");
+				MessagePresenter.WriteError("-Could not send e-mail log about this process");
+				//MessagePresenter.WriteException(e);
+			}
+		}
+		private static void LogInitImpl()
 		{
 			var subject = new StringBuilder()
 				.Append("BookTera InitSolution run at ")
