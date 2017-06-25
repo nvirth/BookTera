@@ -32,10 +32,10 @@ HEADER
 {
 	width: 25px;
 	height: 25px;
-	background: url("../../Images/search.png") no-repeat;
+	background: url("/Content/Images/search.png") no-repeat;
 	border-width: 0;
 }
 #searchRow INPUT[type=submit].search-button:hover
 {
-	background: url("../../Images/search-hover.png") no-repeat;
+	background: url("/Content/Images/search-hover.png") no-repeat;
 }

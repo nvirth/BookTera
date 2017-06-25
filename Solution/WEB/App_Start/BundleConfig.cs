@@ -91,8 +91,9 @@ namespace WEB
 			//"~/Content/themes/MainMenu.css",
 			//"~/Content/themes/Site.css"));
 
-			bundles.Add(new StyleBundle("~/Content/themes/main").IncludeDirectory(
-				"~/Content/themes/main", "*.css", searchSubdirectories: false));
+			bundles.Add(new StyleBundle("~/Content/themes/MainStyles").IncludeDirectory(
+				"~/Content/themes/main", "*.css"
+			));
 
 			bundles.Add(new StyleBundle("~/Content/themes/BookBlock").Include(
 			"~/Content/themes/BookBlock.css",

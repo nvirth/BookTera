@@ -1,7 +1,7 @@
 /*HTML elements*/
 BODY
 {
-	background-image: url("../../Images/background.png");
+	background-image: url("/Content/Images/background.png");
 }
 H2, H3
 {
