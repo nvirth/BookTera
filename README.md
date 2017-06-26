@@ -25,7 +25,6 @@ Architecture
 * [Transactional state machine][TransactionOpportunities]
 * [All the distinguished types of books][BookTypes]
 * [User groups (have not been implemented)][UserGroups]
-* [Speed tests: ASP.NET MVC 4 vs Play][SpeedTests]
 
 Screenshots
 -----------
