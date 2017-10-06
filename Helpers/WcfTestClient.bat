@@ -1,4 +1,6 @@
-"c:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\WcfTestClient.exe" http://localhost:50135/TransactionManagerService.svc
+"c:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\WcfTestClient.exe" http://localhost:50135/EntityManagers/CategoryManagerService.svc
+
+REM "c:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\WcfTestClient.exe" http://localhost:50135/TransactionManagerService.svc
 
 REM "c:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\WcfTestClient.exe" http://localhost:50135/EntityManagers/ProductGroupManagerService.svc
 REM "c:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\WcfTestClient.exe" http://localhost:50135/EntityManagers/ProductManagerService.svc
