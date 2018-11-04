@@ -4,3 +4,6 @@
 [submodule "Java/Android"]
 	path = Java/Android
 	url = https://github.com/nvirth/booktera-android
+[submodule "Solution/WindowsPhone"]
+	path = Solution/WindowsPhone
+	url = https://github.com/nvirth/BookTera-WinPhone
