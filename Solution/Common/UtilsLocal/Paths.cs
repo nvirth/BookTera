@@ -41,7 +41,7 @@ namespace UtilsLocal
 		public static readonly string SetupLocalIpPath = SolutoinsRootPath + @"Tools\SetupLocalIp\";
 
 		// -- PlayPath
-		public static readonly string PlayPath = Path.GetFullPath(Path.Combine(SolutoinsRootPath, @"..\Java\WebPlay\"));
+		public static readonly string PlayPath = Path.GetFullPath(Path.Combine(SolutoinsRootPath, @"..\Java\WebPlay\WebPlay\"));
 		public static readonly string Play_publicPath = PlayPath + @"public\";
 
 		public static readonly string Play_imgJuncPath = Play_publicPath + @"images\";

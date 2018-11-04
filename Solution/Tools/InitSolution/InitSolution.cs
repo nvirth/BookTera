@@ -112,9 +112,9 @@ namespace InitSolution
 
 		/// <summary>
 		/// Creates directory junctions:
-		/// BookTera\Java\WebPlay\public\images (-) BookTera\Solution\WEB\Content\Images
-		/// BookTera\Java\WebPlay\public\javascripts (-) BookTera\Solution\WEB\Scripts\ 
-		/// BookTera\Java\WebPlay\public\stylesheets\shared (-) BookTera\Solution\WEB\Content\themes
+		/// BookTera\Java\WebPlay\WebPlay\public\images (-) BookTera\Solution\WEB\Content\Images
+		/// BookTera\Java\WebPlay\WebPlay\public\javascripts (-) BookTera\Solution\WEB\Scripts\ 
+		/// BookTera\Java\WebPlay\WebPlay\public\stylesheets\shared (-) BookTera\Solution\WEB\Content\themes
 		/// </summary>
 		private static void InitPlay()
 		{

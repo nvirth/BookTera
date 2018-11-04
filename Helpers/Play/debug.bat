@@ -1,1 +1,1 @@
-..\..\Java\WebPlay\debug.bat
+..\..\Java\WebPlay\WebPlay\debug.bat

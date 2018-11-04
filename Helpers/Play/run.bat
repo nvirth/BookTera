@@ -1,1 +1,1 @@
-..\..\Java\WebPlay\run.bat
+..\..\Java\WebPlay\WebPlay\run.bat
