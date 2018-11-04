@@ -1,3 +1,6 @@
 [submodule "Java/WebPlay"]
 	path = Java/WebPlay
 	url = https://github.com/nvirth/booktera-play
+[submodule "Java/Android"]
+	path = Java/Android
+	url = https://github.com/nvirth/booktera-android
