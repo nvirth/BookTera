@@ -7,3 +7,6 @@
 [submodule "Solution/WindowsPhone"]
 	path = Solution/WindowsPhone
 	url = https://github.com/nvirth/BookTera-WinPhone
+[submodule "Solution/WinStore"]
+	path = Solution/WinStore
+	url = https://github.com/nvirth/BookTera-WinStore
